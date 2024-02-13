@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(70, 19, 19);
+  overflow-y: scroll;
+  
+}
+::-webkit-scrollbar{
+  background-color: black;
+  width: 0;
+}
+
+
+
+
+
