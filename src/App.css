@@ -10,17 +10,20 @@
 }
 
 #root {
+  width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   text-align: center;
-  background-color: rgb(70, 19, 19);
+  background-color: rgb(255, 255, 255);
   overflow-y: scroll;
+  overflow-x:hidden ;
   
 }
 ::-webkit-scrollbar{
-  background-color: black;
+  background-color: #786262;
   width: 0;
 }
+
 
 
 

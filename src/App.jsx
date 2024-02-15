@@ -5,18 +5,19 @@ import Home from './components/Home';
 import Makeup from './components/Makeup';
 import Linksbar from './components/Linksbar';
 
+
 function App() {
  
   return (
     <>
-    <div>
+   
       <Navbar/>
       <Linksbar/>
        <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/product/makeup' element={<Makeup/>}></Route>
        </Routes>
-    </div>
+   
       
     </>
   )
