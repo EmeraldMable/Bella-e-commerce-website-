@@ -20,7 +20,7 @@
   
 }
 ::-webkit-scrollbar{
-  background-color: #786262;
+  background-color: #7e3535;
   width: 0;
 }
 .pt-serif-regular {
@@ -46,6 +46,21 @@
   font-weight: 700;
   font-style: italic;
 }
+.click{
+  z-index: 1500 ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.click1{
+  z-index: 1400;
+  position: fixed;
+  top:65px;
+  left: 0;
+  right: 0;
+}
+
 
 
 

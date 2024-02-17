@@ -5,7 +5,7 @@ import { BiLogoInstagramAlt } from "react-icons/bi";
 import { FaTiktok } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 
-function footer() {
+function Footer() {
   return (
     <div className=' w-auto mx-0 min-h-96 text-white pb-10'  style={{background:'linear-gradient( #786262,#614a4a)'}}>
         <p className=' w-auto text-xl md:text-2xl font-bold mb-2 pt-10 pb-4  '>Always Building Confidence Through Beauty</p>
@@ -54,4 +54,4 @@ function footer() {
   )
 }
 
-export default footer
+export default Footer

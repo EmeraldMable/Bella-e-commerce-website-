@@ -7,7 +7,7 @@ import { IoIosCart } from "react-icons/io";
 
 function Navbar() {
   return (
-    <div className=' w-auto mx-auto bg-white max-h-15 border-t-2 border-x-8 border-red-900 '>
+    <div className='click w-auto mx-auto bg-white max-h-15 border-t-2 border-x-8 border-red-900 '>
       <div className=" w-auto mx-auto pl-20 pr-14 h-auto flex items-center justify-between">
         <h2 className=' w-16'><img src={Logo} alt='Bella logo'/></h2>
         <div className=' flex justify-around '>
