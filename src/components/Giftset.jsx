@@ -11,19 +11,12 @@ function Giftset() {
          <p className='pt-serif-bold text-4xl w-auto mx-auto lg:text-5xl mb-1 md:mb-4 lg:mb-6' >Special Gift Sets</p>
 
          <div className="w-auto mx-10 sm:grid sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 ">
-            <div className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200 '>
-               <Link to='/'> <img src={makeupset} alt='makeup set'/></Link>
-               
-            </div>
-            <div className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
-               <Link to='/'> <img src={specialgift2} alt='makeup set'/></Link>
-            </div>
-            <div className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
-               <Link to='/'> <img src={specialgift1} alt='makeup set'/></Link>
-            </div>
-            <div className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
-               <Link to='/'> <img src={watermelon} alt='makeup set'/></Link>
-            </div>
+           
+               <Link className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200 ' to='/'> <img src={makeupset} alt='makeup set'/></Link>
+               <Link className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200 ' to='/'> <img src={specialgift2} alt='makeup set'/></Link>
+               <Link className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200 ' to='/'> <img src={specialgift1} alt='makeup set'/></Link>
+               <Link className='bg-white w-full hover:opacity-[.7] hover:border-x-2 hover:border-red-200 ' to='/'> <img src={watermelon} alt='makeup set'/></Link>
+            
          </div>
     
   </div>

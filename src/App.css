@@ -17,7 +17,7 @@
   background-color: rgb(255, 255, 255);
   overflow-y: scroll;
   overflow-x:hidden ;
-  
+
 }
 ::-webkit-scrollbar{
   background-color: #7e3535;
@@ -56,10 +56,11 @@
 .click1{
   z-index: 1400;
   position: fixed;
-  top:65px;
+  top:55px;
   left: 0;
   right: 0;
 }
+
 
 
 

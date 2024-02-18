@@ -12,7 +12,11 @@ export default {
       },
       backgroundSize: {
         '10%': '200px',
-    }
+    },
+    screens: {
+      'xs': '320px',
+      
+    },
     },
   },
   plugins: [],
