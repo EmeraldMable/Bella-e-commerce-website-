@@ -14,7 +14,7 @@ function Links() {
            onClick={()=>setMenuclick(!menuclick)}> 
            <RxHamburgerMenu size={30} />
            </button>
-           <div className={menuclick ? 'pt-serif-regular text-lg  w-52 h-screen fixed inset-y-20 bg-black flex flex-col transition-transform rounded-r-sm md:opacity-0' : 'hidden -translate-x-full'} style={{translateX:50 ,background:'rgb(184,84,84)'}}>
+           <div className={menuclick ? 'pt-serif-regular text-lg  w-52 h-screen fixed inset-y-20 flex flex-col transition-transform rounded-r-sm md:opacity-0' : 'hidden -translate-x-full'} style={{translateX:50 ,background:'rgb(184,84,84)'}}>
               <button className=' text-white min-w-20 pt-0.5 rounded-sm text-left pl-8 block md:hidden lg:hidden mb-8'
               onClick={()=>setMenuclick(!menuclick)}> 
               <RxCross2 size={30} />

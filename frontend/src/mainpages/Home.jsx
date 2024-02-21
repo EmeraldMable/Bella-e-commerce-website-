@@ -1,4 +1,7 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
+import Linksbar from '../components/Linksbar';
+import Footer from '../components/Footerbar';
 import Review from '../components/Review';
 import Category from'../components/Category';
 import Giftset from '../components/Giftset';
@@ -12,6 +15,8 @@ function Home() {
   
   return (
     <>
+    <Navbar/>
+    <Linksbar/>
    <div className='w-auto mx-auto ml-10 mr-10 lg:mt-8'>
       <div className='mx-auto mt-36 max-w-6xl lg:flex lg:items-center lg:gap-10' >
         
@@ -41,6 +46,7 @@ function Home() {
       <Giftset  />
       <BestSeller/>
        <Review/>
+       <Footer/>
        </>
   )
 }
