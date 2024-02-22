@@ -20,7 +20,8 @@ function Links() {
               <RxCross2 size={30} />
               </button> 
              
-              <Link className=' text-white min-w-20  p-3 hover:opacity-50  ' to='/product/makeup' >MakeUp</Link>
+              <Link className=' text-white min-w-20  p-3 hover:opacity-50  '
+               to='/product/makeup' onClick={()=>setMenuclick(!menuclick)} >MakeUp</Link>
               <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/makeup' >Skin Care</Link>
               <Link className=' text-white min-w-20   p-3 hover:opacity-50 ' to='/' >Perfume</Link>
               <Link className=' text-white min-w-20  p-3 hover:opacity-50  ' to='/' >For Men</Link>

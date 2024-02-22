@@ -1,16 +1,17 @@
 import mongoose from 'mongoose';
 import {User} from '../models/user.js';
 
-const allUsers = (req,res) =>{
+const allUsers =  (req,res) =>{
     User.find()
     .then((result) => res.status(200).json(result))
     .catch(error => res.status(400).json({error:error.message}))
 }
 const createUser = (req,res) =>{
-   const {name,photo,email,password} = req.body
-   User.create({name,photo,email,password})
+   const {username,email,password} = req.body
+   User.create({username,email,password})
    .then((result) => res.status(200).json(result))
    .catch(error => res.status(400).json({error:error.message}))
+   
 }
 const singleUser = (req,res) =>{
    const {id} = req.params

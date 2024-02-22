@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json())
 
-app.use('/user', userRoute)
+app.use('/admission', userRoute)
 
 app.use('/products', makeupRoute , skincareRoute , collectionRouter , tutorialRouter)
 

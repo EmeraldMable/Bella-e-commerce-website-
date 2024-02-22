@@ -1,16 +1,13 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 const users = new Schema({
-    name:{
+    username:{
         type:String,
         require:true,
         unique:true
     },
     
-    photo:{
-        type:String,
-        default:'Upload your profile'
-    },
+  
     email:{
         type:String,
         require:true,
@@ -21,6 +18,10 @@ const users = new Schema({
         type:String,
         require:true,
         unique:true
+    },
+    photo:{
+        type:String,
+        default:'Upload your profile'
     },
     created_at:{
         type:Date,
