@@ -13,9 +13,21 @@ const app = express();
 
 app.use(express.json())
 
+
 app.use('/admission', userRoute)
 
 app.use('/products', makeupRoute , skincareRoute , collectionRouter , tutorialRouter)
+
+app.use((err,req,res,next)=>{
+    const statusCode= err.statusCode || 500;
+    const message = err.message || 'internal server error'
+    return res.status(statusCode).json({
+        success:false,
+        message,
+        statusCode
+    })
+   
+})
 
 mongoose.connect(process.env.CONNECT_URL)
 .then(() => {

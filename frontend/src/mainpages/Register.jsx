@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import {Link , useNavigate} from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
 
 
@@ -11,29 +11,50 @@ function Admission() {
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirm,setConfirm] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error,setError] = useState(false)
+  const [notis, setNotis] = useState('')
+  const navigate = useNavigate();
  
  
   
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+ 
+try{
   const userData = {username,email,password}
-  console.log(userData)
-  const response = await fetch ('/admission/user' , {
+  setLoading(true)
+  const response = await fetch ('/admission/createuser' , {
     method:"POST",
     headers:{
       "Content-type":"application/json"
     },
     body:JSON.stringify(userData)
   })
-  console.log(response)
+ 
   const data = await response.json();
   console.log(data)
+  setLoading(false)
+  if(data.success == false){
+    setNotis(data.message)
+    setLoading(true)
+    setError(true)
+    return
+  }
+  navigate('/loginpage')
+  
+}catch(error){
+  setLoading(false)
+  setError(true)
+}
+ 
+ 
 }
 
   return (
     <div className='w-full min-h-screen p-10 mx-auto bg-red-800 flex-col items-center justify-center'>
-      <p className='pt-serif-bold text-white text-3xl'>Sign Up Form</p>
+      <p className='pt-serif-bold text-white text-3xl'>Register Form</p>
       <div className='flex flex-col items-center justify-center '>
       <p className='pt-serif-regular mt-3 text-white'>Welcome To Our Community!</p>
       <p className='pt-serif-bold-italic text-white mb-8'>Be A Star.</p>
@@ -41,6 +62,7 @@ const handleSubmit = async (e) => {
       
         <form className='max-w-lg min-w-52 p-10 mx-auto bg-white shadow-xl rounded-md flex flex-col items-center' 
           onSubmit={handleSubmit}>
+             <p className=' w-46 text-red-500 mb-5'>{error ? notis : ''}</p>
           <input 
           className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='username' 
@@ -80,7 +102,7 @@ const handleSubmit = async (e) => {
           <div className='pt-serif-regular text-lg mt-8 flex flex-col w-auto items-center justify-center gap-2 md:flex-row lg:flex-row'>
             <AiFillStar size={20} style={{color:'red'}}/>
             <p className='mb-2'>Already have an account?</p>
-            <Link className='hover:underline font-semibold mb-2' to='/'>Sign in here.</Link>
+            <Link className='hover:underline font-semibold mb-2' to='/loginpage'>Log in here.</Link>
           </div>
         </form>
     </div>

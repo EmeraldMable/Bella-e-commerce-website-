@@ -2,7 +2,9 @@ import {Route , Routes} from 'react-router-dom';
 import './App.css'
 import Home from './mainpages/Home';
 import Makeup from './mainpages/Makeup';
-import Admission from './mainpages/Admission';
+import Register from './mainpages/Register';
+import Login from './mainpages/Loginpage';
+
 
 function App() {
  
@@ -13,7 +15,8 @@ function App() {
        <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/product/makeup' element={<Makeup/>}></Route>
-        <Route path='/signinorup' element={<Admission/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/loginpage' element={<Login/>}></Route>
        </Routes>
      
    
