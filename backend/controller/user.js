@@ -1,14 +1,21 @@
 import mongoose from 'mongoose';
 import {User} from '../models/user.js';
 import { errorHandler } from '../error/errorHandler.js';
+import bcryptjs from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 
 const allUsers = async (req,res,next) =>{
     const {email,password} = req.body
     try {
-        const foundUser = await User.findOne({email,password})
+        const foundUser = await User.findOne({email})
         if(!foundUser) return next(errorHandler(404, 'Please sign up first.'))
-        res.status(200).json(foundUser)
+        const unhashedPassword = bcryptjs.compareSync(password,foundUser.password)
+        if(!unhashedPassword) return next(errorHandler(401, 'Wrong Password'))
+        const token = jwt.sign({id:foundUser._id}, process.env.JWT_SECRET)
+        const {password:hashedPassword , ...rest} = foundUser._doc
+        res.cookie('access_token', 
+        token , {httpOnly:true}).status(200).json(rest)
     }catch(error){
         next(error)
     }
@@ -16,10 +23,13 @@ const allUsers = async (req,res,next) =>{
 }
 const createUser = async (req,res,next) =>{
    const {username,email,password} = req.body
+   
    try{
+        const hashedPassword = bcryptjs.hashSync(password,10)
         if (username == '' || email == '' || password == '') return next(errorHandler(300, 'Please fill in all.'))
-        const newUser = await User.create({username,email,password})
-        res.status(200).json(newUser)
+        const newUser = await User.create({username,email,password:hashedPassword})
+        const {password:removePassword, ...rest} = newUser._doc
+        res.status(200).json(rest)
         
    }catch(error){
         next(error)

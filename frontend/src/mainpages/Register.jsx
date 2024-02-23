@@ -10,10 +10,10 @@ function Admission() {
   const [username, setUsername]=useState('')
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirm,setConfirm] = useState('')
   const [loading, setLoading] = useState(false)
   const [error,setError] = useState(false)
   const [notis, setNotis] = useState('')
+  const [formnotis, setFormnotis] = useState({})
   const navigate = useNavigate();
  
  
@@ -21,9 +21,28 @@ function Admission() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  const formErrors = {}
  
-try{
+  if(!username.trim()){
+    formErrors.username = 'Username cannot be empty'
+  }
+  if(!email.trim()){
+    formErrors.email = 'Enter your email.'
+  }else if(!/\S+@\S+\.\S+/.test(email)){
+    formErrors.email = 'Invalid email'
+  }
+
+  if(!password.trim()){
+    formErrors.password = 'Need a password'
+  }else if(password.length <5){
+    formErrors.password = 'Password should be at least 5 characters.'
+  }
+
+ 
+  setFormnotis(formErrors)
   const userData = {username,email,password}
+try{
+
   setLoading(true)
   const response = await fetch ('/admission/createuser' , {
     method:"POST",
@@ -38,11 +57,11 @@ try{
   setLoading(false)
   if(data.success == false){
     setNotis(data.message)
-    setLoading(true)
+    setLoading(false)
     setError(true)
     return
   }
-  navigate('/loginpage')
+  navigate('/')
   
 }catch(error){
   setLoading(false)
@@ -71,6 +90,8 @@ try{
           value={username}
           onChange={(e)=>setUsername(e.target.value)}
           />
+            <p className=' w-46 text-red-500 mb-5'>{formnotis.username ? formnotis.username : ''}</p>
+
           <input 
           className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='email' 
@@ -78,24 +99,22 @@ try{
           placeholder='Email'
           value={email}
           onChange={(e) =>setEmail(e.target.value)} />
+           <p className=' w-46 text-red-500 mb-5'>{formnotis.email ? formnotis.email : ''}</p>
+
           <input 
           className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='password' 
           type="password" 
           placeholder='Password'
           value={password}
-          onChange={(e)=> setPassword(e.target.value)}/>
-          <input 
-          className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
-          id='confirm' 
-          type="password" 
-          placeholder='Confirm password...'
-          value={confirm}
-          onChange={(e)=>setConfirm(e.target.value)} />
-         
+          onChange={(e)=> setPassword(e.target.value)}
+          />
+           <p className=' w-46 text-red-500 mb-5'>{formnotis.password ? formnotis.password : ''}</p>
+
+          
            <button 
            className='w-20 mt-3 bg-black text-white p-2 rounded-md hover:shadow-xl hover:rounded-xl' >
-            Sign Up
+            {loading ? 'Loading' : 'Sign Up'}
             </button>
         
 
