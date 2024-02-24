@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
+import {signInStart , signInSuccess, signInFail} from '../redux/userSlice.js'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -10,10 +12,9 @@ function LogginIn() {
  
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loading,setLoading] = useState(false)
-  const [error,setError] = useState(false)
-  const [notis, setNotis] = useState('')
+ const {loading,error} = useSelector((state) => state.user);
   const navigate = useNavigate()
+  const dispatch = useDispatch()
  
  
   
@@ -24,7 +25,7 @@ const handleSubmit = async (e) => {
   const userData = {email,password}
 
   try{
-    setLoading(true)
+    dispatch(signInStart())
     const response = await fetch ('/admission/user' , {
       method:"POST",
       headers:{
@@ -35,19 +36,19 @@ const handleSubmit = async (e) => {
     
     const data = await response.json()
     console.log(data)
-    setLoading(false)
+    
     if(data.success == false ){
       console.log('error')
-      setNotis(data.message)
-      setError(true)
+     
+      dispatch(signInFail(data))
       return
       
     }
+    dispatch(signInSuccess(data))
     navigate('/')
 
   }catch(error){
-    setLoading(loading)
-    setError(true)
+    dispatch(signInFail(error))
   }
 
   
@@ -64,7 +65,7 @@ const handleSubmit = async (e) => {
       
         <form className='max-w-lg min-w-52 p-10 mx-auto bg-white shadow-xl rounded-md flex flex-col items-center' 
           onSubmit={handleSubmit}>
-          <p className=' w-46 text-red-500 mb-5'>{error ? notis : ''}</p>
+          <p className=' w-46 text-red-500 mb-5'>{error ? error.message || 'something is wrong' : ''}</p>
           <input 
           className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='email' 
