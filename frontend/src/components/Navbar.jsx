@@ -16,7 +16,8 @@ function Navbar() {
         <div className=' flex justify-around -mx-12'>
            <Link className=' w-8 sm:w-14 md:w-14 lg:w-14' to='/'><BiSolidHome  size={27}  style={{color:'rgb(84,84,84)'}}/></Link>
            {currentUser 
-           ? ( <Link className='w-8 sm:w-14 md:w-14 lg:w-14' to='/product/makeup'><PiUserCircleFill size={29}  style={{color:'rgb(84,84,84)'}}/></Link>) 
+           ? ( <Link className='w-8 sm:w-14 md:w-14 lg:w-14' to='/userprofile'><PiUserCircleFill size={29}  style={{color:'rgb(84,84,84)'}}/>
+           </Link>) 
           : ( <Link className='pt-serif-bold w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</Link>)}
            <Link className=' w-8 sm:w-14 md:w-14 lg:w-14' to='/product/makeup'><IoIosCart size={30} style={{color:'rgb(84,84,84)'}}/></Link>
         </div>

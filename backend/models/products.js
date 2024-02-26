@@ -6,17 +6,11 @@ const products = new Schema({
         type:String,
         require :true,
         unique: true
-    }
-})
-const Product = mongoose.model('Product', products)
-export {Product}
-
-/*  
-, 
-    photo: [{
+    },
+    photo: {
         type: String,
         require: true
-    }],
+    },
     desc_myan: {
         type: String,
         require:true
@@ -50,8 +44,11 @@ export {Product}
         type:String,
         require:true
     },
-    collection:{
+    set:{
         type:String,
         default:''
     }
- */
+})
+const Product = mongoose.model('Product', products)
+export {Product}
+

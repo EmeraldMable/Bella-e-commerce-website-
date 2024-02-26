@@ -21,7 +21,7 @@ const users = new Schema({
     },
     photo:{
         type:String,
-        default:'Upload your profile'
+        default:'Upload Profile'
     },
     created_at:{
         type:Date,
