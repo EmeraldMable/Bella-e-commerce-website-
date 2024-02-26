@@ -1,4 +1,4 @@
-import React from 'react'
+import GoogleLogin from '../components/GoogleLogin.jsx';
 import { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import { AiFillStar } from "react-icons/ai";
@@ -35,10 +35,9 @@ const handleSubmit = async (e) => {
     })
     
     const data = await response.json()
-    console.log(data)
     
     if(data.success == false ){
-      console.log('error')
+      
      
       dispatch(signInFail(data))
       return
@@ -56,25 +55,26 @@ const handleSubmit = async (e) => {
 }
 
   return (
-    <div className='w-full min-h-screen p-10 mx-auto bg-red-800 flex-col items-center justify-center'>
+    <div className='mt-12 w-full min-h-screen p-10 mx-auto bg-red-800 flex-col items-center justify-center'>
       <p className='pt-serif-bold text-white text-3xl'>Log In Form</p>
       <div className='flex flex-col items-center justify-center '>
-      <p className='pt-serif-regular mt-3 text-white'>Welcome To Our Community!</p>
+      <p className='pt-serif-regular mt-3 text-white'>Welcome Back!</p>
       <p className='pt-serif-bold-italic text-white mb-8'>Be A Star.</p>
       </div>
       
-        <form className='max-w-lg min-w-52 p-10 mx-auto bg-white shadow-xl rounded-md flex flex-col items-center' 
+        <form className='max-w-xl mb-10 min-w-52 p-10 mx-auto bg-white shadow-xl rounded-md flex flex-col items-center' 
           onSubmit={handleSubmit}>
-          <p className=' w-46 text-red-500 mb-5'>{error ? error.message || 'something is wrong' : ''}</p>
+          <p className=' w-46 text-red-500 mb-5'>{error && error.message ? error.message  : ''}</p>
+          <p className=' w-46 text-red-500 mb-5'>{loading ? 'In progress' : ''}</p>
           <input 
-          className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
+          className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-6 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='email' 
           type="email" 
           placeholder='Email'
           value={email}
           onChange={(e) =>setEmail(e.target.value)} />
           <input 
-          className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-4 rounded-md sm:w-72 md:w-72 lg:w-72' 
+          className='min-w-38 h-7 p-4 border-b-2 border-black outline-none mb-6 rounded-md sm:w-72 md:w-72 lg:w-72' 
           id='password' 
           type="password" 
           placeholder='Password'
@@ -83,9 +83,17 @@ const handleSubmit = async (e) => {
           
          
            <button 
-           className='w-20 mt-3 bg-black text-white p-2 rounded-md hover:shadow-xl hover:rounded-xl' >
+           className='w-32 mt-3 bg-black text-white p-2 rounded-md hover:shadow-xl hover:rounded-xl' >
             {loading ? 'Loading' : 'Login'}
             </button>
+
+            
+            
+            <p className=' mx-2 mt-8 bg-white text-black text-xl'>Or</p>
+            
+           
+           <p className='pt-serif-regular mt-3 mb-3  text-lg'>Sign in with Google account.</p>
+           <GoogleLogin/>
         
 
           <div className='pt-serif-regular text-lg mt-8 flex flex-col w-auto items-center justify-center gap-2 md:flex-row lg:flex-row'>

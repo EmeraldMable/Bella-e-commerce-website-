@@ -1,6 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
 import Review from '../components/Review';
@@ -16,7 +14,6 @@ function Home() {
   
   return (
     <>
-    <Navbar/>
     <Linksbar/>
    <div className='w-auto mx-auto ml-10 mr-10 lg:mt-8'>
       <div className='mx-auto mt-36 max-w-6xl lg:flex lg:items-center lg:gap-10' >
