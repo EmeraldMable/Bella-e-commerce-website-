@@ -7,10 +7,31 @@ const products = new Schema({
         require :true,
         unique: true
     },
+    status:{
+        type:String,
+        require:true,
+        default:'in stock'
+    },
     photo: {
         type: String,
-        require: true
+        require: true,
     },
+    subphoto:[{
+        type:String
+    }],
+    howtouse:{
+        type:String
+    },
+    color:[
+        {
+            type:String
+        }
+    ],
+    brief:[
+        {
+            type:String
+        }
+    ],
     desc_myan: {
         type: String,
         require:true
@@ -35,6 +56,9 @@ const products = new Schema({
     price:{
         type:Number,
         require:true
+    },
+    netweight:{
+        type:Number
     },
     category:{
         type:String,

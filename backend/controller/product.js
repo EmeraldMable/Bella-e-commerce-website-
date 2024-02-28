@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import {Product} from '../models/products.js';
 
 
-const allMakeup = async  (req,res) => {
+const allProduct = async  (req,res) => {
     try{
         const all = await Product.find()
         res.status(200).json(all)
@@ -15,10 +15,14 @@ const allMakeup = async  (req,res) => {
 }
 
 
-const createMakeup = async (req,res) => {
-    const {name } = req.body;
+const createProduct = async (req,res) => {
+    const {name,status,photo,subphoto,howtouse,color,brief,desc_myan,desc_eng,qty,productionDate,expired,price,netweight,
+        category,subcategory,set } = req.body;
     try{
-        const newMakeup = await Product.create({name})
+        const newMakeup = await Product.create({name,status,photo,subphoto,
+            howtouse,color,brief,desc_myan,desc_eng,qty,
+            productionDate,expired,price,netweight,
+            category,subcategory,set})
         res.status(200).json(newMakeup)
     }catch(error){
        res.status(400).json({error:error.message})
@@ -26,7 +30,7 @@ const createMakeup = async (req,res) => {
 
 }
 
-const detailMakeup = (req,res) => {
+const detailProduct = (req,res) => {
     const {id} = req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error:'No result'})
@@ -40,7 +44,7 @@ const detailMakeup = (req,res) => {
    })
 }
 
-const updateMakeup = (req,res) => {
+const updateProduct = (req,res) => {
     const {id} = req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error:'No result'})
@@ -50,7 +54,7 @@ const updateMakeup = (req,res) => {
     .catch(error => res.status(400).json({error:error.message}))
 }
 
-const deleteMakeup = (req,res) => {
+const deleteProduct = (req,res) => {
    const {id} = req.params
    if(!mongoose.Types.ObjectId.isValid(id)){
     res.status(404).json({error:'No result'})
@@ -61,4 +65,4 @@ const deleteMakeup = (req,res) => {
    })
    .catch(error => res.status(400).json({error:error.message}))
 }
-export {allMakeup,createMakeup,detailMakeup,updateMakeup,deleteMakeup}
+export {allProduct,createProduct,detailProduct,updateProduct,deleteProduct}
