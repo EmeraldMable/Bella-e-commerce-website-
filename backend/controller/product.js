@@ -2,12 +2,12 @@ import mongoose from 'mongoose';
 import {Product} from '../models/products.js';
 
 
-const allProduct = async  (req,res) => {
+const allProduct = async  (req,res,next) => {
     try{
         const all = await Product.find()
         res.status(200).json(all)
     }catch(error){
-        res.status(400).json({error:error.message})
+        next(error)
     }
    
 
@@ -15,17 +15,17 @@ const allProduct = async  (req,res) => {
 }
 
 
-const createProduct = async (req,res) => {
-    const {name,status,photo,subphoto,howtouse,color,brief,desc_myan,desc_eng,qty,productionDate,expired,price,netweight,
+const createProduct = async (req,res,next) => {
+    const {name,status,subphoto,howtouse,color,brief,desc_myan,desc_eng,qty,productionDate,expired,price,netweight,
         category,subcategory,set } = req.body;
     try{
-        const newMakeup = await Product.create({name,status,photo,subphoto,
+        const newMakeup = await Product.create({name,status,subphoto,
             howtouse,color,brief,desc_myan,desc_eng,qty,
             productionDate,expired,price,netweight,
             category,subcategory,set})
         res.status(200).json(newMakeup)
     }catch(error){
-       res.status(400).json({error:error.message})
+      next(error)
     }
 
 }

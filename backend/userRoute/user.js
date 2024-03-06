@@ -1,13 +1,15 @@
 import {Router} from 'express';
-import { allUsers, createUser,googlelogin, deleteUser, singleUser, updateUser } from "../controller/user.js";
+import { allUsers, createUser,googlelogin, signOut, updateUser } from "../controller/user.js";
+import {verify} from '../verifyUser/verifyToken.js'
+
 const userRoute = Router();
 
 userRoute.post('/user',allUsers)
 userRoute.post('/createuser',createUser)
 userRoute.post('/googlelogin', googlelogin)
-userRoute.get('/user/:id',singleUser)
-userRoute.patch('/user/:id' , updateUser)
-userRoute.delete('/user/:id',deleteUser)
+userRoute.post('/update/:id' , verify , updateUser)
+
+userRoute.get('/user', signOut)
 
 export {userRoute}
 

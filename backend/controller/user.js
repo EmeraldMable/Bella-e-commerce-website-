@@ -5,6 +5,7 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 
+
 const allUsers = async (req,res,next) =>{
     const {email,password} = req.body
     try {
@@ -14,8 +15,9 @@ const allUsers = async (req,res,next) =>{
         if(!unhashedPassword) return next(errorHandler(401, 'Wrong Password'))
         const token = jwt.sign({id:foundUser._id}, process.env.JWT_SECRET)
         const {password:hashedPassword , ...rest} = foundUser._doc
+        const expiredDate = new Date(Date.now() + 360000)
         res.cookie('access_token', 
-        token , {httpOnly:true}).status(200).json(rest)
+        token , {httpOnly:true , expires:expiredDate} ).status(200).json(rest)
     }catch(error){
         next(error)
     }
@@ -30,7 +32,8 @@ const createUser = async (req,res,next) =>{
         const newUser = await User.create({username,email,password:hashedPassword})
         const token = jwt.sign({id:newUser._id}, process.env.JWT_SECRET)
         const {password:removePassword, ...rest} = newUser._doc
-        res.cookie("access_token" , token , {httpOnly:true}).status(200).json(rest)
+        const expiredDate = new Date(Date.now() + 360000)
+        res.cookie('access_token' , token , {httpOnly:true , expires:expiredDate} ).status(200).json(rest)
         
    }catch(error){
         next(error)
@@ -45,8 +48,8 @@ const googlelogin = async (req,res,next) => {
         if(googleuser){
             const token = jwt.sign({id:googleuser._id,},process.env.JWT_SECRET)
             const {password:hashedPassword , ...rest}=googleuser._doc
-            const expiredDate = new Date(Date.now() + 360000)//1hour
-            res.cookie("access_token" , token ,
+            const expiredDate = new Date(Date.now() + 360000)
+            res.cookie('access_token' , token ,
              {httpOnly:true , expires:expiredDate}).status(200).json(rest)
         }else{
             const randomPassword = Math.random().toString(36).slice(-8) 
@@ -64,7 +67,7 @@ const googlelogin = async (req,res,next) => {
             const token = jwt.sign({id:createGoogleuser._id}, process.env.JWT_SECRET)
             const {password:removePassword , ...rest} = createGoogleuser._doc
             const expiredDate = new Date(Date.now() + 360000)
-            res.cookie("access_token", token , {httpOnly:true , expires:expiredDate}).status(200).json(rest)
+            res.cookie('access_token', token , {httpOnly:true , expires:expiredDate}).status(200).json(rest)
 
         }
         
@@ -74,37 +77,39 @@ const googlelogin = async (req,res,next) => {
 }
 
 
-const singleUser = (req,res) =>{
-   const {id} = req.params
-   if(!mongoose.Types.ObjectId.isValid(id)){
-    res.status(404).json({error:'Wrong Id'})
+
+const updateUser = async (req,res,next) =>{
+   if(req.user.id !== req.params.id){
+    return next(errorHandler(401, 'You can update only your account.'))
    }
-   User.findById(id)
-   .then((result) => res.status(200).json(result))
-   .catch(error => res.status(400).json({error:error.message}))
-}
-const updateUser = (req,res) =>{
-    const {id} = req.params;
+
+   try{
+  
+
+    const updated = await User.findByIdAndUpdate
     
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error:'Wrong Id'})
+    (req.params.id, 
+        {
+            $set:{
+                username:req.body.username,
+                email:req.body.email,
+                password:req.body.password,
+                photo:req.body.photo
+            }
+        }, {new:true})
+        
+        res.status(200).json(updated)
+    }catch(error){
+        next(error)
+
     }
-    User.findByIdAndUpdate(id,{
-        ...req.body
-    })
-    .then((result) => res.status(200).json(result))
-    .catch(error => res.status(400).json({error:error.message}))
-}
-const deleteUser = (req,res) =>{
-   const {id} = req.params;
-   if(!mongoose.Types.ObjectId.isValid(id)){
-    res.status(404).json({error:'Wrong Id'})
-   }
-   User.findByIdAndDelete(id)
-   .then((result) => res.status(200).json(result))
-   .catch(error => res.status(400).json({error:error.message}))
 }
 
-export {
-    allUsers,createUser,googlelogin,singleUser,updateUser,deleteUser
+
+const signOut =  (req,res) => {
+   
+        res.clearCookie("access_token").status(200).json('SignOut success!')
+   
 }
+
+export {allUsers,createUser,googlelogin,updateUser,signOut}

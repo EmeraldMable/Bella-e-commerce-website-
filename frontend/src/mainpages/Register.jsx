@@ -131,7 +131,7 @@ try{
 
           
            <button 
-           className= 'w-32 mt-3 bg-black text-white p-2 rounded-md hover:shadow-xl hover:rounded-xl' >
+           className=  'w-32 mt-3 bg-black text-white p-2 rounded-md hover:shadow-xl hover:rounded-xl' >
             {loading ? 'Loading' : 'Sign Up'}
             </button>
 

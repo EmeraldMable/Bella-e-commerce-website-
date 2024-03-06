@@ -22,7 +22,8 @@ function Links() {
              
               <Link className=' text-white min-w-20  p-3 hover:opacity-50  '
                to='/product/makeup' onClick={()=>setMenuclick(!menuclick)} >MakeUp</Link>
-              <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/makeup' >Skin Care</Link>
+              <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/skincare' >Skin Care</Link>
+              <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/collection' >Collections</Link>
               <Link className=' text-white min-w-20   p-3 hover:opacity-50 ' to='/' >Perfume</Link>
               <Link className=' text-white min-w-20  p-3 hover:opacity-50  ' to='/' >For Men</Link>
               <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/makeup' >Star Sets</Link>
@@ -32,7 +33,8 @@ function Links() {
 
            <div className=' flex items-center justify-around pl-20 pr-20 opacity-0 md:opacity-100'>
               <Link className=' text-white min-w-20 bg-red-400 p-3 rounded-sm' to='/product/makeup' >MakeUp</Link>
-              <Link className=' text-white min-w-20 ' to='/' >Skin Care</Link>
+              <Link className=' text-white min-w-20 ' to='/product/skincare' >Skin Care</Link>
+              <Link className=' text-white min-w-20  p-3 hover:opacity-50 ' to='/product/collection' >Collections</Link>
               <Link className=' text-white min-w-20 ' to='/' >Perfume</Link>
               <Link className=' text-white min-w-20 ' to='/' >For Men</Link>
               <Link className=' text-white min-w-20' to='/' >Star Sets</Link>
