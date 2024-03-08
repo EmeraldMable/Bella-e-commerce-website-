@@ -32,6 +32,7 @@ const createProduct = async (req,res,next) => {
 
 const detailProduct = (req,res) => {
     const {id} = req.params
+   
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error:'No result'})
     }
