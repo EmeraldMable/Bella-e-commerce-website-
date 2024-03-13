@@ -21,7 +21,7 @@ const users = new Schema({
     },
     photo:{
         type:String,
-        default:'Upload Profile'
+        default:'https://static.thenounproject.com/png/4584119-200.png'
     },
     created_at:{
         type:Date,

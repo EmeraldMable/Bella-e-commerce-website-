@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../components/Loading'
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
+import Breadcrumb from '../components/Breadcrumb';
 
 function CollectionSkin() {
   const [product,setProduct] = useState([])
@@ -31,10 +32,11 @@ function CollectionSkin() {
   return (
     <>
     <Linksbar/>
-    <div className=' mt-28 p-8 w-full mx-auto'>
-      <p className='pt-serif-bold w-full mb-3 mx-auto text-xl md:text-2xl lg:text-3xl' style={{color:'#786262'}}>Collections</p>
-      <p className='pt-serif-regular mb-5 w-sull mx-auto text-xl'><span className='pt-serif-bold-italic' style={{color:'#786262'}}>Collection Sets</span></p>
-      <p className=' mb-10 w-full text-left mx-20 text-4xl p-2 rounded-md font-bold italic' style={{color:'#786252'}}>Skincare</p>
+    <Breadcrumb/>
+    <div className=' mt-1 8 p-8 w-full mx-auto'>
+    <p className='pt-serif-bold w-full mb-3 mx-auto text-3xl' style={{color:'#786262'}}>Collections</p>
+      <p className='pt-serif-regular mb-5 w-sull mx-auto text-lg'><span className='pt-serif-bold-italic' style={{color:'#786262'}}>Collection Sets</span></p>
+      <p className=' mb-3 w-full text-left md:mx-10 lg:mx-20 text-xl md:text-2xl lg:text-3xl p-2 rounded-md font-bold italic ' style={{color:'#786252'}}>Skincare</p>
       <div className='w-auto mx-auto'>
         <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Thanakha Series</p>
        
@@ -48,7 +50,7 @@ function CollectionSkin() {
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/product/makeup/detail/:${each._id}`} >
+                <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <p className='mx-auto mb-3'>{each.name}</p>
                     <span className='mx-auto'>price : {each.price} Kyats</span>
@@ -79,7 +81,7 @@ function CollectionSkin() {
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/product/makeup/detail/:${each._id}`} >
+                <Link to={`/makeup/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <p className='mx-auto mb-3'>{each.name}</p>
                     <span className='mx-auto'>price : {each.price} Kyats</span>
@@ -110,7 +112,7 @@ function CollectionSkin() {
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/product/makeup/detail/:${each._id}`} >
+                <Link to={`/makeup/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <p className='mx-auto mb-3'>{each.name}</p>
                     <span className='mx-auto'>price : {each.price} Kyats</span>
@@ -129,7 +131,7 @@ function CollectionSkin() {
       </div>
 
       <div className='w-auto mx-auto mt-5'>
-      <p className=' mb-10 w-full mx-20 text-left text-4xl p-2 rounded-md font-bold italic ' style={{color:'#786252'}}>MakeUp</p>
+      <p className=' mb-3 w-full md:mx-10 lg:mx-20 text-left  text-xl md:text-2xl lg:text-3xl p-2 rounded-md font-bold italic ' style={{color:'#786252'}}>MakeUp</p>
         <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Thanakha Series</p>
        
          
@@ -142,7 +144,7 @@ function CollectionSkin() {
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/product/makeup/detail/:${each._id}`} >
+                <Link to={`/makeup/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <p className='mx-auto mb-3'>{each.name}</p>
                     <span className='mx-auto'>price : {each.price} Kyats</span>
@@ -173,7 +175,7 @@ function CollectionSkin() {
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/product/makeup/detail/:${each._id}`} >
+                <Link to={`/makeup/detail/:${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <p className='mx-auto mb-3'>{each.name}</p>
                     <span className='mx-auto'>price : {each.price} Kyats</span>

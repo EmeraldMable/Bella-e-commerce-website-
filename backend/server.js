@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import { tutorialRouter } from './productsroutes/tutorial.js';
 import { userRoute } from './userRoute/user.js';
 import { productRoute } from './productsroutes/product.js';
+import {cartRoute} from './CartRoute/cart.js'
 
 dotenv.config(); 
 const app = express();
@@ -17,7 +18,9 @@ app.use(cookieParser())
 
 app.use('/admission', userRoute)
 
-app.use('/products', productRoute  , tutorialRouter)
+app.use('/products', productRoute  , tutorialRouter , cartRoute)
+
+
 
 app.use((err,req,res,next)=>{
     const statusCode= err.statusCode || 500;

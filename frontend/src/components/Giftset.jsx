@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {Link} from 'react-router-dom'
 import makeupset from '../assets/makeupset.jpg'
 import specialgift2 from '../assets/specialgift2.jpg'
