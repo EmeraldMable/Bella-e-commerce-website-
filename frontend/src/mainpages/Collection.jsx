@@ -1,59 +1,45 @@
-import { useEffect,useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading'
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
 import Breadcrumb from '../components/Breadcrumb';
+import ScrollBtn from '../components/ScrollBtn';
+import useProduct from '../customHook/useProduct';
+import { FaArrowRight } from "react-icons/fa6";
 
 function CollectionSkin() {
-  const [product,setProduct] = useState([])
-  const [loading,setLoading] = useState(false)
-
-
-  useEffect( () => {
-    const Products = async () => {
-      setLoading(true)
-      try{
-        const response = await fetch('/products');
-        const data = await response.json();
-        setProduct(data)
-        setLoading(false)
-        
-      }catch(error) {
-       
-        setLoading(false)
-      }
-    }
-    Products();
-  },[])
-
-  
+ 
+    const {products:product,loading} = useProduct('/products')
 
   return (
     <>
     <Linksbar/>
     <Breadcrumb/>
-    <div className=' mt-1 8 p-8 w-full mx-auto'>
-    <p className='pt-serif-bold w-full mb-3 mx-auto text-3xl' style={{color:'#786262'}}>Collections</p>
-      <p className='pt-serif-regular mb-5 w-sull mx-auto text-lg'><span className='pt-serif-bold-italic' style={{color:'#786262'}}>Collection Sets</span></p>
-      <p className=' mb-3 w-full text-left md:mx-10 lg:mx-20 text-xl md:text-2xl lg:text-3xl p-2 rounded-md font-bold italic ' style={{color:'#786252'}}>Skincare</p>
+    <div className=' px-6 w-full mx-auto'>
+    <p className='pt-serif-bold w-full mb-8 mx-auto text-4xl' style={{color:'#786262'}}>Collections</p>
+     
+      
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Thanakha Series</p>
-       
-         
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' 
+        style={{color:'#786262'}}>Thanakha Series</p>  
             {loading ? <Loading/>
             :
             (
               <>
               <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Thanakha'
+              {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Thanakha' || 
+              each.category == 'makeup' && each.set == 'Thanakha series' || each.set == 'Thanakha'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10'>
+              <div className=' text-center mx-auto mt-2 mb-20 '>
                 <Link to={`/collection/detail/${each._id}`} >
-                    <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
-                    <p className='mx-auto mb-3'>{each.name}</p>
-                    <span className='mx-auto'>price : {each.price} Kyats</span>
+                    <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.subphoto[0]} alt='Skincare products'/>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'
+                    >
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
                 </Link>
               </div>
                ) :''
@@ -69,7 +55,7 @@ function CollectionSkin() {
       </div>
 
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Watermelon Series</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Watermelon Series</p>
        
          
             {loading ? <Loading/>
@@ -80,11 +66,13 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Watermelon'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/makeup/detail/${each._id}`} >
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+                <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
-                    <p className='mx-auto mb-3'>{each.name}</p>
-                    <span className='mx-auto'>price : {each.price} Kyats</span>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
                 </Link>
               </div>
                ) :''
@@ -100,7 +88,7 @@ function CollectionSkin() {
       </div>
 
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Cica Series</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Cica Series</p>
        
          
             {loading ? <Loading/>
@@ -111,11 +99,13 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'skincare' && each.set == 'cica'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/makeup/detail/${each._id}`} >
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+                <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
-                    <p className='mx-auto mb-3'>{each.name}</p>
-                    <span className='mx-auto'>price : {each.price} Kyats</span>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
                 </Link>
               </div>
                ) :''
@@ -130,40 +120,10 @@ function CollectionSkin() {
        
       </div>
 
-      <div className='w-auto mx-auto mt-5'>
-      <p className=' mb-3 w-full md:mx-10 lg:mx-20 text-left  text-xl md:text-2xl lg:text-3xl p-2 rounded-md font-bold italic ' style={{color:'#786252'}}>MakeUp</p>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Thanakha Series</p>
-       
-         
-            {loading ? <Loading/>
-            :
-            (
-              <>
-              <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'makeup' && each.set == 'Thanakha'|| each.set == 'Thanakha series'
-               ? 
-              (
-              <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/makeup/detail/${each._id}`} >
-                    <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
-                    <p className='mx-auto mb-3'>{each.name}</p>
-                    <span className='mx-auto'>price : {each.price} Kyats</span>
-                </Link>
-              </div>
-               ) :''
-              )) 
-            }</div>
-            </>
-            )
-            }
-          
-          
-
-       
-      </div>
+     
 
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Superstar series</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Superstar Series</p>
        
          
             {loading ? <Loading/>
@@ -174,12 +134,15 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'makeup' && each.set == 'Superstar'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10'>
-                <Link to={`/makeup/detail/:${each._id}`} >
+              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+                <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
-                    <p className='mx-auto mb-3'>{each.name}</p>
-                    <span className='mx-auto'>price : {each.price} Kyats</span>
+                    <div className='pt-serif-regular bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
                 </Link>
+              
               </div>
                ) :''
               )) 
@@ -189,7 +152,10 @@ function CollectionSkin() {
             }
           
           
-
+  
+          <Link className='hover:underline text-xl' 
+        to='/specialsets'
+        >Go to Special Gift page <FaArrowRight style={{display:'inline'}}/></Link>
        
       </div>
       
@@ -198,6 +164,7 @@ function CollectionSkin() {
 
      
     </div>
+    <ScrollBtn/>
     <Footer/>
     </>
   )

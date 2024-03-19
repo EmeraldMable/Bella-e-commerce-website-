@@ -11,18 +11,18 @@ function Breadcrumb() {
 
     console.log(track)
   return (
-    <div className="w-full mx-3 md:mx-5 lg:mx-10 text-left mt-32 text-sm md:mt-36 lg:mt-36">
-    { names.length > 0  &&  <Link to="/"> Home</Link>}
+    <div className="text-lg w-full mx-3 md:mx-5 lg:mx-10 text-left mt-6 md:mt-6 lg:mt-6">
+    { names.length > 0  &&  <Link className=" hover:opacity-40" to="/"> Home</Link>}
         {names.map((name,index) => { 
             track+=`/${name}`;
 
             const last = index==names.length-1;
 
 
-        return last  ? <span><IoIosArrowForward style={{display:'inline'}}/>{name}</span> :
+        return last  ? <span key={index}><IoIosArrowForward  style={{display:'inline'}}/>{name}</span> :
 
 
-        <span><Link key={index} to={track}><IoIosArrowForward style={{display:'inline'}}/>{name}</Link></span> })}
+        <span className="hover:opacity-45"><Link key={index} to={track}><IoIosArrowForward style={{display:'inline'}}/>{name}</Link></span> })}
     </div>
   )
 }

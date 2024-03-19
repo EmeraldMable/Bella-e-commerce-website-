@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
+import { useRef , useState } from 'react';
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
 import Review from '../components/Review';
@@ -10,13 +10,17 @@ import BestSeller from '../components/Bestseller'
 import Carousel from '../components/Carousel';
 import {video, carouselSlide , Slogans } from '../data/data'
 import Breadcrumb from '../components/Breadcrumb';
+import ScrollBtn from '../components/ScrollBtn';
+
+
 
 
 
 function Home() {
    const slogan2 = useRef()
    const slogan1 = useRef()
-
+   
+  
    useGSAP(() => {
     gsap.from(slogan2.current,{x:90 , duration:0.5 , delay:1})
     gsap.from(slogan1.current,{x:100 , duration:0.5 })
@@ -24,14 +28,15 @@ function Home() {
   
   return (
     <>
+
     <Linksbar />
    
     <Breadcrumb />
     
-   <div className='w-auto mx-auto ml-10 mr-10 lg:mt-8'>
-      <div className='mx-auto mt-36 max-w-6xl lg:flex lg:items-center lg:gap-10' >
+   <section className='w-auto mx-auto ml-10 mr-10'>
+      <div className='mx-auto mt-5 max-w-6xl lg:flex lg:items-center lg:gap-10' >
         
-          <div className=' w-full mx-auto my-auto pt-2 pb-2 sm:pt-4 sm:pb-6 text-center'  >
+          <div className='w-full mx-auto my-auto pt-2 pb-2 sm:pt-4 sm:pb-6 text-center'>
          
             <p className=' text-base font-bold leading-7 sm:leading-10 sm:text-xl lg:text-2xl lg:leading-10' ref={slogan1}>{Slogans.des.myanmar} </p>
            
@@ -52,9 +57,10 @@ function Home() {
         </div>
         <p className='pt-serif-bold -z-0 text-base w-full mx-auto leading-7 sm:leading-10 sm:text-xl lg:text-2xl lg:leading-10  ' ref={slogan2}>{Slogans.des.eng}</p>
       </div>
-   </div>
+   </section>
+   <ScrollBtn/>
       <Shortcut/>
-      <Giftset  />
+      <Giftset/>
       <BestSeller/>
        <Review/>
        <Footer/>

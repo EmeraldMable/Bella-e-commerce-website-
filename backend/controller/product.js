@@ -8,10 +8,7 @@ const allProduct = async  (req,res,next) => {
         res.status(200).json(all)
     }catch(error){
         next(error)
-    }
-   
-
-   
+    }  
 }
 
 
@@ -32,10 +29,6 @@ const createProduct = async (req,res,next) => {
 
 const detailProduct = (req,res) => {
     const {id} = req.params
-   
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error:'No result'})
-    }
    Product.findById(id)
    .then((result) => {
     res.status(200).json(result)

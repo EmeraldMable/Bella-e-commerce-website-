@@ -2,55 +2,64 @@ import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import { IoIosCart } from "react-icons/io";
-
 import { useSelector } from "react-redux";
-
+import { FaStar } from "react-icons/fa6";
+import { FaRegStar } from "react-icons/fa6";
 
 
 function DetailUI({product}) {
     const [color,setColor] = useState('')
     const [slideImg, setSlideImg] = useState('')
-    const [qty,setQty] = useState(1)
-
-    const user = useSelector((state) => state.user)
-    
+    const [stars, setStars] = useState(null)
    
-    const addtocart = async () => {
-      console.log('loading')
+
+    const {currentUser} = useSelector(state => state.user)
+  
+    const AddCart = async () => {
       try{
-        const response = await fetch('/products/cart' , {
+        const response = await fetch('/products/addtocart' ,{
           method:"POST",
           headers:{
             "Content-type":"application/json"
           },
           body:JSON.stringify({
-              customerId:user?.currentUser._id,
-              productId:product._id,
-              qty:qty,
-              productName:product.name,
-              price:product.price
-              
+            customerId:currentUser._id,
+            productId:product._id,
+            qty:1,
+            productName:product.name,
+            img:product.photo,
+            price:product.price
           })
         })
         const data = await response.json()
         console.log(data)
+      alert( data.message || 'Successfully added to the cart.')
+
       }catch(error){
         console.log(error)
       }
+     
     }
+  
    
-
-
   return (
     <div className="w-auto text-left mx-auto my-10" key={product._id} style={{color:'#786262'}} >
         <div className="flex items-center gap-20">
           
             <img className="rounded-md w-96" src={slideImg ? slideImg : product.photo} alt={product.name} />
             
-          
-
               <div className="pt-serif-regular mt-5 ">
                 <p className="pt-serif-bold-italic text-3xl mb-4">Short to the points</p>
+
+                <p className="flex gap-1 mb-4">
+                  
+                  {[...Array(5).keys()].map(( _,i) => (
+                    product.rating <= i ? <FaRegStar /> : <FaStar fill="red"/>
+                  ))}
+                </p>
+
+               
+
                {product.brief?.map((each,index)=><p className="mb-2 text-lg" key={index}><TiTick style={{display:'inline'}}/>{each}</p>)}
               
                <div className=" flex gap-2">
@@ -62,17 +71,12 @@ function DetailUI({product}) {
                   }
                 </div>
                 
-                <select value={qty} onChange={(e) => setQty(e.target.value)}>
-                  {
-                   [...Array(product.qty).keys()].map((each)=> (
-                    <option value={each+1}>{each+1}</option>
-                   ))
-                  }
-                  </select>
                 
-                  <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white">
-                  Add to cart<IoIosCart style={{display:"inline"}}
-                  onClick={addtocart}/></button>
+                
+                  <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white"
+                  onClick={AddCart}>
+                  Add to cart<IoIosCart style={{display:"inline"}} 
+                  /></button>
                   
                
 

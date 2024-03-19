@@ -1,35 +1,49 @@
+import {Cart} from '../models/cart.js'
 
- import {Cart} from '../models/cart.js'
- 
- const Addtocart = async (req,res,next) => {
-  const {customerId,productId, qty, productName , price} = req.body
- 
 
+const allItems = async (req,res,next) => {
+    const {userId} = req.body
   
-  try{
-    const cart = await Cart.findOne({customerId})
-      if(cart){
-        let itemIndex = cart.products.findIndex((item) => item.productId == productId)
-        if(itemIndex > -1){
-          let prodcutItem = cart.products[itemIndex];
-          prodcutItem.qty = qty
-          cart.products[itemIndex] = prodcutItem
+    try{
+        const allItem = await Cart.find({customerId:userId})
+        if(allItem){
+            res.status(200).json(allItem)
         }else{
-          cart.products.push({productId,qty,productName,price})
-
+            res.status(200).json({message:'No item in the cart.'})
         }
-        cart= await cart.save()
-        return res.status(200).json(cart)
-      }else{
-        const newCart = await Cart.create({
-          productId,qty,productName,price
-        })
-        return res.status(200).json(newCart)
-      }
-  }catch(error){
-    next(error)
-  }
-  
-    
+        
+     
+    }catch(error){
+        next(error)
+    }
 }
-export {Addtocart}
+
+const addTocart = async (req,res,next) => {
+    try{
+        const {customerId,productId,qty,productName,img,price} = req.body 
+        
+        const check = await Cart.findOne({productId}).populate("Product")
+        if(check){
+            check.qty += 1
+            await check.save()
+            res.status(201).json({message:'Already in the cart.'})
+        
+        }else{
+            const newAdd = await Cart.create({
+                customerId,
+                productId,
+                qty,
+                productName,
+                img,
+                price
+            })
+            res.status(200).json(newAdd )
+        }
+    }catch(error){
+        next(error)
+    }
+}
+
+
+
+export {addTocart , allItems}

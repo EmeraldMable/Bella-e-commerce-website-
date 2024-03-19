@@ -13,13 +13,11 @@ import { useParams } from "react-router-dom"
 
 function Detailpage() {
  
-
+ 
   const param = useParams()
 
    //fetch data using customHook 
     const {products:product} = useProduct(`/products/${param.id}`)
-
-   
 
   return (
     <>

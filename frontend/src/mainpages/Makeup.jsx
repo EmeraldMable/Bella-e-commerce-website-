@@ -4,6 +4,8 @@ import Loading from '../components/Loading'
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar'
 import Breadcrumb from '../components/Breadcrumb';
+import ScrollBtn from '../components/ScrollBtn';
+import { FaArrowRight } from "react-icons/fa6";
 
 
 function Makeup() {
@@ -14,24 +16,27 @@ function Makeup() {
     <>
     <Linksbar/>
     <Breadcrumb />
-    <div className=' p-8 w-full mx-auto'>
-      <p className='pt-serif-bold w-full mb-3 mx-auto text-3xl' style={{color:'#786262'}}>MakeUp</p>
-      <p className='pt-serif-regular mb-2 w-sull mx-auto text-lg'>Enhance your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural features</span></p>
-      <p className=' mb-10 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>လှသထက် လှဖို့</p>
+    <div className='px-6 w-full mx-auto'>
+      <p className='pt-serif-bold w-full mb-1 mx-auto text-4xl' style={{color:'#786262'}}>MakeUp</p>
+      <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'>Enhance your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural features</span></p>
+      <p className=' mb-5 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>လှသထက် လှဖို့</p>
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Foundation</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Foundation</p>
         {
           loading ? <Loading/> : (
            
            <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
               {products.map((each,index) => ( each.subcategory == 'face' ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'
+              <div className='text-center mx-auto mt-2 mb-20 '
               key={index}>
                 <Link to={`/makeup/detail/${each._id}`} >
-                  <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='foundation'/> 
-                  <p className='mx-auto mb-3 mt-2'>{each.name}</p>
-                  <span className='mx-auto'>price : {each.price} Kyats</span>
+                  <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='foundation'/> 
+                  <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                  <p className='font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>
+                  <span className='mx-auto'>Price : {each.price} Kyats</span>
+                  </div>
+                  
                 </Link>
               </div>
               )
@@ -42,18 +47,20 @@ function Makeup() {
           }
       </div>
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Lip</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Lip</p>
           {
           loading ? <Loading/> : (
             <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {products.map((each,index) => ( each.subcategory == 'lips' ? 
             
-              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'
+              <div className='text-center mx-auto mt-2 mb-20 '
               key={index}>
                  <Link to={`/makeup/detail/${each._id}`} >
-                  <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='products for lips'/> 
-                  <p className='mx-auto mb-3'>{each.name}</p>
-                  <span className='mx-auto'>price : {each.price} Kyats</span>
+                  <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='products for lips'/> 
+                  <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                  <p className='font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>
+                  <span className='mx-auto'>Price : {each.price} Kyats</span>
+                  </div>
                 </Link>
             </div>
             
@@ -64,17 +71,19 @@ function Makeup() {
         
       </div>
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Eyes</p>
+        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Eyes</p>
         {
           loading ? <Loading/> : (
             <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {products.map((each,index) => ( each.subcategory == 'eyes' ? 
-            <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'
+            <div className='text-center mx-auto mt-2 mb-20'
             key={index}>
               <Link to={`/makeup/detail/${each._id}`} >
-              <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='products for eyes'/> 
-              <p className='mx-auto mb-3'>{each.name}</p>
-              <span className='mx-auto'>price : {each.price} Kyats</span>
+              <img className=' w-[60%] mx-auto  hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='products for eyes'/> 
+              <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+              <p className=' font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>
+              <span className='mx-auto'>Price : {each.price} Kyats</span>
+              </div>
               </Link>
             </div>
             : '')) }
@@ -85,10 +94,14 @@ function Makeup() {
       </div>
       <div className='w-auto mx-auto mt-10 mb-10'>
         <p className='pt-serif-regular mb-10 text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Beauty Tools</p>
-        <p className=' h-24 p-10 mx-10 text-left text-white bg-red-800'>No items Yet for beauty tools.</p>
+        <p className='w-auto p-10 mb-10 mx-10 text-left  bg-gray-100'>No items Yet for beauty tools.</p>
+        <Link className='hover:underline text-xl' 
+        to='/skincare'
+        >Go to skincare page <FaArrowRight style={{display:'inline'}}/></Link>
       </div>
 
     </div>
+    <ScrollBtn/>
     <Footer/>
     </>
   )

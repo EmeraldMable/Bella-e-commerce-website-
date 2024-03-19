@@ -1,21 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    
-    loading:false,
-    error:false
+    list : null,
 }
 
 const cartSlice = createSlice({
-    name:'cart',
+    name:"cart",
     initialState,
     reducers:{
-        addToCart:(state) => {
-            state.loading = true,
-            state.error = false
-        }
+         productInCart: (state, action) => {
+           state.list = action.payload
+         }
     }
 })
 
-export const {addToCart} = cartSlice.actions
+export const {productInCart} = cartSlice.actions
 export default cartSlice.reducer

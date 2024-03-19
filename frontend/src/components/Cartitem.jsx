@@ -1,31 +1,47 @@
 import React, { useState } from 'react'
-import special from '../assets/specialgift1.jpg'
+import { BsFillPlusCircleFill } from "react-icons/bs";
 import { ImBin2 } from "react-icons/im";
+import { HiOutlineMinusCircle } from "react-icons/hi";
 
 
-function Cartitem() {
+function Cartitem({items}) {
     const [qty,setQty] = useState(1)
   return (
-  
-    <tr className='w-auto border-b-2 border-red-700 '>
-    <td className=' w-2 md:w-6 lg:w-12'><input type='checkbox' className=' accent-red-800' /></td>
-    <td className=' w-24 md:w-24 lg:w-24'><img className=' w-full' src={special} alt='image'/></td>
-    <td className=' w-20 md:w-32 '><p className='pt-serif-regular md:text-lg lg:text-xl'></p></td>
-    <td className=' w-12'><span className=' md:text-lg lg:text-xl'>3400 Kyats</span></td>
-    <td className=' w-16'>
-            <select className=' border-2 border-black rounded-md md:text-lg lg:text-xl'>
-                <option value={qty}>1</option>
-                <option value={qty}>2</option>
-            </select>
-    </td>
-    <td className=' w-16'> <p className='md:text-lg lg:text-xl'>105000 Kyats</p> </td>
-    <td className=' w-16'><button className=' md:text-lg lg:text-xl'>
-        <ImBin2/>
-        </button></td>
-   </tr>
-  
+
+  <>
+  {
+    items  ? (
+      items?.map((item) => (
+
+        <tr className='w-auto border-b-2 '>
+        <td className=' w-2 md:w-6 lg:w-12'><input type='checkbox' className=' accent-red-800' /></td>
+        <td className=' w-16'><img className=' w-full' src={item.img} alt='image'/></td>
+        <td className=' w-32'><p className='pt-serif-regular text-sm md:text-lg lg:text-xl'>{item.productName}</p></td>
+        <td className=' w-20'><span className='pt-serif-regular text-sm md:text-lg lg:text-xl'>{item.price} Kyats</span></td>
+        <td className=' w-16'>
+
+          <div className='flex items-center justify-center gap-5 md:text-lg lg:text-xl'>
+            <span ><BsFillPlusCircleFill onClick={() => setQty(curr => curr +1)}/></span>
+          <span className='text-lg'>{item.qty == 1 ? qty : item.qty}</span>
+            <span onClick={() => setQty(curr => curr -1)}><HiOutlineMinusCircle/></span>
+          </div>
+              
+        </td>
+        <td className=' w-16'> 
+        <p className='md:text-lg lg:text-xl'>{item.price * item.qty} Kyats</p></td>
+        <td className=' w-16'><button className=' md:text-lg lg:text-xl'>
+            <ImBin2/>
+            </button></td>
+        </tr>
+
+      ))
+    ): <p>No items in the Cart</p>
+  }
+  </>
 
   )
 }
 
 export default Cartitem
+
+
