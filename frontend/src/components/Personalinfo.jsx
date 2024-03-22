@@ -1,13 +1,15 @@
+import { useSelector } from "react-redux"
 
 
 function Personalinfo() {
+  const {currentUser} = useSelector(state => state.user)
   return (
-    <div className='mt-5 p-5 text-left leading-9'>
+    <div className='mt-5 mb-10 ml-48 text-left leading-9'>
         <div className="flex items-center relative">
-        <p className='pt-serif-bold'>
-            Deliver to : Mable 
-        </p>
-        <button className="absolute right-10 hover:border-2 w-10 hover:rounded-lg hover:bg-gray-200">Edit</button>
+          <p className='pt-serif-bold'>
+              Deliver to : {currentUser.username}
+          </p>
+       
         </div>
         
         
@@ -18,6 +20,7 @@ function Personalinfo() {
         <p>
             +95 9782871826
         </p>
+        <p className="w-auto">* Change your address or phone number in your user profile.</p>
     </div>
   )
 }

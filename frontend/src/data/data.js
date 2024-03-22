@@ -1,14 +1,6 @@
 import Vd1  from '../assets/slide/video1.mp4';
 import Slide2  from '../assets/slide/slide2.jpg';
 import Slide3  from '../assets/slide/slide3.jpg';
-import collagen from '../assets/bestseller/collagen.jpg'
-import lip from '../assets/bestseller/lip.jpg';
-import liptint from '../assets/bestseller/liptint.jpg';
-import mask from '../assets/bestseller/mask.jpeg';
-import matte from '../assets/bestseller/matte.png';
-import micellar from '../assets/bestseller/micellar.png';
-import thanakha from '../assets/bestseller/thanakha.jpg';
-import toner from '../assets/bestseller/toner.jpg';
 
 
 

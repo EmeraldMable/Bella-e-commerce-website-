@@ -12,6 +12,7 @@ import Cartpage from './mainpages/Cartpage'
 import Special from './mainpages/Special'
 import Specialpage from './mainpages/SpecialSet';
 import BestDetail from './mainpages/BestDetail';
+import Order from './mainpages/Orderpage';
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
         <Route path='/skincare/detail/:id' element={<Detail/>}> </Route>
         <Route path='/collection/detail/:id' element={<Detail/>}> </Route>
         <Route path='/specialsets/detail/:id' element={<Special/>}> </Route>
+        <Route path='/order' element={<Order/>}></Route>
         <Route path='/detail/:id' element={<BestDetail/>}></Route>
         <Route path='/cart' element={<Cartpage/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
