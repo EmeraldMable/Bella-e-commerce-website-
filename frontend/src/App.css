@@ -52,6 +52,12 @@
     position: fixed;
     top:0
   }
+  .tooltip{
+    z-index: 900;
+  }
+  .topBtn{
+    z-index: 900;
+  }
   
   .topBtn:hover{
     opacity: .5;
@@ -80,6 +86,7 @@
   background-color: rgb(255, 255, 255);
   overflow-y: scroll;
   overflow-x:hidden ;
+  position: relative;
 
 }
 ::-webkit-scrollbar{

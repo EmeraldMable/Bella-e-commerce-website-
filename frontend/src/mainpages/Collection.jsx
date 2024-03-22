@@ -17,11 +17,11 @@ function CollectionSkin() {
     <Linksbar/>
     <Breadcrumb/>
     <div className=' px-6 w-full mx-auto'>
-    <p className='pt-serif-bold w-full mb-8 mx-auto text-4xl' style={{color:'#786262'}}>Collections</p>
-     
+    <p className='pt-serif-bold w-full mt-2 mb-8 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Collections</p>
+    
       
       <div className='w-auto mx-auto'>
-        <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' 
+        <p className='pt-serif-regular text-center text-xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-2xl lg:text-2xl' 
         style={{color:'#786262'}}>Thanakha Series</p>  
             {loading ? <Loading/>
             :

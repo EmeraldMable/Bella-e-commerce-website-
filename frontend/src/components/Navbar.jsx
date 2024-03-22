@@ -1,4 +1,4 @@
-import {  useState , useRef } from 'react'
+import {  useState , useRef , useEffect } from 'react'
 import Logo from '../assets/logo.png';
 import {NavLink} from 'react-router-dom';
 import { BiSolidHome } from "react-icons/bi";
@@ -11,10 +11,12 @@ import {useGSAP} from '@gsap/react'
 import gsap from 'gsap'
 
 
+
 function Navbar() {
   const {currentUser} = useSelector((state) => state.user);
   const [profile,setProfile] = useState(false)
-  const {list} = useSelector(state => state.cart)
+  const [cart, setCart] = useState(null)
+  
 
  const homeRef = useRef()
  const userRef = useRef()
@@ -43,6 +45,29 @@ function Navbar() {
       
     })
   })
+
+  useEffect (() => {
+    const carts = async () =>{
+      try{
+        const data = await fetch('/products/cart' , {
+          method:"POST",
+          headers:{
+            "Content-type" : "application/json"
+          },
+          body:JSON.stringify({
+            userId:currentUser._id
+          })
+        })
+        const itemsIncart = await data.json()
+        setCart(itemsIncart)
+       
+      }catch(error){
+        console.log(error)
+      }
+    }
+    carts();
+},[cart])
+
   
   return (
     <header className='z-40 inset-0 w-auto mx-auto bg-white h-16 border-t-2 border-x-8 border-red-900 '>
@@ -65,7 +90,7 @@ function Navbar() {
                  : ''}
             </div>
             <NavLink className='relative w-8 sm:w-14 md:w-14 lg:w-14' to='/cart' ref={cartRef}><IoIosCart className='icon' size={30} fill='brown'/>
-             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{list?.length}</span>
+             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length}</span>
             </NavLink>
            </>) 
           : ( <Link className='pt-serif-bold mr-24 md:mr-32 ld:mr-34 w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</Link>)}

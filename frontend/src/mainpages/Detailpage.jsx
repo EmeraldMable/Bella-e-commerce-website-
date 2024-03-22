@@ -8,9 +8,6 @@ import { useParams } from "react-router-dom"
 
 
 
-
-
-
 function Detailpage() {
  
  
@@ -28,6 +25,7 @@ function Detailpage() {
       <DetailUI product={product}/>
      
       </div>
+    
       
 
       <Footer/>

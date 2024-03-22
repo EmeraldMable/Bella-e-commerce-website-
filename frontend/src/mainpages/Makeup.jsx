@@ -17,9 +17,9 @@ function Makeup() {
     <Linksbar/>
     <Breadcrumb />
     <div className='px-6 w-full mx-auto'>
-      <p className='pt-serif-bold w-full mb-1 mx-auto text-4xl' style={{color:'#786262'}}>MakeUp</p>
-      <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'>Enhance your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural features</span></p>
-      <p className=' mb-5 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>လှသထက် လှဖို့</p>
+      <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>MakeUp</p>
+      <p className='pt-serif-regular mb-1 w-sull mx-auto text-lg md:text-xl lg:text-xl'>Enhance your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural features</span></p>
+      <p className=' mb-5 w-sull mx-auto font-bold italic text-lg md:text-xl lg:text-xl' style={{color:'#786262'}}>လှသထက် လှဖို့</p>
       <div className='w-auto mx-auto'>
         <p className='pt-serif-regular text-center text-2xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-3xl lg:text-3xl' style={{color:'#786262'}}>Foundation</p>
         {

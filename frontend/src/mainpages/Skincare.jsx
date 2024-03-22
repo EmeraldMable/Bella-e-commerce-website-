@@ -17,7 +17,7 @@ function Skincare() {
     <Linksbar/>
     <Breadcrumb/>
     <div className='px-6 w-full mx-auto'>
-      <p className='pt-serif-bold w-full mb-1 mx-auto text-4xl' style={{color:'#786262'}}>Skincare</p>
+      <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Skincare</p>
       <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'>Empower your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural Beauty</span></p>
       <p className=' mb-10 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>ပင်ကိုယ်အလှတိုးဖို့</p>
       <div className='w-auto mx-auto'>
@@ -49,7 +49,7 @@ function Skincare() {
             )
             }
           
-          <Link className='hover:underline text-xl' 
+          <Link className='hover:underline text-xl h-10 mb-10' 
         to='/collection'
         >Go to collection page <FaArrowRight style={{display:'inline'}}/></Link>
 

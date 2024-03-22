@@ -14,9 +14,9 @@ function SpecialSet() {
     <Linksbar/>
     <Breadcrumb/>
     <div className='px-6 w-full mx-auto'>
-    <p className='pt-serif-bold w-full mb-1 mx-auto text-4xl' style={{color:'#786262'}}>Special Gift Sets</p>
-      <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'> <span className='pt-serif-bold-italic' style={{color:'#786262'}}>The Best Bargain</span></p>
-      <p className=' mb-10 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>ဈေးအတန်ဆုံးနဲ့ အချိုဆုံး</p>
+    <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Special Gift Sets</p>
+      <p className='pt-serif-regular mb-1 w-sull mx-auto text-lg md:text-xl lg:text-xl'> <span className='pt-serif-bold-italic' style={{color:'#786262'}}>The Best Bargain</span></p>
+      <p className=' mb-10 w-sull mx-auto text-lg font-bold italic' style={{color:'#786262'}}>ဈေးအတန်ဆုံးနဲ့ အချိုဆုံး</p>
 
         {
           loading ? <Loading/> : (

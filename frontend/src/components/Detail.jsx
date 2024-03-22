@@ -2,15 +2,19 @@ import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import { IoIosCart } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa6";
+import Recommendproducts from "./Recommendproducts";
+
+
 
 
 function DetailUI({product}) {
     const [color,setColor] = useState('')
     const [slideImg, setSlideImg] = useState('')
-    const [stars, setStars] = useState(null)
+
+  
    
 
     const {currentUser} = useSelector(state => state.user)
@@ -28,17 +32,23 @@ function DetailUI({product}) {
             qty:1,
             productName:product.name,
             img:product.photo,
-            price:product.price
+            price:product.price,
+            instock:product.qty
           })
         })
         const data = await response.json()
         console.log(data)
+    
       alert( data.message || 'Successfully added to the cart.')
 
       }catch(error){
         console.log(error)
       }
      
+    }
+
+    const Outofstock = () => {
+      alert(' SORRY! , This item is OUT OF STOCK right now.')
     }
   
    
@@ -70,13 +80,20 @@ function DetailUI({product}) {
                     onClick={(e) => setSlideImg(e.target.src) }/>)
                   }
                 </div>
-                
-                
-                
-                  <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white"
-                  onClick={AddCart}>
-                  Add to cart<IoIosCart style={{display:"inline"}} 
-                  /></button>
+                   {
+                       product.qty == 0 ?  ( <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white"
+                       onClick={Outofstock}>
+                       Out of stock<IoIosCart style={{display:"inline"}} 
+                       /></button>) 
+                       : (
+                       <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white"
+                       onClick={AddCart}>
+                       Add to cart<IoIosCart style={{display:"inline"}} 
+                       /></button>)
+                   }
+                   
+                 
+                 
                   
                
 
@@ -135,6 +152,8 @@ function DetailUI({product}) {
     
     
     <img className="w-full" src={product.howtouse} alt="how to use" />
+
+    <Recommendproducts category={product.category} />
   </div>
   )
 }

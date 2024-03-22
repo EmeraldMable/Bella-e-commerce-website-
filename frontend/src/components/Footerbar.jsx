@@ -7,7 +7,7 @@ import { FaTelegram } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className=' w-auto mx-0 min-h-96 text-white pb-10' 
+    <div className=' w-auto mx-0 min-h-96 text-white pb-10 mt-16' 
      style={{background:'#786252'}}>
         <p className=' w-auto text-xl md:text-2xl font-bold mb-2 pt-10 pb-4  '>Always Building Confidence Through Beauty</p>
          <div className=' w-auto mx-12 h-auto lg:gap-5 lg:flex lg:items-center lg:justify-center'>

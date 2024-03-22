@@ -4,12 +4,8 @@ import { IoIosArrowForward } from "react-icons/io";
 
 function Breadcrumb() {
     const {pathname} = useLocation();
-    const names = pathname.split('/').filter((x) => x)
-    console.log(names)
-  
+    const names = pathname.split('/').filter((x) => x)  
     let track = ""
-
-    console.log(track)
   return (
     <div className="text-lg w-full mx-3 md:mx-5 lg:mx-10 text-left mt-6 md:mt-6 lg:mt-6">
     { names.length > 0  &&  <Link className=" hover:opacity-40" to="/"> Home</Link>}

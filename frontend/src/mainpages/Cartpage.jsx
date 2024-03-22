@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Linksbar from '../components/Linksbar'
-import DesktopCart from '../components/DesktopCart.jsx'
 import Footer from '../components/Footerbar'
 import Breadcrumb from '../components/Breadcrumb'
 import { useDispatch, useSelector } from 'react-redux'
 import { productInCart } from '../redux/cartSlice.js'
 import MobileCart from '../components/MobileCart.jsx'
+import ScrollBtn from '../components/ScrollBtn.jsx'
 
 
 function Cartpage() {
@@ -13,6 +13,7 @@ function Cartpage() {
   const [items,setItems] = useState()
   const {list} = useSelector(state => state.cart)
   const dispatch = useDispatch()
+ 
   
   useEffect (() => {
       const allItems = async () =>{
@@ -40,10 +41,10 @@ function Cartpage() {
     <>
     <Linksbar/>
     <Breadcrumb/>
-    <h2 className='pt-serif-bold text-3xl  ' style={{color:'#786262'}}
+    <h2 className='pt-serif-bold text-3xl mt-4 ' style={{color:'#786262'}}
         >Shopping Cart</h2>
     <div className=' w-full'>
-      <div className='text-left w-auto lg:w-1/2 mt-8 mx-10'  style={{color:'#786262'}}>
+      <div className='text-left w-auto mt-8 mx-5 sm:mx-5 md:mx-5 lg:mx-auto lg:w-2/3'  style={{color:'#786262'}}>
         <h3 className='pt-serif-bold mb-4 text-xl'>Return Policy *</h3>
         <p className='text-lg mb-2'>* Gift cards <strong>are not refundable.</strong> </p>
         <p className='text-lg mb-2'>* To complete a refund, we require <strong>a receipt or proof of purchase.
@@ -55,14 +56,11 @@ function Cartpage() {
             </strong>
         </p>
       </div>
-
-      <DesktopCart items={items}/>
-    
-     <MobileCart items={items}/>
-    
+          <MobileCart/>
+   
      
       </div>
-    
+      <ScrollBtn/>
     <Footer/>
     </>
   )

@@ -21,6 +21,13 @@ const cart = new Schema({
     },
     price:{
         type:Number
+    },
+    instock:{
+        type:Number
+    },
+    isChecked:{
+        type:Boolean,
+        default:false
     }
 },{timestamp:true})
 

@@ -20,13 +20,13 @@ const allItems = async (req,res,next) => {
 
 const addTocart = async (req,res,next) => {
     try{
-        const {customerId,productId,qty,productName,img,price} = req.body 
+        const {customerId,productId,qty,productName,img,price , instock} = req.body 
         
-        const check = await Cart.findOne({productId}).populate("Product")
+        const check = await Cart.findOne({productId})
         if(check){
             check.qty += 1
             await check.save()
-            res.status(201).json({message:'Already in the cart.'})
+            res.status(201).json({message:'Already in the cart. Quantity is increased.'})
         
         }else{
             const newAdd = await Cart.create({
@@ -35,7 +35,8 @@ const addTocart = async (req,res,next) => {
                 qty,
                 productName,
                 img,
-                price
+                price, 
+                instock
             })
             res.status(200).json(newAdd )
         }
@@ -44,6 +45,17 @@ const addTocart = async (req,res,next) => {
     }
 }
 
+const deleteItem = async (req,res, next) => {
+    const {id} = req.body
+    try{
+       const deletedItem = await Cart.findByIdAndDelete(id)
+       const cartitem = await Cart.find()
+        res.status(200).json(cartitem)
+    }catch(error){
+        next(error)
+    }
+}
 
 
-export {addTocart , allItems}
+
+export {addTocart , allItems , deleteItem}
