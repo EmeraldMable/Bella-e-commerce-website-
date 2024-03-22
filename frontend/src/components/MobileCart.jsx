@@ -54,7 +54,7 @@ const handleOrder = () => {
   return (
     <>
     <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list.length}) items in cart</div>
-    <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100'>
+    <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100 relative'>
         { list.length >= 1 ? (
             list?.map((item,index) => (
                 <div key={index} className='w-full flex gap-1 mx-auto border-2 mb-3'>
@@ -73,7 +73,7 @@ const handleOrder = () => {
                     <p className="text-lg">{item.productName}</p>
                     <p className='text-sm mt-4'>{item.price} <RxCross2 className='inline'/> {item.qty} = {item.price* item.qty} Kyats</p>
                    
-                   <div className="flex items-center justify-between">
+                   <div className="flex items-center gap-5">
                    
                    <select className='border-2 mt-2' value={item.qty} onChange={(e) => dispatch(increaseItems({
                     id:item._id,
@@ -83,7 +83,8 @@ const handleOrder = () => {
                       <option key={val} value={val+1}>{val+1}</option>
                     ))}
                    </select>
-                   <button 
+                   <p> ({item.instock} items in stock )</p>
+                   <button className=' absolute right-10'
                    onClick={() => RemoveItems(item._id)}> <ImBin2  /></button>
                    </div>
                   </div>
