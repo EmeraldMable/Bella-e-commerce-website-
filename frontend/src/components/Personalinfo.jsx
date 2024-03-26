@@ -6,7 +6,7 @@ function Personalinfo() {
   return (
     <div className='mt-5 mb-10 ml-48 text-left leading-9'>
         <div className="flex items-center relative">
-          <p className='pt-serif-bold'>
+          <p className='pt-serif-regular text-xl mb-2'>
               Deliver to : {currentUser.username}
           </p>
        

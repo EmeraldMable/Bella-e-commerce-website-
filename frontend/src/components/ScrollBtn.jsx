@@ -24,7 +24,7 @@ function ScrollBtn() {
   return (
     <div>{top && (
         <>
-        <span className="tooltip bg-red-950 text-white p-2 fixed bottom-20 right-10 ">Back to top</span>
+        <span className="tooltip bg-red-950 text-white p-2 fixed bottom-20 right-10 "  onClick={Scroll}>Back to top</span>
         <button className="topBtn fixed bottom-5 right-16"
          onClick={Scroll}>
             <IoIosArrowDropupCircle size={46} fill="brown"/>

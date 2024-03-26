@@ -107,7 +107,7 @@ const handleOrder = () => {
           <p className='text-sm mb-5'>Delivery : 2,390 Kyats</p>
           <p className='text-xl'>Total : {total } Kyats</p>
         </div>
-        <button className='col-span-2 mt-5 bg-red-900  text-white p-3 rounded-md' onClick={handleOrder}>
+        <button className='col-span-2 mt-5 bg-red-900  text-white p-3 rounded-md hover:bg-red-800' onClick={handleOrder}>
           Check Out ({select.length} items)
         </button>
         

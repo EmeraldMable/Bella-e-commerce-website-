@@ -73,6 +73,24 @@
   .link:hover > .link img{
     width: 100%;
   }
+  .svg{
+    position: relative;
+    width: 300px;
+    height: 150px;
+    box-shadow: 0 0 5px brown;
+  }
+  
+  .bounce{
+    animation: bouncing 1s infinite;
+  }
+  @keyframes bouncing{
+    50%{
+      transform: translateY(-10px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
 }
 
 *{
