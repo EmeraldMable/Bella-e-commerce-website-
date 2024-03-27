@@ -50,7 +50,7 @@ function Links() {
    
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
-               : 'hamburger text-white' }  to='/'
+               : 'hamburger text-white' }  to='/men-session'
               onClick={()=>setMenuclick(!menuclick)} >For Men
               </NavLink>
 
@@ -85,7 +85,7 @@ function Links() {
              </NavLink>
              
               <NavLink className= {({ isActive }) => isActive ?
-              'text-white ' : 'linkbar text-white'} to='/' tabIndex={0}  >For Men
+              'text-white ' : 'linkbar text-white'} to='/men-session' tabIndex={0}  >For Men
              </NavLink>
               <NavLink className= {({ isActive }) => isActive ?
               ' text-white' : 'linkbar text-white'}

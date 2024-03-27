@@ -27,10 +27,6 @@ function Footer() {
 
             <div className='w-auto h-auto mb-8 lg:w-1/4 lg:h-32'>
                 <p className=' text-base md:text-lg font-bold mb-2'>QUICK LINKS</p>
-                <Link className='text-base block hover:underline' to='/'>Lip</Link>
-                <Link  className='text-base block hover:underline' to='/'>Eyes</Link>
-                <Link  className='text-base block hover:underline' to='/'>Face</Link>
-                <Link  className='text-base block hover:underline' to='/'>Beauty Tools</Link>
                 <Link  className='text-base block hover:underline' to='/'>Privacy Policy</Link>
                 <Link  className='text-base block hover:underline' to='/'>Terms and Conditions</Link>
             </div>

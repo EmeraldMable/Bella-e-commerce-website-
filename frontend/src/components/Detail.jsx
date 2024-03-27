@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa6";
 import Recommendproducts from "./Recommendproducts";
-
+import { FaBell } from "react-icons/fa";
 
 
 
@@ -47,11 +47,10 @@ function DetailUI({product}) {
      
     }
 
-    const Outofstock = () => {
-      alert(' SORRY! , This item is OUT OF STOCK right now.')
+    const handleNoti = () => {
+      alert('Noted, our dear customer. We will notify you as soon as it is back in stock.')
     }
   
-   
   return (
     <div className="w-auto text-left mx-auto my-10" key={product._id} style={{color:'#786262'}} >
         <div className="flex items-center gap-20">
@@ -81,10 +80,18 @@ function DetailUI({product}) {
                   }
                 </div>
                    {
-                       product.qty == 0 ?  ( <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white"
-                       onClick={Outofstock}>
+                       product.qty == 0 ?  ( 
+                        <div className="flex items-center gap-5">
+                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white"
+                      >
                        Out of stock<IoIosCart style={{display:"inline"}} 
-                       /></button>) 
+                       /></button>
+                       <button className="mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-red-500"
+                       onClick={handleNoti}
+                       >
+                        Notify me later! <FaBell style={{display:"inline"}} 
+                        /></button>
+                        </div>) 
                        : (
                        <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white"
                        onClick={AddCart}>

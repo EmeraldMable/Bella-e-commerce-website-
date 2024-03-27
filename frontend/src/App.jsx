@@ -14,6 +14,7 @@ import Specialpage from './mainpages/SpecialSet';
 import BestDetail from './mainpages/BestDetail';
 import Order from './mainpages/Orderpage';
 import Confirm from './mainpages/Confirm'
+import Men from './mainpages/Men.jsx'
 
 function App() {
  
@@ -27,9 +28,11 @@ function App() {
         <Route path='/makeup' element={<Makeup/>}></Route>
         <Route path='/skincare' element={<Skincare/>}></Route>
         <Route path='/collection' element={<Collection/>}></Route>
+        <Route path='/men-session' element={<Men/>}></Route>
         <Route path='/specialsets' element={<Specialpage/>}></Route>
         <Route path='/makeup/detail/:id' element={<Detail/>}> </Route>
         <Route path='/skincare/detail/:id' element={<Detail/>}> </Route>
+        <Route path='/men-session/detail/:id' element={<Detail/>}> </Route>
         <Route path='/collection/detail/:id' element={<Detail/>}> </Route>
         <Route path='/specialsets/detail/:id' element={<Special/>}> </Route>
         <Route path='/order' element={<Order/>}></Route>
