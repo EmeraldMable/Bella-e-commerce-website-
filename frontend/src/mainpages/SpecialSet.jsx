@@ -6,6 +6,7 @@ import Linksbar from '../components/Linksbar'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import ScrollBtn from '../components/ScrollBtn'
+import Cartfloat from '../components/Cartfloat'
 
 function SpecialSet() {
     const {products , loading} = useProduct('/products')
@@ -14,7 +15,7 @@ function SpecialSet() {
     <Linksbar/>
     <Breadcrumb/>
     <div className='px-6 w-full mx-auto'>
-    <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Special Gift Sets</p>
+    <p className='pt-serif-bold w-full mt-4 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Special Gift Sets</p>
       <p className='pt-serif-regular mb-1 w-sull mx-auto text-lg md:text-xl lg:text-xl'> <span className='pt-serif-bold-italic' style={{color:'#786262'}}>The Best Bargain</span></p>
       <p className=' mb-10 w-sull mx-auto text-lg font-bold italic' style={{color:'#786262'}}>ဈေးအတန်ဆုံးနဲ့ အချိုဆုံး</p>
 
@@ -42,6 +43,7 @@ function SpecialSet() {
          
           }
     </div>
+    <Cartfloat/>
     <ScrollBtn/>
     <Footer/>
     </>

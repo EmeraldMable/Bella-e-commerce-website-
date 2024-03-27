@@ -5,6 +5,7 @@ import useProduct from '../customHook/useProduct'
 import Linksbar from '../components/Linksbar'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
+import Cartfloat from '../components/Cartfloat'
 
 function BestDetail() {
     const param = useParams()
@@ -19,7 +20,7 @@ function BestDetail() {
     <DetailUI product={product}/>
    
     </div>
-    
+    <Cartfloat/>
 
     <Footer/>
   </>

@@ -5,9 +5,9 @@ import PersonalInfo from '../components/Personalinfo'
 import Payment from '../components/Payment'
 import OrderSummary from '../components/Ordersummary'
 import ScrollBtn from'../components/ScrollBtn'
-import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import Cartfloat from '../components/Cartfloat'
 
 
 function Orderpage() {
@@ -15,7 +15,7 @@ function Orderpage() {
   const [order,setOrder] = useState(null)
   const {list} = useSelector(state => state.cart)
   useEffect(() => {
-    const order = list.filter((item) => item.isChecked !== false)
+    const order = list?.filter((item) => item.isChecked !== false)
     setOrder(order)
   },[list])
   
@@ -40,13 +40,14 @@ function Orderpage() {
        
 
       {order?.length >= 1 ? (
-        <Payment/>
+        <Payment list = {order}/>
       ):(
         <p className='pt-serif-bold text-left ml-48 text-xl'>Please select items to check out.</p>
       )}
         
         
     </div>
+
     <ScrollBtn/>
     <Footer/>
     </>

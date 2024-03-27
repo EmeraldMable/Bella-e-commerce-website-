@@ -6,6 +6,7 @@ import Footer from '../components/Footerbar'
 import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
+import Cartfloat from '../components/Cartfloat';
 
 
 function Makeup() {
@@ -95,12 +96,13 @@ function Makeup() {
       <div className='w-auto mx-auto mt-10 mb-10'>
         <p className='pt-serif-regular mb-10 text-left md:mx-10 lg:mx-20 w-full text-lg md:text-xl lg:text-2xl' style={{color:'#786262'}}>Beauty Tools</p>
         <p className='w-auto p-10 mb-10 mx-10 text-left  bg-gray-100'>No items Yet for beauty tools.</p>
-        <Link className='hover:underline text-xl' 
+        <Link className='pt-serif-regular hover:underline text-xl' 
         to='/skincare'
         >Go to skincare page <FaArrowRight style={{display:'inline'}}/></Link>
       </div>
 
     </div>
+    <Cartfloat/>
     <ScrollBtn/>
     <Footer/>
     </>

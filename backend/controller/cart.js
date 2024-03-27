@@ -1,3 +1,4 @@
+import { cartRoute } from '../cartRoute/cart.js'
 import {Cart} from '../models/cart.js'
 
 
@@ -56,6 +57,46 @@ const deleteItem = async (req,res, next) => {
     }
 }
 
+const updateCart = async (req, res,next) => {
+    const {id, isChecked} = req.body
+    try{ 
+        if(id == 'all'){
+            const update = await Cart.updateMany( {
+                isChecked:false
+            },{
+                $set: {
+                    isChecked:true
+                }
+            } , {new:true})
+            res.status(200).json(update)
+        }else{
+            const update = await Cart.findByIdAndUpdate(id , {
+                $set: {
+                    isChecked:isChecked
+                }
+            } , {new:true})
+            res.status(200).json(update)
+        }
+       
+       
+    }catch(error){
+        next(error)
+    }
+}
 
 
-export {addTocart , allItems , deleteItem}
+//Delete Order items from cart//
+const orderItems = async (req , res, next) => {
+    try{
+        const updated = await Cart.deleteMany({isChecked:true})
+       const remainItems = await Cart.find()
+       res.status(200).json(remainItems)
+        
+    }catch(error){
+        next(error)
+    }
+}
+
+
+
+export {addTocart , allItems , deleteItem , updateCart, orderItems}

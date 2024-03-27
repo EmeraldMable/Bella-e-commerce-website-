@@ -5,6 +5,7 @@ import DetailUI from '../components/Detail'
 import Breadcrumb from '../components/Breadcrumb'
 import useProduct from "../customHook/useProduct"
 import { useParams } from "react-router-dom"
+import Cartfloat from '../components/Cartfloat'
 
 
 
@@ -27,7 +28,7 @@ function Detailpage() {
       </div>
     
       
-
+    <Cartfloat/>
       <Footer/>
     </>
   )

@@ -11,7 +11,7 @@ import Carousel from '../components/Carousel';
 import {video, carouselSlide , Slogans } from '../data/data'
 import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
-
+import Cartfloat from '../components/Cartfloat';
 
 
 
@@ -58,6 +58,7 @@ function Home() {
         <p className='pt-serif-bold -z-0 text-base w-full mx-auto leading-7 sm:leading-10 sm:text-xl lg:text-2xl lg:leading-10  ' ref={slogan2}>{Slogans.des.eng}</p>
       </div>
    </section>
+   <Cartfloat/>
    <ScrollBtn/>
       <Shortcut/>
       <Giftset/>

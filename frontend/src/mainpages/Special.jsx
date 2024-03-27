@@ -5,6 +5,7 @@ import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import DetailUI from '../components/Detail'
 import { useParams } from 'react-router-dom'
+import Cartfloat from '../components/Cartfloat'
 
 function Special() {
     const params = useParams()
@@ -19,7 +20,7 @@ function Special() {
    
     </div>
     
-
+    <Cartfloat/>
     <Footer/>
   </>
   )

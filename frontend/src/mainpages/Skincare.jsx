@@ -7,6 +7,7 @@ import useProduct from '../customHook/useProduct';
 import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
+import Cartfloat from '../components/Cartfloat';
 
 
 function Skincare() {
@@ -49,7 +50,7 @@ function Skincare() {
             )
             }
           
-          <Link className='hover:underline text-xl h-10 mb-10' 
+          <Link className='pt-serif-regular hover:underline text-xl h-10 mb-10' 
         to='/collection'
         >Go to collection page <FaArrowRight style={{display:'inline'}}/></Link>
 
@@ -61,6 +62,7 @@ function Skincare() {
 
      
     </div>
+    <Cartfloat/>
     <ScrollBtn/>
     <Footer/>
     </>

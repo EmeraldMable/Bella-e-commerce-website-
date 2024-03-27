@@ -91,6 +91,18 @@
       transform: translateY(0);
     }
   }
+  .small-cart{
+    display: none;
+    position: relative;
+  }
+
+  .cart:hover .small-cart{
+    display: block;
+  }
+  .small-cart:hover .small-cart{
+    display: block;
+    cursor: pointer;
+  }
 }
 
 *{

@@ -10,6 +10,7 @@ function Ordersummary() {
     const {list} = useSelector(state => state.cart)
     const [checked , setChecked] = useState({})
     const [total , setTotal] = useState(null)
+    const [date, setDate] = useState(new Date())
 
    useEffect(() => {
         const random = Math.floor(Math.random()* 10000000)
@@ -34,7 +35,8 @@ function Ordersummary() {
         )
     }
     <div className=" w-auto border-2 p-2 mx-3 my-10">
-        <p className="pt-serif-bold mb-5">Invoice</p>
+        <p className="pt-serif-bold mb-2">Invoice</p>
+        <p className="pt-serif-regular relative -right-32 mb-3">Date : {date.getDate() }/ { date.getMonth()} / {date.getFullYear()} </p>
         <div className="pt-serif-regular text-left mx-2">
             <div className="grid grid-cols-2 gri mb-1">
                 <p className="mr-10">Invoice No.</p>

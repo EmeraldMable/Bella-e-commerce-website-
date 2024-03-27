@@ -38,6 +38,29 @@ const RemoveItems = async (id) => {
   }
  }
 
+ const UpdatetoData = async (id , isChecked) => {
+    try{
+      const update = await fetch('/products/update' , {
+        method:"POST" ,
+        headers:{
+          'Content-type':'application/json'
+        },
+        body:JSON.stringify({
+          id,
+          isChecked: isChecked
+        })
+      })
+      const response = await update.json()
+      console.log(response)
+      dispatch(UpdateChecked({
+        id:id,
+        isChecked:isChecked
+      }))
+    }catch(error){
+      console.log(error)
+    }
+ }
+
 
  useEffect(() => {
   const selection = list.filter((li) => li.isChecked !== false)
@@ -57,21 +80,18 @@ const handleOrder = () => {
     <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100 relative'>
         { list.length >= 1 ? (
             list?.map((item,index) => (
-                <div key={index} className='w-full flex gap-1 mx-auto border-2 mb-3'>
+                <div key={index} className='w-full flex items-center gap-1 mx-auto border-2 mb-3'>
                   
-                      <input className="mx-8 accent-black" type="checkbox"  checked={item.isChecked}
-                      
-                      onChange={(e) =>dispatch(UpdateChecked({
-                        id:item._id,
-                        isChecked:e.target.checked
-                      })) }/>
+                      <input className=" mx-2 md:mx-8 lg:mx-8 accent-black" type="checkbox"  checked={item.isChecked}
+                      onChange= {(e) => UpdatetoData(item._id, e.target.checked)}
+                     />
                     
                  
                 
-                  <img className=' max-w-20 h-36 md:max-w-36 lg:max-w-xl mix-blend-multiply' src={item.img} alt={item.productName} />
+                  <img className=' w-20 h-20 md:max-w-36 lg:max-w-xl mix-blend-multiply' src={item.img} alt={item.productName} />
                   <div className='pt-serif-regular w-full p-4 flex flex-col text-left '>
-                    <p className="text-lg">{item.productName}</p>
-                    <p className='text-sm mt-4'>{item.price} <RxCross2 className='inline'/> {item.qty} = {item.price* item.qty} Kyats</p>
+                    <p className="text-sm md:text-lg lg:text-lg">{item.productName}</p>
+                    <p className='text-xs md:text-sm lg:text-sm mt-4'>{item.price} <RxCross2 className='inline'/> {item.qty} = {item.price* item.qty} Kyats</p>
                    
                    <div className="flex items-center gap-5">
                    
@@ -83,8 +103,8 @@ const handleOrder = () => {
                       <option key={val} value={val+1}>{val+1}</option>
                     ))}
                    </select>
-                   <p> ({item.instock} items in stock )</p>
-                   <button className=' absolute right-10'
+                   <p className='text-xs md:text-sm lg:text-sm'> ({item.instock} items in stock )</p>
+                   <button className=' absolute right-5 mt-6 md:right-10 lg:right-10'
                    onClick={() => RemoveItems(item._id)}> <ImBin2  /></button>
                    </div>
                   </div>
@@ -97,10 +117,7 @@ const handleOrder = () => {
     </div>
     <div className='grid grid-cols-2 items-center p-4 bg-gray-100 my-20 h-32'>
         <div className='flex gap-3 pl-10'>
-          <input className='w-auto accent-black' type='checkbox'  id='all' onChange={(e) => dispatch(UpdateChecked({
-            id:e.target.id,
-            isChecked:e.target.checked
-          })) }/>
+          <input className='w-auto accent-black' type='checkbox'  id='all' onChange={(e) => UpdatetoData(e.target.id , e.target.checked)}/>
           <p>All Items</p>
         </div>
         <div className='flex flex-col'>

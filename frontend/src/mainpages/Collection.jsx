@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import useProduct from '../customHook/useProduct';
 import { FaArrowRight } from "react-icons/fa6";
+import Cartfloat from '../components/Cartfloat';
 
 function CollectionSkin() {
  
@@ -32,7 +33,7 @@ function CollectionSkin() {
               each.category == 'makeup' && each.set == 'Thanakha series' || each.set == 'Thanakha'
                ? 
               (
-              <div className=' text-center mx-auto mt-2 mb-20 '>
+              <div className=' text-center mx-auto mt-2 mb-20 ' key={index}>
                 <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'
@@ -66,7 +67,7 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Watermelon'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
                 <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
@@ -99,7 +100,7 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'skincare' && each.set == 'cica'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
                 <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
@@ -134,7 +135,7 @@ function CollectionSkin() {
               {product.map((each,index) => ( each.category == 'makeup' && each.set == 'Superstar'
                ? 
               (
-              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200'>
+              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
                 <Link to={`/collection/detail/${each._id}`} >
                     <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
                     <div className='pt-serif-regular bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
@@ -153,7 +154,7 @@ function CollectionSkin() {
           
           
   
-          <Link className='hover:underline text-xl' 
+          <Link className='pt-serif-regular hover:underline text-xl' 
         to='/specialsets'
         >Go to Special Gift page <FaArrowRight style={{display:'inline'}}/></Link>
        
@@ -164,6 +165,7 @@ function CollectionSkin() {
 
      
     </div>
+    <Cartfloat/>
     <ScrollBtn/>
     <Footer/>
     </>
