@@ -39,11 +39,14 @@ const useSlice = createSlice({
             state.currentUser = null
             state.loading = false 
             state.error = false
+        },
+        updateAddress: (state, action) => {
+            state.currentUser = action.payload
         }
     }
 })
 
 export const {signInStart,signInSuccess,signInFail,
     updateUserStart,updateUserSuccess,updateUserFailure ,
-     signoutSuccess} = useSlice.actions;
+     signoutSuccess , updateAddress} = useSlice.actions;
 export default useSlice.reducer;

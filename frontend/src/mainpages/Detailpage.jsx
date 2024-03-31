@@ -6,7 +6,7 @@ import Breadcrumb from '../components/Breadcrumb'
 import useProduct from "../customHook/useProduct"
 import { useParams } from "react-router-dom"
 import Cartfloat from '../components/Cartfloat'
-
+import ScrollBtn from '../components/ScrollBtn'
 
 
 function Detailpage() {
@@ -29,6 +29,7 @@ function Detailpage() {
     
       
     <Cartfloat/>
+    <ScrollBtn/>
       <Footer/>
     </>
   )

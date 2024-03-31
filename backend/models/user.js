@@ -23,6 +23,14 @@ const users = new Schema({
         type:String,
         default:'https://static.thenounproject.com/png/4584119-200.png'
     },
+    address:{
+        type:String,
+        default:'Write your Address.'
+    },
+    phoneno:{
+        type:Number,
+        default:0
+    },
     created_at:{
         type:Date,
         default:Date.now()

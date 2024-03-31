@@ -90,10 +90,10 @@ function Navbar() {
                  : ''}
             </div>
             <NavLink className='relative w-8 sm:w-14 md:w-14 lg:w-14' to='/cart' ref={cartRef}><IoIosCart className='icon' size={30} fill='brown'/>
-             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length}</span>
+             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length >= 1 ? cart.length : '0' }</span>
             </NavLink>
            </>) 
-          : ( <Link className='pt-serif-bold mr-24 md:mr-32 ld:mr-34 w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</Link>)}
+          : ( <NavLink className='pt-serif-bold mr-10 md:mr-32 ld:mr-34 w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</NavLink>)}
            
         </div>
       </div>

@@ -6,6 +6,7 @@ import Footer from '../components/Footerbar'
 import DetailUI from '../components/Detail'
 import { useParams } from 'react-router-dom'
 import Cartfloat from '../components/Cartfloat'
+import ScrollBtn from '../components/ScrollBtn'
 
 function Special() {
     const params = useParams()
@@ -21,6 +22,7 @@ function Special() {
     </div>
     
     <Cartfloat/>
+    <ScrollBtn/>
     <Footer/>
   </>
   )

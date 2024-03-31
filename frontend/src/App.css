@@ -94,6 +94,7 @@
   .small-cart{
     display: none;
     position: relative;
+    z-index: 1000;
   }
 
   .cart:hover .small-cart{
@@ -102,6 +103,31 @@
   .small-cart:hover .small-cart{
     display: block;
     cursor: pointer;
+  }
+  .tunnel{
+    mask:linear-gradient(90deg,transparent, rgb(197, 196, 196) 30% , rgb(197, 196, 196) 80% , transparent);
+    -webkit-mask:linear-gradient(90deg, transparent, rgb(197, 196, 196)white 30% , rgb(197, 196, 196) 80% , transparent)
+  }
+  .loop{
+    animation: looping 10s infinite linear;
+    animation-duration: 100s;
+  }
+  @keyframes looping{
+    0%{
+      transform: translateX(100%);
+    }
+    30%{
+      transform: translateX(-250%);
+    }
+    60%{
+      transform: translateX(150%);
+    }
+    100%{
+      transform: translateX(-250%);
+    }
+  }
+  .tunnel:hover .loop{
+    animation-play-state: paused;
   }
 }
 

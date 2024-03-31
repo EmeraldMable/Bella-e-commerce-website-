@@ -1,5 +1,4 @@
 import {useRef,useState, useEffect} from 'react'
-import { FaEdit } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import {getDownloadURL, getStorage , ref, uploadBytesResumable} from 'firebase/storage';

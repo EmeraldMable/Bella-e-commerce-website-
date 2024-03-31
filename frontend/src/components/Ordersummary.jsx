@@ -12,6 +12,17 @@ function Ordersummary() {
     const [total , setTotal] = useState(null)
     const [date, setDate] = useState(new Date())
 
+    const handleOrder = async () => {
+        try{
+          const clearOrder = await fetch('/products/order/delete')
+          console.log(clearOrder)
+          const data = await clearOrder.json()
+          navigate('/orderconfirm')
+        }catch(error){
+          console.log(error)
+        }
+      }
+
    useEffect(() => {
         const random = Math.floor(Math.random()* 10000000)
         setOrder(random)
@@ -28,13 +39,13 @@ function Ordersummary() {
     <div className="mx-0">
     {
         checked.length >=1 ?(
-            <p className='pt-serif-bold text-2xl text-left -mt-10 mb-10'>Step 2 : Please check products and prices</p>
+            <p className='pt-serif-bold text-2xl text-left -mt-8 mb-10'>Step 2 : Please check products and prices</p>
         )
         :(
             ''
         )
     }
-    <div className=" w-auto border-2 p-2 mx-3 my-10">
+    <div className=" w-[600px] border-2 p-2 mx-3 my-10">
         <p className="pt-serif-bold mb-2">Invoice</p>
         <p className="pt-serif-regular relative -right-32 mb-3">Date : {date.getDate() }/ { date.getMonth()} / {date.getFullYear()} </p>
         <div className="pt-serif-regular text-left mx-2">
@@ -66,8 +77,12 @@ function Ordersummary() {
     </div>
     {
         checked?.length >= 1 ? (
+        <>
         <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
-        onClick={BacktoCart}>Cancel Order</button>          
+        onClick={BacktoCart}>Cancel Order</button> 
+         <button className="border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
+        onClick={handleOrder}>Place Order</button> 
+        </>         
         ):(
             <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
         onClick={BacktoCart}>Go back to cart</button>

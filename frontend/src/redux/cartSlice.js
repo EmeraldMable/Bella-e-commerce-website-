@@ -18,8 +18,10 @@ const cartSlice = createSlice({
           state.list[update].qty = action.payload.qty
           },
           UpdateChecked : (state, action) => {
+            
            if(action.payload.id == 'all') {
             state.list.map((li) => li.isChecked = action.payload.isChecked)
+              
            }else{
             const checking = state.list.findIndex((item) => item._id == action.payload.id)
             state.list[checking].isChecked = action.payload.isChecked

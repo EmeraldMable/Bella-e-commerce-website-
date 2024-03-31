@@ -2,10 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser'
-import { tutorialRouter } from './productsroutes/tutorial.js';
-import { userRoute } from './userRoute/user.js';
-import { productRoute } from './productsroutes/product.js';
-import {cartRoute} from './cartRoute/cart.js'
+import { tutorialRouter } from './routes/tutorial.js';
+import { userRoute } from './routes/user.js';
+import { productRoute } from './routes/product.js';
+import {cartRoute} from './routes/cart.js'
+import { reviewRoute } from './routes/review.js';
 
 
 dotenv.config(); 
@@ -19,7 +20,7 @@ app.use(cookieParser())
 
 app.use('/admission', userRoute)
 
-app.use('/products', productRoute  , tutorialRouter , cartRoute )
+app.use('/products', productRoute  , tutorialRouter , cartRoute , reviewRoute )
 
 
 

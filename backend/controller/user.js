@@ -104,7 +104,20 @@ const updateUser = async (req,res,next) =>{
 
     }
 }
-
+const UpdateInfo = async (req,res,next) => {
+    const {address, phoneno} = req.body
+    try{
+        const update = await User.findByIdAndUpdate(req.params.id , {
+            $set:{
+                address,
+                phoneno
+            }
+        }, {new:true})
+        res.status(200).json(update)
+    }catch(error){
+        next(error)
+    }
+}
 
 const signOut =  (req,res) => {
    
@@ -112,4 +125,4 @@ const signOut =  (req,res) => {
    
 }
 
-export {allUsers,createUser,googlelogin,updateUser,signOut}
+export {allUsers,createUser,googlelogin,updateUser,signOut , UpdateInfo}

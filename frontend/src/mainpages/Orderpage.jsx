@@ -27,7 +27,7 @@ function Orderpage() {
     <div className='w-auto mx-auto'>
       {
             order?.length >= 1 ? (
-              <p className='pt-serif-bold text-2xl text-left ml-28 mt-10'>Step 1 : Please check your info.</p>
+              <p className='pt-serif-bold text-2xl text-left ml-28 mt-8'>Step 1 : Please check your info.</p>
             ): (
               ''
             )
@@ -39,12 +39,7 @@ function Orderpage() {
         </div>
        
 
-      {order?.length >= 1 ? (
-        <Payment list = {order}/>
-      ):(
-        <p className='pt-serif-bold text-left ml-48 text-xl'>Please select items to check out.</p>
-      )}
-        
+      
         
     </div>
 

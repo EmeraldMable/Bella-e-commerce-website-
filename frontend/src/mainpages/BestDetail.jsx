@@ -6,6 +6,8 @@ import Linksbar from '../components/Linksbar'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import Cartfloat from '../components/Cartfloat'
+import ScrollBtn from '../components/ScrollBtn'
+
 
 function BestDetail() {
     const param = useParams()
@@ -21,7 +23,7 @@ function BestDetail() {
    
     </div>
     <Cartfloat/>
-
+  <ScrollBtn/>
     <Footer/>
   </>
     

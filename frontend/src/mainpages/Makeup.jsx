@@ -31,7 +31,7 @@ function Makeup() {
               (
               <div className='text-center mx-auto mt-2 mb-20 '
               key={index}>
-                <Link to={`/makeup/detail/${each._id}`} >
+                <Link to={`/makeup/${each._id}`} >
                   <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='foundation'/> 
                   <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
                   <p className='font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>
@@ -56,7 +56,7 @@ function Makeup() {
             
               <div className='text-center mx-auto mt-2 mb-20 '
               key={index}>
-                 <Link to={`/makeup/detail/${each._id}`} >
+                 <Link to={`/makeup/${each._id}`} >
                   <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='products for lips'/> 
                   <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
                   <p className='font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>
@@ -79,7 +79,7 @@ function Makeup() {
             {products.map((each,index) => ( each.subcategory == 'eyes' ? 
             <div className='text-center mx-auto mt-2 mb-20'
             key={index}>
-              <Link to={`/makeup/detail/${each._id}`} >
+              <Link to={`/makeup/${each._id}`} >
               <img className=' w-[60%] mx-auto  hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.photo} alt='products for eyes'/> 
               <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
               <p className=' font-bold text-lg mx-auto mb-3 mt-2'>{each.name}</p>

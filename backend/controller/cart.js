@@ -1,4 +1,4 @@
-import { cartRoute } from '../cartRoute/cart.js'
+import { cartRoute } from '../routes/cart.js'
 import {Cart} from '../models/cart.js'
 
 

@@ -15,6 +15,8 @@ import BestDetail from './mainpages/BestDetail';
 import Order from './mainpages/Orderpage';
 import Confirm from './mainpages/Confirm'
 import Men from './mainpages/Men.jsx'
+import Best from './mainpages/Best.jsx'
+
 
 function App() {
  
@@ -30,14 +32,15 @@ function App() {
         <Route path='/collection' element={<Collection/>}></Route>
         <Route path='/men-session' element={<Men/>}></Route>
         <Route path='/specialsets' element={<Specialpage/>}></Route>
-        <Route path='/makeup/detail/:id' element={<Detail/>}> </Route>
-        <Route path='/skincare/detail/:id' element={<Detail/>}> </Route>
-        <Route path='/men-session/detail/:id' element={<Detail/>}> </Route>
-        <Route path='/collection/detail/:id' element={<Detail/>}> </Route>
-        <Route path='/specialsets/detail/:id' element={<Special/>}> </Route>
+        <Route path='/makeup/:id' element={<Detail/>}> </Route>
+        <Route path='/skincare/:id' element={<Detail/>}> </Route>
+        <Route path='/men-session/:id' element={<Detail/>}> </Route>
+        <Route path='/collection/:id' element={<Detail/>}> </Route>
+        <Route path='/specialsets/:id' element={<Special/>}> </Route>
         <Route path='/order' element={<Order/>}></Route>
         <Route path='/orderconfirm' element={<Confirm/>}></Route>
-        <Route path='/detail/:id' element={<BestDetail/>}></Route>
+        <Route path='/best' element={<Best/>}></Route>
+        <Route path='/best/:id' element={<BestDetail/>}></Route>
         <Route path='/cart' element={<Cartpage/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/loginpage' element={<Loginpage/>}></Route>

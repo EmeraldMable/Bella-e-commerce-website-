@@ -1,6 +1,10 @@
 import Vd1  from '../assets/slide/video1.mp4';
 import Slide2  from '../assets/slide/slide2.jpg';
 import Slide3  from '../assets/slide/slide3.jpg';
+import Eain from '../assets/eain4.jpg'
+import Soe from '../assets/soe3.jpg'
+import Khine from '../assets/khine.jpg'
+import Myat from '../assets/myat.jpg'
 
 
 
@@ -44,6 +48,42 @@ const bestSellers = [
     
 ]
 
+const reviewsFromStars = [
+    {
+        id:'1',
+        name:'Eaindra Kyaw Zin',
+        status:'Actress',
+        photo:Eain,
+        review_myan:'Bella ကတော့ ကျွန်မ ရဲ့ အမြဲ ထသွားထလာ သုံးနေကြ cosmetics ပစ္စည်းပေါ့။ ကျွန်မရဲ့ အောင်မြင်မှုတိုင်းမှာ သူက အမြဲပါတယ်လေ။',
+        review_eng:'Bella is my go-to-cosmetics brand and it becomes a part of my success.'
+    }, 
+    {
+        id:'2',
+        name:'Soe Myat Thu Zar',
+        status:'Actress',
+        photo:Soe,
+        review_myan:'မကြီးရဲ့ အလှ ကို ပိုလို့ ကျက်သရေ တိုးစေတာ Bella ပဲပေါ့။',
+        review_eng:'Bella makes my gracious beauty glow.'
+    },
+    {
+        id:'3',
+        name:'Khine Thin Kyi',
+        status:'Actress',
+        photo:Khine,
+        review_myan:'Bella ကို ပဲ သုံး ဖြစ်နေတာ တော်တော် ကြာပါပြီ။ ‌ဈေးလည်းချိုသလို ပစ္စည်းလည်းကောင်းတော့ မြန်မာပြည် အတွက် ဂုဏ် ယူစရာပေါ့။',
+        review_eng:'It has been a quite long time that I have been using Bella. As a local brand, qualified and affordable , it makes us Myanmar proud.'
+    },
+    {
+        id:'4',
+        name:'Soe Myat Nandar',
+        status:'Actress',
+        photo:Myat,
+        review_myan:'Bella မှာက မြန်မာလူမျိုး အသားအရေ နဲ့ လိုက်ဖက်အောင် ထုတ်လုပ်ထားလို့ အရမ်း သုံးလို့ အဆင်ပြေတယ်။',
+        review_eng:'Bella products are produced for Myanmar skin type since it is so precious for us.'
+    }
+
+]
 
 
-export {video , carouselSlide , Slogans , bestSellers}
+
+export {video , carouselSlide , Slogans , bestSellers , reviewsFromStars}

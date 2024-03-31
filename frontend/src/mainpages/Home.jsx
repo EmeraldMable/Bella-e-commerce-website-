@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useRef , useState } from 'react';
+import { useEffect, useRef , useState } from 'react';
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
 import Review from '../components/Review';
@@ -25,6 +25,10 @@ function Home() {
     gsap.from(slogan2.current,{x:90 , duration:0.5 , delay:1})
     gsap.from(slogan1.current,{x:100 , duration:0.5 })
    })
+
+ 
+    
+  
   
   return (
     <>
