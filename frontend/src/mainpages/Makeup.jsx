@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
+import { useEffect } from 'react';
 
 
 function Makeup() {

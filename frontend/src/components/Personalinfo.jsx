@@ -55,7 +55,7 @@ function Personalinfo() {
     {
       !info ? (
         <button className="bg-red-800 text-white w-24  mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300"
-        onClick={handleAddress}>Add info</button>
+        onClick={handleAddress}>Edit info</button>
       ):(
         <button className="bg-red-800 text-white w-24 mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300"
         onClick={()=>AddInfo(currentUser._id)}>Add</button>

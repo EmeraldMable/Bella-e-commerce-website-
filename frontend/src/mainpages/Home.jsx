@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useEffect, useRef , useState } from 'react';
+import { useRef } from 'react';
 import Linksbar from '../components/Linksbar';
 import Footer from '../components/Footerbar';
 import Review from '../components/Review';

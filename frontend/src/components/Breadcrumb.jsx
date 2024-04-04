@@ -7,8 +7,8 @@ function Breadcrumb() {
     const names = pathname.split('/').filter((x) => x)  
     let track = ""
   return (
-    <div className="text-lg w-full mx-3 md:mx-5 lg:mx-10 text-left mt-6 md:mt-6 lg:mt-6">
-    { names.length > 0  &&  <Link className=" hover:opacity-40 mr-2 " to="/"> Home</Link>}
+    <div className="text-sm md:text-lg lg:text-xl mx-1 w-full md:mx-5 lg:mx-10 text-left mt-6 md:mt-6 lg:mt-6">
+    { names.length > 0  &&  <Link className=" hover:opacity-40 md:mr-2 lg:mr-2 " to="/"> Home</Link>}
         {names.map((name,index) => { 
             track+=`/${name}`;
 
@@ -18,7 +18,7 @@ function Breadcrumb() {
         return last  ? <span key={index}><IoIosArrowForward  style={{display:'inline'}}/>{name}</span> :
 
 
-        <span className="hover:opacity-45 mr-2" key={index}><Link  to={track}><IoIosArrowForward style={{display:'inline' , marginRight:'5'}}/>{name}</Link></span> })}
+        <span className="hover:opacity-45 md:mr-2 lg:mr-2" key={index}><Link  to={track}><IoIosArrowForward style={{display:'inline' , marginRight:'5'}}/>{name}</Link></span> })}
     </div>
   )
 }

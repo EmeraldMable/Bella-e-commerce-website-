@@ -5,7 +5,7 @@ import {getDownloadURL, getStorage , ref, uploadBytesResumable} from 'firebase/s
 import { app } from '../firebase.js';
 import { useDispatch } from 'react-redux';
 import { updateUserStart,updateUserSuccess,updateUserFailure , signoutSuccess } from '../redux/userSlice.js';
-
+import { FaEdit } from "react-icons/fa";
 
 
 

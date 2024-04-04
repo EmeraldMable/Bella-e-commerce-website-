@@ -1,15 +1,17 @@
 import { Review } from "../models/review.js";
 const review = async ( req, res, next) => {
-    const {productId, customerId, review , star,img} = req.body 
+    const {productId, customerId, username, photo , review , star} = req.body 
+  
     try{
         const addReview = await Review.create({
             productId,
             customerId,
+            username,
+            photo,
             review,
-            star,
-            img
+            star
         })
-        req.status(200).json(addReview)
+        res.status(200).json(addReview)
     }catch(error){
         next(error)
     }

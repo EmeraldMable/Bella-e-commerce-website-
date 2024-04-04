@@ -9,6 +9,12 @@ const reviews = new Schema({
         type:mongoose.Types.ObjectId,
         ref:'User'
     },
+    username:{
+        type:String
+    },
+    photo:{
+        type:String
+    },
     review:{
         type:String
     },
@@ -16,9 +22,7 @@ const reviews = new Schema({
         type:Number,
         default:0
     },
-    img:{
-        type:String
-    },
+   
     createdAt:{
         type:Date,
         default:Date.now()

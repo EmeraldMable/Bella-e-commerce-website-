@@ -7,6 +7,7 @@ import { userRoute } from './routes/user.js';
 import { productRoute } from './routes/product.js';
 import {cartRoute} from './routes/cart.js'
 import { reviewRoute } from './routes/review.js';
+import { questionRoute } from './routes/question.js';
 
 
 dotenv.config(); 
@@ -20,7 +21,7 @@ app.use(cookieParser())
 
 app.use('/admission', userRoute)
 
-app.use('/products', productRoute  , tutorialRouter , cartRoute , reviewRoute )
+app.use('/products', productRoute  , tutorialRouter , cartRoute , reviewRoute , questionRoute )
 
 
 

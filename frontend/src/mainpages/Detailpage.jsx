@@ -7,21 +7,29 @@ import useProduct from "../customHook/useProduct"
 import { useParams } from "react-router-dom"
 import Cartfloat from '../components/Cartfloat'
 import ScrollBtn from '../components/ScrollBtn'
-
+import { useEffect } from 'react'
 
 function Detailpage() {
  
  
   const param = useParams()
 
+
    //fetch data using customHook 
     const {products:product} = useProduct(`/products/${param.id}`)
 
+    useEffect(() => {
+      window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+      })
+    },[])
   return (
     <>
       <Linksbar/>
       <Breadcrumb/>
-      <div className="w-auto mx-4 md:mx-10 lg:mx-40"  >
+      <div className="w-auto mx-1 md:mx-2 lg:mx-20"  >
     
       <DetailUI product={product}/>
      

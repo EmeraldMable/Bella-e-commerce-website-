@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { productInCart } from '../redux/cartSlice.js'
 import MobileCart from '../components/MobileCart.jsx'
 import ScrollBtn from '../components/ScrollBtn.jsx'
-import Cartfloat from '../components/Cartfloat.jsx'
+
 
 
 function Cartpage() {

@@ -9,14 +9,39 @@ const questions = new Schema({
         type:mongoose.Types.ObjectId,
         ref:'User'
     },
-    question:{
+    username:{
         type:String
     },
-    created_at:{
-        type:Date,
-        default:Date.now()
-    }
+    questions:{
+        type:String,
+        required:true
+    },
+    replies:[
+       
+       {
+        questionsId:{
+            type:mongoose.Types.ObjectId
+        }, 
+        customerId:{
+            type:mongoose.Types.ObjectId
+        },
+        username:{
+            type:String
+        },
+        reply:{
+            type:String
+        },
+        created_at:{
+            type:Date,
+            default:Date.now()
+        }
+       }
+
+    ]
    
+   
+} ,{
+    timestamps:true
 })
 const Question =  mongoose.model('Question' , questions)
 export {Question}

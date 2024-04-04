@@ -61,13 +61,13 @@ function DetailUI({product}) {
     }
   
   return (
-    <div className="w-auto text-left mx-auto my-1" key={product._id} style={{color:'#786262'}} >
-        <div className="flex items-center gap-20">
+    <div className="w-full text-left mx-auto my-1" key={product._id} style={{color:'#786262'}} >
+        <div className="flex flex-col lg:flex-row items-center md:gap-5 lg:gap-10">
           
-            <img className="rounded-md w-96" src={slideImg ? slideImg : product.photo} alt={product.name} />
+            <img className="rounded-md w-72 lg:w-96 mt-5 md:mt-0 lg:mt-0" src={slideImg ? slideImg : product.photo} alt={product.name} />
             
-              <div className="pt-serif-regular mt-5 ">
-              <p className=" text-lg mt-3 lg:text-3xl mb-5 font-semibold">{product.name} <span>({product.set})</span></p>
+              <div className=" w-auto mx-5 md:mx-10 lg:mx-5 pt-serif-regular mt-5 ">
+              <p className=" text-xl md:text-2xl lg:text-3xl mb-5 font-semibold">{product.name} <span>({product.set})</span></p>
 
                 <p className="flex gap-1 mb-4">
                   
@@ -80,10 +80,10 @@ function DetailUI({product}) {
 
                
 
-               {product.brief?.map((each,index)=><p className="mb-5 text-xl font-bold " 
+               {product.brief?.map((each,index)=><p className="mb-5 text-md md:text-xl lg:text-xl font-semibold " 
                key={index}><TiTick style={{display:'inline'}}/>{each}</p>)}
               
-               <div className=" flex gap-2">
+               <div className="scroll flex gap-2 mb-5 w-auto shadow-lg">
                   {
                     product.subphoto?.map((photo,index) => 
                     <img className=" w-20 rounded-lg md:w-28 lg:w-36"
@@ -105,7 +105,7 @@ function DetailUI({product}) {
                         /></button>
                         </div>) 
                        : (
-                       <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-400 text-white"
+                       <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-800 text-white"
                        onClick={AddCart}>
                        Add to cart<IoIosCart style={{display:"inline"}} 
                        /></button>)
@@ -119,21 +119,21 @@ function DetailUI({product}) {
               </div>
           </div>
 
-      <div  className="pt-serif-regular mt-5">
+      <div  className="pt-serif-regular mt-5 mx-5 md:mx-10 lg:mx-5">
        
 
-          <div className=" relative mt-2 mb-3">
+          <div className=" relative mt-2 mb-3 text-md md:text-lg lg:text-xl">
 
 
             <p>{product.qty > 0 ? (
                <>
-               <span className="text-md">({product.qty}) items in stock</span>
+               <span >({product.qty}) items in stock</span>
                <span className=" absolute
-               top-0 left-32"><TiTick style={{color:'green'}}/></span>
+               top-1 left-38 md:left-40 lg:left-44"><TiTick style={{color:'green'}}/></span>
                </>
                ): (
               <>
-              <span className="text-md ">Out of Stock</span>
+              <span >Out of Stock</span>
               <span className=" absolute
               top-0 left-20"><RxCross2 style={{color:'red'}}/></span>
               </>
@@ -142,20 +142,24 @@ function DetailUI({product}) {
                 
 
           </div>
-              <p className="mb-3 text-sm md:text-lg lg:text-lg"> Price : {product.price} Kyats</p>
-              <p  className="mb-3 text-sm md:text-lg lg:text-lg">Netweight : {product.netweight}g</p>
-              <p  className="mb-3 text-sm md:text-lg lg:text-lg">Production Date : {product.productionDate}</p>
-              <p  className="mb-3 text-sm md:text-lg lg:text-lg">Expired Date: {product.expired}</p>
-              <p className="mb-3 text-sm md:text-lg lg:text-lg">Available Colors
+              <p className="mb-3 text-md md:text-lg lg:text-xl"> Price : {product.price} Kyats</p>
+              <p  className="mb-3 text-md md:text-lg lg:text-xl">Netweight : {product.netweight}g</p>
+              <p  className="mb-3 text-md md:text-lg lg:text-xl">Production Date : {product.productionDate?.slice(0,10)}</p>
+              <p  className="mb-3 text-md md:text-lg lg:text-xl">Expired Date: {product.expired?.slice(0,10)}</p>
+              <p className="mb-3 text-md md:text-lg lg:text-xl">Available Colors:
               {
+
+                product.color?.length !== 0 ?
+ 
                 product.color?.map((col,index) =>
                 <button 
-                className= {current == index ? ` w-5 h-5 ml-5 border-2 border-black ` : ` w-5 h-5 ml-5 border-2 `} 
+                className= {current == index ? ` w-5 h-5 ml-2 md:ml-3 lg:ml-4 border-2 border-black ` : ` w-5 h-5 ml-2 md:ml-3 lg:ml-4 border-2 `} 
                 style={{background:col}}
                 key={index}
                 value={color}
                 onClick={() => handleColor({col}, index)}
-                ></button>)
+                ></button>) 
+                : <p className="inline ml-3"><RxCross2 style={{display:'inline'}}/></p>
               }
               </p>
 
@@ -173,12 +177,12 @@ function DetailUI({product}) {
     <img className="w-full" src={product.howtouse} alt="how to use" />
 
    
-    <Question className={10} id={product._id}  userid={currentUser._id}/>
-    <Productreview className={10} id={product._id} userid={currentUser._id} 
-    username = {currentUser.username}
-    photo={currentUser.photo}/>
+    <Question className={10} id={product?._id}  userid={currentUser?._id} username={currentUser?.username}/>
+    <Productreview className={10} id={product?._id} userid={currentUser?._id} 
+    username = {currentUser?.username}
+    photo={currentUser?.photo}/>
 
-    <Recommendproducts category={product.category} />
+    <Recommendproducts category={product?.category} />
   </div>
   )
 }
