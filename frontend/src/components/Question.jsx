@@ -241,7 +241,7 @@ function Question({className, id ,userid, username}) {
     }
     
      
-        <button className={ question ? ` hidden` : `bg-red-800 text-white p-2 rounded-xl my-8 mx-5`}
+        <button className={ question ? ` hidden` : `bg-red-800 text-white p-2 rounded-xl my-8 mx-1`}
        onClick={handleQuestion} >
             Ask a question</button>
 

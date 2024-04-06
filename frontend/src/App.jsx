@@ -16,6 +16,7 @@ import Order from './mainpages/Orderpage';
 import Confirm from './mainpages/Confirm'
 import Men from './mainpages/Men.jsx'
 import Best from './mainpages/Best.jsx'
+import DetailUI from './components/Detail.jsx';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
         <Route path='/skincare/:id' element={<Detail/>}> </Route>
         <Route path='/men-session/:id' element={<Detail/>}> </Route>
         <Route path='/collection/:id' element={<Detail/>}> </Route>
-        <Route path='/specialsets/:id' element={<Special/>}> </Route>
+        <Route path='/specialsets/:id' element={<Detail/>}> </Route>
         <Route path='/order' element={<Order/>}></Route>
         <Route path='/orderconfirm' element={<Confirm/>}></Route>
         <Route path='/best' element={<Best/>}></Route>

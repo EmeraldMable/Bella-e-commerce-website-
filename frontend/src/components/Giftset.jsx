@@ -8,7 +8,7 @@ function Giftset() {
 
 
   const {products:sets , loading} = useProduct('/products')
-  console.log(sets)
+ 
 
 
   return (

@@ -8,6 +8,7 @@ import { productRoute } from './routes/product.js';
 import {cartRoute} from './routes/cart.js'
 import { reviewRoute } from './routes/review.js';
 import { questionRoute } from './routes/question.js';
+import { StripeRouter } from './routes/Stripe.js';
 
 
 dotenv.config(); 
@@ -23,7 +24,7 @@ app.use('/admission', userRoute)
 
 app.use('/products', productRoute  , tutorialRouter , cartRoute , reviewRoute , questionRoute )
 
-
+app.use('/products/stripe' , StripeRouter)
 
 app.use((err,req,res,next)=>{
     const statusCode= err.statusCode || 500;

@@ -12,61 +12,71 @@ function Links() {
     const handleonFocus = () => {
       setIsfocused(!isfocused)
     }
+    const handleMenuClick = () => {
+      setMenuclick(!menuclick)
+      if(!menuclick){
+        document.body.style.overflowY = "hidden"
+  
+      }else{
+        document.body.style.overflowY = "scroll"
+      
+      }
+    }
 
   return (
 
-        <div className='w-full mx-auto h-12 md:h-auto lg:h-auto shadow-xl' style={{background:'rgb(184,84,84)' }}
+        <div className='w-full h-12 md:h-auto lg:h-auto shadow-xl' style={{background:'rgb(184,84,84)' }}
   
         >
            <button className=' text-white min-w-20 p-3 rounded-sm text-left pl-8 block md:hidden lg:hidden' onFocus={handleonFocus}
-           onClick={()=>setMenuclick(!menuclick)}> 
+           onClick={handleMenuClick}> 
            <RxHamburgerMenu size={30} />
            </button>
-           <div className={menuclick ? 'bar text-lg  w-52 h-screen fixed inset-y-16 flex flex-col transition-transform rounded-r-sm md:opacity-0' 
+           <div className={menuclick ? 'bar text-lg  w-52 h-screen  fixed inset-y-16 flex flex-col transition-transform rounded-r-sm md:opacity-0' 
            : 'bar hidden -translate-x-full'} 
            style={{translateX:50 ,background:'rgb(184,84,84)'}}>
               <button className=' text-white min-w-20 pt-2 rounded-sm text-left pl-8 block md:hidden lg:hidden mb-5' onFocus={handleonFocus}
-              onClick={()=>setMenuclick(!menuclick)}> 
+              onClick={handleMenuClick}> 
               <RxCross2 size={30} />
               </button> 
              
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white' } 
                to='/makeup' tabIndex={1}
-               onClick={()=>setMenuclick(!menuclick)} >MakeUp
+               onClick={handleMenuClick} >MakeUp
                </NavLink>
 
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white' }  to='/skincare' tabIndex={2}
-              onClick={()=>setMenuclick(!menuclick)} >Skin Care
+              onClick={handleMenuClick} >Skin Care
               </NavLink>
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white' }  to='/collection' tabIndex={3}
-              onClick={()=>setMenuclick(!menuclick)} >Collections
+              onClick={handleMenuClick} >Collections
               </NavLink>
 
    
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white' }  to='/men-session'
-              onClick={()=>setMenuclick(!menuclick)} >For Men
+              onClick={handleMenuClick} >For Men
               </NavLink>
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white' }  to='/specialsets'
-              onClick={()=>setMenuclick(!menuclick)} >SpecialSets
+              onClick={handleMenuClick} >SpecialSets
               </NavLink>
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger  text-white ' }  to='/'
-              onClick={()=>setMenuclick(!menuclick)} >Tutorials
+              onClick={handleMenuClick} >Tutorials
               </NavLink>
 
               <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
                : 'hamburger text-white ' }  to='/'
-              onClick={()=>setMenuclick(!menuclick)} >About Us
+              onClick={handleMenuClick} >About Us
               </NavLink>
           </div>
 

@@ -10,12 +10,14 @@ import { UpdateCart } from '../redux/cartSlice';
 import { useNavigate } from 'react-router-dom';
 
 
+
 function MobileCart() {
  const {list} = useSelector(state => state.cart)
   const [total, setTotal] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [cart, setCart] = useState(null)
+ 
+
 
 
 const [select , setSelect] = useState(0)
@@ -61,6 +63,15 @@ const RemoveItems = async (id) => {
     }
  }
 
+ const clearCart = async () => {
+      try{
+        const response = await fetch('/products/order/delete')
+        const  data = await response.json()
+        dispatch(UpdateCart(data))
+      }catch(error){
+        console.log(error)
+      }
+ }
 
  useEffect(() => {
   const selection = list.filter((li) => li.isChecked !== false)
@@ -77,7 +88,10 @@ const handleOrder = () => {
   
   return (
     <>
-    <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list.length}) items in cart</div>
+    <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list.length}) items in cart
+    <button className='ml-4 border-2 p-2 rounded-lg bg-red-800 text-white'
+    onClick={clearCart}>clear cart</button>
+    </div>
     <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100 relative'>
         { list.length >= 1 ? (
             list?.map((item,index) => (

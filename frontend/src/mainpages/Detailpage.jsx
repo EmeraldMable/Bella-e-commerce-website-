@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom"
 import Cartfloat from '../components/Cartfloat'
 import ScrollBtn from '../components/ScrollBtn'
 import { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 function Detailpage() {
  
@@ -17,7 +18,7 @@ function Detailpage() {
 
    //fetch data using customHook 
     const {products:product} = useProduct(`/products/${param.id}`)
-
+ 
     useEffect(() => {
       window.scrollTo({
         top:0,
@@ -30,6 +31,7 @@ function Detailpage() {
       <Linksbar/>
       <Breadcrumb/>
       <div className="w-auto mx-1 md:mx-2 lg:mx-20"  >
+    <Toaster/>
     
       <DetailUI product={product}/>
      

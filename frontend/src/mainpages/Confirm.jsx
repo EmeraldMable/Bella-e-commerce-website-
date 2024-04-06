@@ -22,11 +22,11 @@ function Confirm() {
       <canvas id='confettie-holder' className='absolute'></canvas>
   
       
-       <p className='pt-serif-bold text-2xl my-10' style={{color:'#786262'}}>Your order is placed. It will be delivered within three or four days.</p>
+       <p className='pt-serif-bold text-lg md:text-xl lg:text-2xl my-10' style={{color:'#786262'}}>Your order is placed. It will be delivered within three or four days.</p>
        
          <div className='svg mx-auto p-3'>
         
-            <p className='pt-serif-regular w-full text-xl my-auto' >Thanks for buying our products.</p>
+            <p className='pt-serif-regular w-full text-md md:text-lg lg:text-xl my-auto' >Thanks for buying our products.</p>
             <FaRegFaceGrinHearts className='bounce mx-auto mt-5' size={43} fill='brown'/>
           
           

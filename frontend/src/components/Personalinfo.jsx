@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { updateAddress } from "../redux/userSlice"
+import Reply from "../components/Reply"
 
 function Personalinfo() {
   const {currentUser} = useSelector(state => state.user)
@@ -43,22 +44,31 @@ function Personalinfo() {
         <p className="pt-serif-regular">
            Address: {info ?   <input type="text" autoFocus={true} value={address}
            onChange={(e)=>setAddress(e.target.value)}
-           className="border-2 pl-2 border-black mb-4 rounded-lg ml-2" /> 
+           className="border-2 outline-none pl-2 border-black mb-4 rounded-lg ml-2" /> 
            : currentUser?.address }
         </p>
         <p>
             Phone Number : +95 {info ?   <input type="text"  onChange={(e)=>setPhone(e.target.value)}
-            value={phone} className="border-2 pl-2 border-black rounded-lg ml-2" />
+            value={phone} className="border-2 mb-6 outline-none pl-2 border-black rounded-lg ml-2" />
              : currentUser?.phoneno }
         </p>
        
     {
       !info ? (
-        <button className="bg-red-800 text-white w-24  mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300"
-        onClick={handleAddress}>Edit info</button>
+        <Reply className={`bg-red-800 text-white w-24  mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        type="Edit info" 
+        handleClick={handleAddress}>Edit info</Reply>
       ):(
-        <button className="bg-red-800 text-white w-24 mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300"
-        onClick={()=>AddInfo(currentUser._id)}>Add</button>
+        <div className=" flex flex-col items-center md:flex-row lg:flex-row  gap-5">
+        <Reply 
+        className={`bg-red-800  text-white w-24 rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        type="Add"
+        handleClick={()=>AddInfo(currentUser._id)}>Add</Reply>
+        <Reply 
+        className={`bg-red-800 text-white w-24  rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        type="Cancel"
+        handleClick={()=>setInfo(false)}></Reply>
+        </div>
       )
     }
        

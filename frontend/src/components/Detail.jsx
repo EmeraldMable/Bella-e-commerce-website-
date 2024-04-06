@@ -9,6 +9,9 @@ import Recommendproducts from "./Recommendproducts";
 import { FaBell } from "react-icons/fa";
 import Productreview from "./Productreview";
 import Question from "./Question";
+import toast from "react-hot-toast"
+import { MdNotificationsActive } from "react-icons/md";
+
 
 
 
@@ -47,8 +50,13 @@ function DetailUI({product}) {
         })
         const data = await response.json()
         console.log(data)
-    
-      alert( data.message || 'Successfully added to the cart.')
+     
+      toast.success( data.message || 'Successfully added to the cart.' , {
+        style:{
+          backgroundColor:'black',
+          color:'#fff'
+        }
+      })
 
       }catch(error){
         console.log(error)
@@ -57,16 +65,23 @@ function DetailUI({product}) {
     }
 
     const handleNoti = () => {
-      alert('Noted, our dear customer. We will notify you as soon as it is back in stock.')
+      toast('We will notify you as soon as it is back in stock.',{
+        icon:<MdNotificationsActive size={65}/>,
+        style:{
+          backgroundColor:'black',
+          color:'#fff'
+        }
+      })
     }
   
   return (
     <div className="w-full text-left mx-auto my-1" key={product._id} style={{color:'#786262'}} >
-        <div className="flex flex-col lg:flex-row items-center md:gap-5 lg:gap-10">
+  
+        <div className="flex flex-col lg:flex-row items-center mx-5 md:mx-10 lg:mx-5 md:gap-5 lg:gap-10">
           
             <img className="rounded-md w-72 lg:w-96 mt-5 md:mt-0 lg:mt-0" src={slideImg ? slideImg : product.photo} alt={product.name} />
             
-              <div className=" w-auto mx-5 md:mx-10 lg:mx-5 pt-serif-regular mt-5 ">
+              <div className="pt-serif-regular mt-5 ">
               <p className=" text-xl md:text-2xl lg:text-3xl mb-5 font-semibold">{product.name} <span>({product.set})</span></p>
 
                 <p className="flex gap-1 mb-4">
@@ -94,11 +109,11 @@ function DetailUI({product}) {
                    {
                        product.qty == 0 ?  ( 
                         <div className="flex items-center gap-5">
-                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white"
+                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white"
                       >
                        Out of stock<IoIosCart style={{display:"inline"}} 
                        /></button>
-                       <button className="mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-red-500"
+                       <button className="mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white"
                        onClick={handleNoti}
                        >
                         Notify me later! <FaBell style={{display:"inline"}} 

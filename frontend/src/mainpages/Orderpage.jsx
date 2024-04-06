@@ -2,12 +2,11 @@ import Linksbar from '../components/Linksbar'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import PersonalInfo from '../components/Personalinfo'
-import Payment from '../components/Payment'
 import OrderSummary from '../components/Ordersummary'
 import ScrollBtn from'../components/ScrollBtn'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import Cartfloat from '../components/Cartfloat'
+
 
 
 function Orderpage() {

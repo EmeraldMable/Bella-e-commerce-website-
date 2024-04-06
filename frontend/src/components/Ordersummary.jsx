@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import PayButton from "./PayButton"
 
 
 
@@ -12,16 +13,7 @@ function Ordersummary() {
     const [total , setTotal] = useState(null)
     const [date, setDate] = useState(new Date())
 
-    const handleOrder = async () => {
-        try{
-          const clearOrder = await fetch('/products/order/delete')
-          console.log(clearOrder)
-          const data = await clearOrder.json()
-          navigate('/orderconfirm')
-        }catch(error){
-          console.log(error)
-        }
-      }
+ 
 
    useEffect(() => {
         const random = Math.floor(Math.random()* 10000000)
@@ -80,8 +72,8 @@ function Ordersummary() {
         <>
         <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
         onClick={BacktoCart}>Cancel Order</button> 
-         <button className="border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
-        onClick={handleOrder}>Place Order</button> 
+         <PayButton items={checked} className={`border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+        type='Place Order'></PayButton> 
         </>         
         ):(
             <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"

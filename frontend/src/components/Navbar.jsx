@@ -70,7 +70,7 @@ function Navbar() {
 
   
   return (
-    <header className='z-40 inset-0 w-auto mx-auto bg-white h-16 border-t-2 border-x-8 border-red-900 '>
+    <header className='z-40 inset-0 w-full  bg-white h-16 border-t-2 border-x-8 border-red-900 '>
       <div className=" w-full -mx-9 sm:mx-auto md:mx-auto lg:mx-auto pl-20 pr-14 h-auto flex items-center justify-between">
         <h2 className=' w-16' ref={logoRef}><img src={Logo} alt='Bella logo'/></h2>
         <div className=' flex w-auto justify-around -mx-12 gap-3'>
