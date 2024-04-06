@@ -23,15 +23,15 @@ function Orderpage() {
     <Linksbar/>
     <Breadcrumb/>
    
-    <div className='w-auto mx-auto'>
+    <div className="mx-auto">
       {
             order?.length >= 1 ? (
-              <p className='pt-serif-bold text-2xl text-left ml-28 mt-8'>Step 1 : Please check your info.</p>
+              <p className='  pt-serif-bold text-2xl text-left mx-3 md:mx-16 lg:mx-24 mt-8'>Step 1 : Please check your info.</p>
             ): (
               ''
             )
           }
-        <div className='flex mb-10 gap-10 '>
+        <div className=' w-full flex flex-col mb-10 '>
          
             <PersonalInfo/>
             <OrderSummary/>

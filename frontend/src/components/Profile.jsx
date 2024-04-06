@@ -6,7 +6,7 @@ import { app } from '../firebase.js';
 import { useDispatch } from 'react-redux';
 import { updateUserStart,updateUserSuccess,updateUserFailure , signoutSuccess } from '../redux/userSlice.js';
 import { FaEdit } from "react-icons/fa";
-
+import { IoIosPlay } from "react-icons/io";
 
 
 function Profile({...currentUser}) {
@@ -102,8 +102,8 @@ function Profile({...currentUser}) {
    
   return (
 
-     <div className='pt-serif-regular mx-auto p-8 text-white text-lg w-2/3 h-screen fixed right-0 inset-y-20 flex flex-col transition-transform rounded-r-sm'
-    style={{translateX:50 ,background:'rgb(184,84,84)'}}
+     <div className=' pt-serif-regular  p-8 text-white text-sm md:text-lg lg:text-lg w-screen md:w-[500px] lg:w-[500px] h-screen fixed -right-24 inset-y-16 flex flex-col transition-all rounded-r-sm'
+    style={{translateX:-50 ,background:'rgb(184,84,84)'}}
       >
  
     
@@ -125,7 +125,7 @@ function Profile({...currentUser}) {
             <input type="file" ref={uploadRef}
             hidden accept='image/.*' onChange={(e) => setImage(e.target.files[0])}/>
 
-            <img className="rounded-lg object-fit w-[220px] mx-auto" 
+            <img className="rounded-lg w-10 object-fit mx-auto" 
             id='photo'
             src={ formdata.profile || currentUser.photo} alt="user photo" 
             />
@@ -141,9 +141,9 @@ function Profile({...currentUser}) {
             <input type="file" ref={uploadRef}
             hidden accept='image/.*' onChange={(e) => setImage(e.target.files[0])}/>
 
-            <img className="rounded-lg object-fit w-[220px] mx-auto" 
+            <img className="rounded-lg object-fit w-10 mx-auto" 
             id='photo'
-            src={ currentUser.photo} alt="user photo" 
+            src={currentUser.photo} alt="user photo" 
             />
             <div className='p-3 mt-3 mb-5 flex items-center justify-center gap-5'
             onClick={() => uploadRef.current.click()}>
@@ -162,7 +162,7 @@ function Profile({...currentUser}) {
      
         <div className='bg-red-900  rounded-xl h-auto w-full'>
 
-        <div className=" p-3 mt-28 flex items-center justify-center">
+        <div className=" p-3 mt-12 flex items-center justify-center">
           {nameedit ? (
             <>
             <div className='flex-col mt-8'>
@@ -183,7 +183,7 @@ function Profile({...currentUser}) {
          
          </> ) : (
          <>
-          <p>Username: {currentUser.username} </p>
+          <p><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Username: {currentUser.username} </p>
           <FaEdit className='ml-5' onClick={() => setNameedit(!nameedit)}/>
           </>
         )}
@@ -192,13 +192,13 @@ function Profile({...currentUser}) {
         </div>
         
        
-        <p className="p-2 mb-3">Email : {currentUser.email}</p>
+        <p className="p-2 mb-3"><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Email : {currentUser.email}</p>
         <button className=" bg-white mb-10 text-black p-2 rounded-xl hover:shadow-xl hover:w-24"
          onClick={handleSignout}>Log Out</button>
         </div>
 
         <div className="mt-10">
-            <p className="pt-serif-regular-italic text-xl">WishList</p>
+            <p className="pt-serif-regular-italic text-xl">Order Histroy</p>
         </div>
         
     </form>

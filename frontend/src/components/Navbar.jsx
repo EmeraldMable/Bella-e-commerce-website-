@@ -68,6 +68,15 @@ function Navbar() {
     carts();
 },[cart])
 
+const handleProfile = () => {
+  setProfile(!profile)
+  if(profile){
+    document.body.style.overflowY = "scroll"
+  }else{
+    document.body.style.overflowY = "hidden"
+  }
+}
+
   
   return (
     <header className='z-40 inset-0 w-full  bg-white h-16 border-t-2 border-x-8 border-red-900 '>
@@ -81,10 +90,10 @@ function Navbar() {
             <div className='pt-serif-bold w-8 sm:w-14 md:w-14 lg:w-14' ref={userRef} 
            >
               <PiUserCircleFill className='icon' size={29} fill='brown'
-               onClick={() => setProfile(!profile)}/>
+               onClick={handleProfile}/>
                 {profile ? 
                 <>
-                 <RxCross2 size={30} className='absolute bg-white -bottom-20 z-50 rounded-md' onClick={() => setProfile(!profile)}/>
+                 <RxCross2 size={30} className='absolute bg-white -right-10 top-24 -bottom-20 z-50 rounded-md' onClick={handleProfile}/>
                  <Profile {...currentUser} />
                 </>
                  : ''}

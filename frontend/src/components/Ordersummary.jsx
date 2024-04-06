@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import PayButton from "./PayButton"
+import Reply from "./Reply"
 
 
 
@@ -28,16 +29,16 @@ function Ordersummary() {
   }
   return (
     <>
-    <div className="mx-0">
+    <div >
     {
         checked.length >=1 ?(
-            <p className='pt-serif-bold text-2xl text-left -mt-8 mb-10'>Step 2 : Please check products and prices</p>
+            <p className='pt-serif-bold text-2xl text-left mx-3 md:mx-16 lg:mx-24'>Step 2 : Please check products and prices</p>
         )
         :(
             ''
         )
     }
-    <div className=" w-[600px] border-2 p-2 mx-3 my-10">
+    <div className=" w-[600px] border-2 p-2 mx-3 my-10 md:mx-16 lg:mx-32 overflow-x-scroll md:overflow-hidden lg:overflow-hidden">
         <p className="pt-serif-bold mb-2">Invoice</p>
         <p className="pt-serif-regular relative -right-32 mb-3">Date : {date.getDate() }/ { date.getMonth()} / {date.getFullYear()} </p>
         <div className="pt-serif-regular text-left mx-2">
@@ -67,20 +68,23 @@ function Ordersummary() {
             </div>
         </div>
     </div>
+   
     {
         checked?.length >= 1 ? (
-        <>
-        <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
-        onClick={BacktoCart}>Cancel Order</button> 
+        <div className="text-left mx-3 my-10 md:mx-16 lg:mx-32" >
+        <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+       type="Cancel Order"
+       handleClick={BacktoCart}></Reply> 
          <PayButton items={checked} className={`border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
         type='Place Order'></PayButton> 
-        </>         
+        </div>         
         ):(
-            <button className="border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300"
-        onClick={BacktoCart}>Go back to cart</button>
+            <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+            type="Go back to cart"
+            handleClick={BacktoCart}></Reply>
         )
     }
-    
+
     </div>
     </>
   )

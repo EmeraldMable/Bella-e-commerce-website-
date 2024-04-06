@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import Stripe from 'stripe'
 
 dotenv.config()
-const stripe = Stripe(process.env.Stripe_key)
+const stripe = new Stripe(process.env.Stripe_key)
 const StripeRouter = express.Router()
 
 
@@ -16,10 +16,10 @@ StripeRouter.post('/create-checkout-session', async (req, res) => {
           name: item.productName,
           images:[item.img],
           metadata:{
-            id:item.id
+            id:item._id
           },
         },
-        unit_amount:(item.price / 4000) * 1000,
+        unit_amount:item.price,
       },
       quantity: item.qty,
     }

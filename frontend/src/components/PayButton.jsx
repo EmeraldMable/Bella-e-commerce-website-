@@ -3,11 +3,12 @@ import { useSelector } from "react-redux"
 
 
 function PayButton({items, className , type}) {
+  
     const {currentUser} = useSelector(state => state.user)
   
     const handleOrder = async () => {
         try{
-          const clearOrder = await fetch('/products/stripe/create-checkout-session' , {
+          const clearOrder = await fetch('/products/Stripe/create-checkout-session' , {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -19,6 +20,7 @@ function PayButton({items, className , type}) {
           })
         const data = await clearOrder.json()
         window.location.href = data.url
+        console.log(data)
         }catch(error){
           console.log(error)
         }
