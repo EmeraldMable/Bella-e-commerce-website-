@@ -147,7 +147,7 @@ function Productreview({className , id , userid , username, photo }) {
             <input type='text' 
             className='p-3 w-2/3 outline-none text-sm md:text-lg lg:text-xl block mb-4 mt-5 border-2 h-28 rounded-xl'  value={review} id="review" 
             onChange={(e) => setReview(e.target.value)}/>
-            <button className='bg-red-800 p-2 w-28  rounded-xl my-5 text-white'
+            <button className='button bg-red-800 p-2 w-28  rounded-xl my-5 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600'
             onClick={handleReview}>Send</button>
             
             

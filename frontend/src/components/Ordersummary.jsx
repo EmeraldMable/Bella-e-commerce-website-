@@ -72,14 +72,14 @@ function Ordersummary() {
     {
         checked?.length >= 1 ? (
         <div className="text-left mx-3 my-10 md:mx-16 lg:mx-32" >
-        <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+        <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
        type="Cancel Order"
        handleClick={BacktoCart}></Reply> 
-         <PayButton items={checked} className={`border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+         <PayButton items={checked} className={`border-2 ml-8 p-2 bg-red-800 rounded-md text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
         type='Place Order'></PayButton> 
         </div>         
         ):(
-            <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:shadow-inner hover:shadow-red-300`}
+            <Reply className={`border-2 p-2 bg-red-800 rounded-md text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
             type="Go back to cart"
             handleClick={BacktoCart}></Reply>
         )

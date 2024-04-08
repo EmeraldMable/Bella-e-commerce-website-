@@ -18,8 +18,10 @@ function Footer() {
                 </p>
                 <p className='text-base w-auto'>Telephone:(+95)01 9345533</p>
                 <p className='text-base w-auto'>Email:
-                customer
+                <Link to='mailto:customer
+                service@abcbeauty.com' className='hover:underline'> customer
                 service@abcbeauty.com
+                </Link>
                 </p>
             
             </div>
@@ -32,11 +34,10 @@ function Footer() {
             </div>
             <div className='w-auto h-auto mb-8 lg:w-1/4 lg:h-32 '>
                 <p className=' text-base md:text-lg font-bold mb-2'>ABOUT US</p>
-                <Link className='text-base block hover:underline' to='/'>Explore Bella</Link>
-                <Link className='text-base block hover:underline' to='/'>Our Activities</Link>
-                <Link className='text-base block hover:underline' to='/'>Buying Guide</Link>
-                <Link className='text-base block hover:underline' to='/'>Vacancies</Link>
-                <Link className='text-base block hover:underline' to='/'>FAQ</Link>
+                <Link className='text-base block hover:underline' to='/'>Our Story</Link>
+                <Link className='text-base block hover:underline' to='/'>Our Story</Link>
+                <Link className='text-base block hover:underline' to='/'>Shops Location</Link>
+               
             
             </div> 
             <div className=' w-auto h-auto mb-8 lg:w-1/4 lg:h-32 '>

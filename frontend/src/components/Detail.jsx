@@ -20,6 +20,7 @@ function DetailUI({product}) {
     const [color,setColor] = useState('')
     const [current, setCurrent] = useState(0)
     const [slideImg, setSlideImg] = useState('')
+    const [bubbles, setBubbles] = useState(false)
     
 
    const handleColor = (col , index) => {
@@ -27,11 +28,17 @@ function DetailUI({product}) {
     setCurrent(index)
     console.log(index)
    }
-   
+  
 
     const {currentUser} = useSelector(state => state.user)
   
     const AddCart = async () => {
+      setBubbles(true)
+
+      setTimeout(() => {
+        setBubbles(false)
+      }, 1000)
+     
       try{
         const response = await fetch('/products/addtocart' ,{
           method:"POST",
@@ -61,7 +68,7 @@ function DetailUI({product}) {
       }catch(error){
         console.log(error)
       }
-     
+      
     }
 
     const handleNoti = () => {
@@ -79,7 +86,7 @@ function DetailUI({product}) {
   
         <div className="flex flex-col lg:flex-row items-center mx-5 md:mx-10 lg:mx-5 md:gap-5 lg:gap-10">
           
-            <img className="rounded-md w-72 lg:w-96 mt-5 md:mt-0 lg:mt-0" src={slideImg ? slideImg : product.photo} alt={product.name} />
+            <img className="rounded-md w-72 lg:w-96 mt-10 md:mt-10 lg:-mt-32" src={slideImg ? slideImg : product.photo} alt={product.name} />
             
               <div className="pt-serif-regular mt-5 ">
               <p className=" text-xl md:text-2xl lg:text-3xl mb-5 font-semibold">{product.name} <span>({product.set})</span></p>
@@ -109,18 +116,19 @@ function DetailUI({product}) {
                    {
                        product.qty == 0 ?  ( 
                         <div className="flex items-center gap-5">
-                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white"
+                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white "
                       >
                        Out of stock<IoIosCart style={{display:"inline"}} 
                        /></button>
-                       <button className="mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white"
+                       <button className=" button mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600"
                        onClick={handleNoti}
                        >
                         Notify me later! <FaBell style={{display:"inline"}} 
                         /></button>
                         </div>) 
                        : (
-                       <button className=" mt-5 rounded-2xl shadow-lg p-3 bg-red-800 text-white"
+                       <button className={ bubbles ? `buy mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` : `mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` }
+                       id="bubble"
                        onClick={AddCart}>
                        Add to cart<IoIosCart style={{display:"inline"}} 
                        /></button>)

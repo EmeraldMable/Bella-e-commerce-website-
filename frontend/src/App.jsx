@@ -9,15 +9,13 @@ import Loginpage from './mainpages/Loginpage';
 import Detail from './mainpages/Detailpage'
 import Collection from './mainpages/Collection'
 import Cartpage from './mainpages/Cartpage'
-import Special from './mainpages/Special'
 import Specialpage from './mainpages/SpecialSet';
 import BestDetail from './mainpages/BestDetail';
 import Order from './mainpages/Orderpage';
 import Confirm from './mainpages/Confirm'
 import Men from './mainpages/Men.jsx'
 import Best from './mainpages/Best.jsx'
-import DetailUI from './components/Detail.jsx';
-
+import ProfilePage from './mainpages/ProfilePage.jsx';
 
 function App() {
  
@@ -45,6 +43,7 @@ function App() {
         <Route path='/cart' element={<Cartpage/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/loginpage' element={<Loginpage/>}></Route>
+        <Route path='/profile' element={<ProfilePage/>}></Route>
        </Routes>
      
    

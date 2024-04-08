@@ -3,11 +3,13 @@ import { useState , useRef } from 'react';
 import {NavLink} from 'react-router-dom';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross2 } from "react-icons/rx";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 
 function Links() {
     const [menuclick, setMenuclick] = useState(false);
     const [isfocused, setIsfocused] = useState(false)
+    const [open, setOpen] = useState(false)
     
     const handleonFocus = () => {
       setIsfocused(!isfocused)
@@ -23,10 +25,8 @@ function Links() {
     }
 
   return (
-
-        <div className='w-full h-12 md:h-auto lg:h-auto shadow-xl' id='back' style={{background:'rgb(184,84,84)' }}
-  
-        >
+    
+        <div className='w-full h-12 md:h-auto lg:h-auto shadow-xl' id='back' style={{background:'rgb(184,84,84)' }}>
            <button className=' text-white min-w-20 p-3 rounded-sm text-left pl-8 block md:hidden lg:hidden' onFocus={handleonFocus}
            onClick={handleMenuClick}> 
            <RxHamburgerMenu size={30} />
@@ -68,15 +68,41 @@ function Links() {
               onClick={handleMenuClick} >SpecialSets
               </NavLink>
 
-              <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
-               : 'hamburger  text-white ' }  to='/'
-              onClick={handleMenuClick} >Tutorials
-              </NavLink>
-
-              <NavLink className=  {({ isActive}) => isActive ? 'text-white min-w-20 p-3 bg-red-800 mb-2' 
-               : 'hamburger text-white ' }  to='/'
-              onClick={handleMenuClick} >About Us
-              </NavLink>
+            
+              <div className= { open ? ' text-white min-w-20 p-3 bg-red-800 mb-2' : 'hamburger text-white'} 
+              onClick={() => setOpen(!open)} >About Us 
+               {open ?
+                <MdOutlineKeyboardArrowDown size={20} style={{display:'inline', marginLeft:'5px' , transform:'rotate(180deg'}}/>
+                :
+              
+                <MdOutlineKeyboardArrowDown size={20} style={{display:'inline',  marginLeft:'5px'}}/>
+              }
+             
+             </div>
+             {
+              open ?
+              (
+                <div className='dropdownBar flex flex-col text-white text-sm md:text-lg lg:text-xl'
+                >
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                  to="/our_story">
+                    Our Story
+                  </NavLink >
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                  to="/Contact_Us">
+                    Contact Us
+                  </NavLink>
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                   to="/Location">
+                  Shops Location
+                  </NavLink>
+                 
+                </div>
+              ) : (
+                ''
+              )
+             }
+          
           </div>
 
 
@@ -101,18 +127,45 @@ function Links() {
              to='/specialsets'>
               SpecialSet
              </NavLink>
-              <NavLink className= {({ isActive }) => isActive ?
-              ' text-white ' : 'linkbar text-white'}to='/' tabIndex={0}  >Tutorials
-             </NavLink>
-              <NavLink className= {({ isActive }) => isActive ?
-              'text-white' : 'linkbar text-white'}to='/'tabIndex={0}  >About Us
-             </NavLink>
+             
+              <div className= { open ? ' text-white relative cursor-pointer' : 'linkbar text-white'} 
+              onClick={() => setOpen(!open)} >About Us {open ?
+                <MdOutlineKeyboardArrowDown size={20} style={{display:'inline' , transform:'rotate(180deg'}}/>
+                :
+              
+                <MdOutlineKeyboardArrowDown size={20} style={{display:'inline'}}/>
+              }
+             
+             </div>
+             {
+              open ?
+              (
+                <div className='dropdown flex flex-col text-white'
+                >
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                  to="/our_story">
+                    Our Story
+                  </NavLink >
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                  to="/Contact_Us">
+                    Contact Us
+                  </NavLink>
+                  <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
+                   to="/Location">
+                  Shops Location
+                  </NavLink>
+                 
+                </div>
+              ) : (
+                ''
+              )
+             }
             </div>
          
          
         </div>
    
-    
+  
   )
 }
 

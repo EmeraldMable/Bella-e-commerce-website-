@@ -3,9 +3,11 @@ import {Product} from '../models/products.js';
 
 
 const allProduct = async  (req,res,next) => {
+   
     try{
         const all = await Product.find()
         res.status(200).json(all)
+       
     }catch(error){
         next(error)
     }  

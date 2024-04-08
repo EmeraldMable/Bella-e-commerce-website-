@@ -89,7 +89,7 @@ const handleOrder = () => {
   return (
     <>
     <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list.length}) items in cart
-    <button className='ml-4 border-2 p-2 rounded-lg bg-red-800 text-white'
+    <button className='button ml-4 border-2 p-2 rounded-lg bg-red-800 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600'
     onClick={clearCart}>clear cart</button>
     </div>
     <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100 relative'>
@@ -139,7 +139,7 @@ const handleOrder = () => {
           <p className='text-sm mb-5'>Delivery : 2,390 Kyats</p>
           <p className='text-xl'>Total : {total } Kyats</p>
         </div>
-        <button className='col-span-2 mt-5 bg-red-900  text-white p-3 rounded-md hover:bg-red-800' onClick={handleOrder}>
+        <button className='button col-span-2 mt-5 bg-red-900  text-white p-3 rounded-md hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600' onClick={handleOrder}>
           Check Out ({select.length} items)
         </button>
         

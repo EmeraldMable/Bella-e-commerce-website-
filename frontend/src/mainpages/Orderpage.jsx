@@ -23,7 +23,7 @@ function Orderpage() {
     <Linksbar/>
     <Breadcrumb/>
    
-    <div className="mx-auto">
+    <div className="mx-auto md:mx-20 lg:mx-56">
       {
             order?.length >= 1 ? (
               <p className='  pt-serif-bold text-2xl text-left mx-3 md:mx-16 lg:mx-24 mt-8'>Step 1 : Please check your info.</p>

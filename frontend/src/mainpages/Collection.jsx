@@ -8,18 +8,23 @@ import ScrollBtn from '../components/ScrollBtn';
 import useProduct from '../customHook/useProduct';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
+import { useState } from 'react';
 
 function CollectionSkin() {
- 
+    const [filter, setFilter] = useState('default sorting')
     const {products:product,loading} = useProduct('/products')
 
   return (
     <>
     <Linksbar/>
     <Breadcrumb/>
-    <div className=' px-6 w-full mx-auto'>
+    <div className=' px-16 w-full mx-auto'>
     <p className='pt-serif-bold w-full mt-2 mb-8 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Collections</p>
-    
+    <select className=' w-56 mb-10 mt-8 md:mt-0 lg:mt-0 mx-auto border-2 rounded-md border-black md:float-right lg:float-right' value={filter} onChange={(e) => setFilter(e.target.value) }>
+          <option>default sorting</option>
+          <option>sorting by price(lowest to highest)</option>
+        </select>
+     
       
       <div className='w-auto mx-auto'>
         <p className='pt-serif-regular text-center text-xl mb-5 md:mx-5 md:text-left lg:text-left lg:mx-5 w-full md:text-2xl lg:text-2xl' 
@@ -29,7 +34,8 @@ function CollectionSkin() {
             (
               <>
               <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Thanakha' || 
+              {filter == 'default sorting' ? product.sort((a,b) => a.price > b.price ? -1 : 1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'Thanakha' || 
               each.category == 'makeup' && each.set == 'Thanakha series' || each.set == 'Thanakha'
                ? 
               (
@@ -44,7 +50,24 @@ function CollectionSkin() {
                 </Link>
               </div>
                ) :''
-              )) 
+              )) :
+              product.sort((a,b) => a.price > b.price ? 1 : -1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'Thanakha' || 
+              each.category == 'makeup' && each.set == 'Thanakha series' || each.set == 'Thanakha'
+               ? 
+              (
+              <div className=' text-center mx-auto mt-2 mb-20 ' key={index}>
+                <Link to={`/collection/${each._id}`} >
+                    <img className=' w-[60%] mx-auto hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index} src={each.subphoto[0]} alt='Skincare products'/>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'
+                    >
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
+                </Link>
+              </div>
+               ) :''
+              ))
             }</div>
             </>
             )
@@ -64,7 +87,8 @@ function CollectionSkin() {
             (
               <>
               <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'skincare' && each.set == 'Watermelon'
+              {filter == 'default sorting' ? product.sort((a,b) => a.price > b.price ? -1 : 1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'Watermelon'
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
@@ -77,7 +101,22 @@ function CollectionSkin() {
                 </Link>
               </div>
                ) :''
-              )) 
+              )) :
+              product.sort((a,b) => a.price > b.price ? 1 : -1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'Watermelon'
+               ? 
+              (
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
+                <Link to={`/collection/${each._id}`} >
+                    <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
+                </Link>
+              </div>
+               ) :''
+              ))
             }</div>
             </>
             )
@@ -97,7 +136,23 @@ function CollectionSkin() {
             (
               <>
               <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'skincare' && each.set == 'cica'
+              {filter == 'default sorting' ? product.sort((a,b) => a.price > b.price ? -1 : 1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'cica'
+               ? 
+              (
+              <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
+                <Link to={`/collection/${each._id}`} >
+                    <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
+                    <div className='pt-serif-regular  bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
+                </Link>
+              </div>
+               ) :''
+              )) :
+              product.sort((a,b) => a.price > b.price ? 1 : -1)
+              .map((each,index) => ( each.category == 'skincare' && each.set == 'cica'
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-20 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
@@ -132,7 +187,8 @@ function CollectionSkin() {
             (
               <>
               <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-              {product.map((each,index) => ( each.category == 'makeup' && each.set == 'Superstar'
+              {filter == 'default sorting' ? product.sort((a,b) => a.price > b.price ? -1 : 1)
+              .map((each,index) => ( each.category == 'makeup' && each.set == 'Superstar'
                ? 
               (
               <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
@@ -146,7 +202,23 @@ function CollectionSkin() {
               
               </div>
                ) :''
-              )) 
+              )) :
+              product.sort((a,b) => a.price > b.price ? 1 : -1)
+              .map((each,index) => ( each.category == 'makeup' && each.set == 'Superstar'
+               ? 
+              (
+              <div className='text-center mx-auto mt-2 mb-10 hover:opacity-[.7] hover:border-x-2 hover:border-red-200' key={index}>
+                <Link to={`/collection/${each._id}`} >
+                    <img className=' w-[60%] mx-auto' key={index} src={each.subphoto[0]} alt='Skincare products'/>
+                    <div className='pt-serif-regular bg-gray-100 w-auto mr-3 p-2 mx-auto rounded-md mt-3 h-36'>
+                    <p className='font-bold text-lg mx-auto mb-3 mt-2 md:text-lg lg:text-xl'>{each.name}</p>
+                    <span className='mx-auto'>Price : {each.price} Kyats</span>
+                    </div>
+                </Link>
+              
+              </div>
+               ) :''
+              ))
             }</div>
             </>
             )

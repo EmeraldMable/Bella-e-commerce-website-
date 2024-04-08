@@ -241,7 +241,7 @@ function Question({className, id ,userid, username}) {
     }
     
      
-        <button className={ question ? ` hidden` : `bg-red-800 text-white p-2 rounded-xl my-8 mx-1`}
+        <button className={ question ? ` hidden` : `button bg-red-800 text-white p-2 rounded-xl my-8 mx-1 hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
        onClick={handleQuestion} >
             Ask a question</button>
 
@@ -253,12 +253,12 @@ function Question({className, id ,userid, username}) {
                
                 <div className="flex items-center gap-3">
                 <Reply 
-                className={`bg-red-800 p-2 w-28 text-center rounded-xl mb-10 text-white`} 
+                className={ `button bg-red-800 p-2 w-28 text-center rounded-xl mb-10 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`} 
                 type='Send' handleClick={postQuestion}
                 />
 
                 <Reply 
-                className={`bg-red-800 p-2 w-28 text-center rounded-xl mb-10 text-white`} 
+                className={`button bg-red-800 p-2 w-28 text-center rounded-xl mb-10 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`} 
                 type='Cancel' handleClick={() => setQuestion(false)}
                 />
                 </div>

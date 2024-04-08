@@ -3,13 +3,14 @@ import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import {getDownloadURL, getStorage , ref, uploadBytesResumable} from 'firebase/storage';
 import { app } from '../firebase.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { updateUserStart,updateUserSuccess,updateUserFailure , signoutSuccess } from '../redux/userSlice.js';
 import { FaEdit } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
 
 
-function Profile({...currentUser}) {
+function Profile() {
+    const {currentUser} = useSelector(state=>state.user)
     const uploadRef = useRef()
     const dispatch = useDispatch();
     const [photoedit,setPhotoedit] = useState(false)
@@ -102,19 +103,18 @@ function Profile({...currentUser}) {
    
   return (
 
-     <div className=' pt-serif-regular  p-8 text-white text-sm md:text-lg lg:text-lg w-screen md:w-[500px] lg:w-[500px] h-screen fixed -right-24 inset-y-16 flex flex-col transition-all rounded-r-sm'
-    style={{translateX:-50 ,background:'rgb(184,84,84)'}}
-      >
+     <div 
+     className='bg-red-900 text-white w-full pt-serif-regular p-8 text-sm md:text-lg lg:text-lg  rounded-r-sm'>
  
     
-        <form  >
-        <div  className="w-50 h-32  ">
+        <form>
+        <div >
           <p className='mb-3'>{
           error ? (
             <span className=' text-white -mt-10 w-20 mx-auto pl-2 pr-2'>Fail to upload</span>
           )  : (uploadprogress > 0 && uploadprogress < 100 ? ( 
           <span className='text-white -mt-8  mx-auto pl-2 pr-2'>Uploading...</span>) 
-          : uploadprogress == 100 ? (<span className=' text-white -mt-8 w-20 mx-auto pl-2 pr-2'>Upload successfully</span>) : '' )
+          : uploadprogress > 99 ? (<span className=' text-white -mt-8 w-20 mx-auto pl-2 pr-2'>Upload successfully</span>) : '' )
            }</p>
 
          
@@ -145,7 +145,7 @@ function Profile({...currentUser}) {
             id='photo'
             src={currentUser.photo} alt="user photo" 
             />
-            <div className='p-3 mt-3 mb-5 flex items-center justify-center gap-5'
+            <div className='p-3 mt-3 flex items-center justify-center gap-5'
             onClick={() => uploadRef.current.click()}>
                <p className='  cursor-pointer'
                 >Change Profile </p>
@@ -160,12 +160,12 @@ function Profile({...currentUser}) {
            
         </div>
      
-        <div className='bg-red-900  rounded-xl h-auto w-full'>
+        <div className=' rounded-xl h-auto w-full'>
 
-        <div className=" p-3 mt-12 flex items-center justify-center">
+        <div className=" p-3 mt-2 flex items-center justify-center">
           {nameedit ? (
             <>
-            <div className='flex-col mt-8'>
+            <div className='flex-col'>
                 <input className=' placeholder:text-white placeholder:opacity-50 w-full h-7 p-4 border-b-2
               border-white outline-none mb-4 rounded-md '
               id='updatename'
@@ -197,7 +197,7 @@ function Profile({...currentUser}) {
          onClick={handleSignout}>Log Out</button>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-1">
             <p className="pt-serif-regular-italic text-xl">Order Histroy</p>
         </div>
         

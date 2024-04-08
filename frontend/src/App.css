@@ -107,7 +107,7 @@
   }
   .tunnel{
     mask:linear-gradient(90deg,transparent, rgb(197, 196, 196) 30% , rgb(197, 196, 196) 80% , transparent);
-    -webkit-mask:linear-gradient(90deg, transparent, rgb(197, 196, 196)white 30% , rgb(197, 196, 196) 80% , transparent)
+    -webkit-mask:linear-gradient(90deg, transparent, rgb(197, 196, 196) 30% , rgb(197, 196, 196) 80% , transparent)
   }
   .loop{
     animation: looping 10s infinite linear;
@@ -131,9 +131,7 @@
     animation-play-state: paused;
   }
  
-  .button:hover {
-    transform:perspective(400px) translateZ(50px);
-  }
+  
   .scroll{
     overflow-x: scroll;
     scrollbar-width: none;
@@ -144,7 +142,119 @@
   .scroll::-webkit-scrollbar{
     display: none;
   }
+
+  .button{
+    position: relative;
+    transition: transform;
+    
+  }
+  .button:active{
+    transform: scale(0.96);
+  }
+  .buy{
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  .buy:active{
+    transform:  scale(0.96);
+  }
+  .buy::before ,
+  .buy::after{
+    content: "";
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 150%;
+    background-repeat: no-repeat;
+    
+  }
+  .buy::before{
+    
+    top:-70%;
+    background-image: radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, transparent 20% , rgb(192, 30, 30) 20% , transparent 30%),
+    radial-gradient(circle, transparent 10% , rgb(192, 30, 30) 15% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%);
+    background-size: 10% 10% , 20% 20% , 15% 20% , 20% 20% , 18% 18%, 10% 10%, 15% 15%, 18% 18% ;
+    background-position:  5% 90% , 10% 90% , 10% 90% , 15% 90%, 25% 90%, 25% 90% , 40% 90%, 55% 90%, 70% 90%;
+    animation:  Bubbles 0.6s ease-in-out infinite;
+  }
+  @keyframes Bubbles {
+    50%{
+      background-position:  0% 80% , 0% 20% , 10% 40% , 20% 6%, 30% 30%, 22% 30% , 50% 50%, 65% 20%, 90% 30%;
+    }
+    100%{
+      background-size: 0% 0% , 0% 0% , 0% 0% , 0% 0% , 0% 0%, 0% 0%, 0% 0%, 0% 0% ;
+      background-position:  5% 90% , 10% 90% , 10% 90% , 15% 90%, 25% 90%, 25% 90% , 40% 90%, 55% 90%, 70% 90%;
+    }
+  }
+  .buy::after{
+    bottom:-70%;
+    background-image: radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, transparent 10% , rgb(192, 30, 30) 15% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%),
+    radial-gradient(circle, rgb(192, 30, 30) 20% , transparent 20%);
+    background-size: 15% 15% , 20% 20% , 18% 18% , 20% 20% , 15% 15%, 20% 20%, 18% 18%;
+    background-position:  10% 0% , 30% 10% , 55% 0% , 70% 0%, 85% 0%, 70% 0% , 70% 0%;
+    animation: bottom-bubble 0.6s ease-in-out infinite;
+  }
+  @keyframes bottom-bubble{
+    50%{
+      background-position: 0% 80%, 20% 80% , 45% 60% , 60% 100% , 75% 70%, 95% 60%,
+      105% 0%;
+    }
+    100%{
+      background-position: 0% 90% , 20% 90% ,45% 70%, 60% 110% , 75% 80% , 95% 70%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
  
+  .dropdown{
+    width: 200px;
+    height: 130px;
+    position: absolute;
+    top:96px;
+    right: 10px;
+    background-color: rgb(147, 10, 10);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: translateY(-30px);
+    animation: menu 0.2s forwards;
+    z-index: 2000;
+    box-shadow: inset 0px 0px 50px rgb(217, 137, 137);
+   
+  }
+  @keyframes menu {
+    100%{
+      transform: translateY(0px);
+      
+    }
+  }
+  .dropdownBar{
+    width: 208px;
+    height: 130px;
+    background-color: rgb(147, 10, 10);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: translateY(-30px);
+    animation: menu 0.2s forwards;
+    z-index: 2000;
+    margin-top: -10px;
+   
+  }
+  @keyframes menu {
+    100%{
+      transform: translateY(0px);
+      
+    }
+  }
 }
 
 *{
@@ -205,6 +315,7 @@
   left: 0;
   right: 0;
 }
+
 
 
 

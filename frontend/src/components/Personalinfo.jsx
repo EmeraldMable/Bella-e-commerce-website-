@@ -55,17 +55,17 @@ function Personalinfo() {
        
     {
       !info ? (
-        <Reply className={`bg-red-800 text-white w-24  mt-5 rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        <Reply className={`button bg-red-800 text-white w-24  mt-5 rounded-lg hover:shadow-inner hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
         type="Edit info" 
         handleClick={handleAddress}>Edit info</Reply>
       ):(
         <div className=" flex items-center gap-5">
         <Reply 
-        className={`bg-red-800  text-white w-24 rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        className={ `button bg-red-800  text-white w-24 rounded-lg hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
         type="Add"
         handleClick={()=>AddInfo(currentUser._id)}>Add</Reply>
         <Reply 
-        className={`bg-red-800 text-white w-24  rounded-lg hover:shadow-inner hover:shadow-red-300`}
+        className={`button bg-red-800 text-white w-24  rounded-lg hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600`}
         type="Cancel"
         handleClick={()=>setInfo(false)}></Reply>
         </div>

@@ -37,7 +37,7 @@ function Home() {
    
     <Breadcrumb />
     
-   <section className='w-auto mx-auto ml-10 mr-10'>
+   <section className='w-auto mx-auto ml-10 mr-10 -z-10'>
       <div className='mx-auto mt-5 max-w-6xl lg:flex lg:items-center lg:gap-10' >
         
           <div className='w-full mx-auto my-auto pt-2 pb-2 sm:pt-4 sm:pb-6 text-center'>

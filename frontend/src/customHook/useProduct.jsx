@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 
-function useProduct(url) {
+function useProduct(url, option) {
     const [products,setProducts] = useState([])
     const [loading,setLoading] = useState(false)
    
