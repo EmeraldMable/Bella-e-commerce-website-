@@ -86,7 +86,7 @@ function Profile() {
           })
         })
        const data = await updated.json();
-      
+      console.log(data)
           if(data.success == false){
             dispatch(updateUserFailure(data))
             return
@@ -128,7 +128,7 @@ function Profile() {
 
             <img className="rounded-lg w-10 object-fit mx-auto" 
             id='photo'
-            src={ formdata.profile || currentUser.photo} alt="user photo" 
+            src={ formdata.profile || currentUser?.photo} alt="user photo" 
             />
           <div className='flex mt-3 items-center justify-center gap-3'>
               
@@ -144,7 +144,7 @@ function Profile() {
 
             <img className="rounded-lg object-fit w-10 mx-auto" 
             id='photo'
-            src={currentUser.photo} alt="user photo" 
+            src={currentUser?.photo} alt="user photo" 
             />
             <div className='p-3 mt-3 flex items-center justify-center gap-5'
             onClick={() => uploadRef.current.click()}>
@@ -184,7 +184,7 @@ function Profile() {
          
          </> ) : (
          <>
-          <p><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Username: {currentUser.username} </p>
+          <p><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Username: {currentUser?.username} </p>
           <FaEdit className='ml-5' onClick={() => setNameedit(!nameedit)}/>
           </>
         )}
@@ -193,7 +193,7 @@ function Profile() {
         </div>
         
        
-        <p className="p-2 mb-3"><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Email : {currentUser.email}</p>
+        <p className="p-2 mb-3"><IoIosPlay style={{display:'inline' , marginRight:'10px'}}/>Email : {currentUser?.email}</p>
         <button className=" bg-white mb-10 text-black p-2 rounded-xl hover:shadow-xl hover:w-24"
          onClick={handleSignout}>Log Out</button>
         </div>
@@ -206,7 +206,7 @@ function Profile() {
 
    
     </div>
-     <History userId={currentUser._id}/>
+     <History userId={currentUser?._id}/>
      </>
     
    

@@ -41,7 +41,7 @@ function Payment({items}) {
         })
       })
       const order = await createOrder.json()
-      console.log(order)
+      
     }catch(error){
       console.log(error)
     }
