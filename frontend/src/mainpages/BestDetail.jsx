@@ -7,12 +7,15 @@ import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import Cartfloat from '../components/Cartfloat'
 import ScrollBtn from '../components/ScrollBtn'
+import { useEffect } from 'react';
 
 
 function BestDetail() {
     const param = useParams()
     const {products:product,loading} = useProduct(`/products/${param.id}`)
-
+    useEffect(() => {
+      window.scrollTo(0,0)
+     },[])
   return (
     <>
     <Linksbar/>

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { updateAddress } from "../redux/userSlice"
 import Reply from "../components/Reply"
 
-function Personalinfo() {
+function Personalinfo({items}) {
   const {currentUser} = useSelector(state => state.user)
   const dispatch = useDispatch()
   const [info , setInfo] = useState(false)
@@ -33,7 +33,10 @@ function Personalinfo() {
     }
   }
   return (
-    <div className='w-full mt-5 mb-10 mx-3 md:mx-36 lg:mx-32 text-left leading-9 mr-32'>
+    <div className='w-full mt-5 mb-10 mx-3 md:mx-20 lg:mx-16 text-left leading-9 mr-32'>
+       
+              <p className='  pt-serif-bold text-2xl text-left mb-5'>Step 1 : Please check your info.</p>
+           
         
           <p className='pt-serif-regular text-lg md:text-xl lg:text-xl mb-2'>
               Deliver to : {currentUser?.username}

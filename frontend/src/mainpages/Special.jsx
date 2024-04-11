@@ -7,10 +7,14 @@ import DetailUI from '../components/Detail'
 import { useParams } from 'react-router-dom'
 import Cartfloat from '../components/Cartfloat'
 import ScrollBtn from '../components/ScrollBtn'
+import { useEffect } from 'react'
 
 function Special() {
     const params = useParams()
     const {products:product , loading} = useProduct(`/products/${params.id}`)
+    useEffect(() => {
+      window.scrollTo(0,0)
+     },[])
   return (
     <>
     <Linksbar/>

@@ -228,7 +228,7 @@
     transform: translateY(-30px);
     animation: menu 0.2s forwards;
     z-index: 2000;
-    box-shadow: inset 0px 0px 50px rgb(217, 137, 137);
+   
    
   }
   @keyframes menu {
@@ -255,6 +255,18 @@
       
     }
   }
+  .orderscroll{
+    max-width: 100svw;
+    overflow-x: auto;
+    scrollbar-width: 0;
+    -ms-overflow-style: none;
+  }
+  .orderscroll::-webkit-scrollbar{
+    display: none;
+  }
+  .order{
+    min-width: 600px;
+  }
 }
 
 *{
@@ -277,6 +289,10 @@
 ::-webkit-scrollbar{
   background-color: #7e3535;
   width: 0;
+}
+::selection{
+  background-color: #7e3535;
+  color:white
 }
 .pt-serif-regular {
   font-family: "PT Serif", serif;

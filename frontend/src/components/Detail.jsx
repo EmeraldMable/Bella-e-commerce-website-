@@ -56,7 +56,7 @@ function DetailUI({product}) {
           })
         })
         const data = await response.json()
-        console.log(data)
+   
      
       toast.success( data.message || 'Successfully added to the cart.' , {
         style:{

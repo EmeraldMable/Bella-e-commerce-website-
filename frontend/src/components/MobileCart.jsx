@@ -53,7 +53,7 @@ const RemoveItems = async (id) => {
         })
       })
       const response = await update.json()
-      console.log(response)
+     
       dispatch(UpdateChecked({
         id:id,
         isChecked:isChecked
@@ -65,7 +65,7 @@ const RemoveItems = async (id) => {
 
  const clearCart = async () => {
       try{
-        const response = await fetch('/products/order/delete')
+        const response = await fetch('/products/cart/delete')
         const  data = await response.json()
         dispatch(UpdateCart(data))
       }catch(error){

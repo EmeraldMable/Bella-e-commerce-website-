@@ -84,8 +84,21 @@ const updateCart = async (req, res,next) => {
     }
 }
 
-
 //Delete Order items from cart//
+const orderDelete = async (req, res, next) => {
+   
+    try{
+      const clearOrder = await Cart.deleteMany({isChecked:true})
+      const remainorder = await Cart.find()
+        res.status(200).json(remainorder)
+        console.log(remainorder)
+    }catch(error){
+        next(error)
+    }
+}
+
+
+
 const orderItems = async (req , res, next) => {
     try{
         const updated = await Cart.deleteMany({})
@@ -99,4 +112,6 @@ const orderItems = async (req , res, next) => {
 
 
 
-export {addTocart , allItems , deleteItem , updateCart, orderItems}
+
+
+export {addTocart , allItems , deleteItem , updateCart, orderItems , orderDelete}

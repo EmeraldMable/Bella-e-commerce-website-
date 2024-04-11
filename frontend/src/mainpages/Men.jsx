@@ -8,21 +8,24 @@ import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function Men() {
   const [filter, setFilter] = useState('default sorting')
   const {products, loading,error} = useProduct('/products')
+  useEffect(() => {
+    window.scrollTo(0,0)
+   },[])
 
   return (
     <>
     <Linksbar/>
     <Breadcrumb/>
     <div className='px-16 w-full mx-auto'>
-      <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Skincare</p>
-      <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'>Empower your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural Beauty</span></p>
-      <p className=' mb-10 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>ပင်ကိုယ်အလှတိုးဖို့</p>
+      <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}> For Men</p>
+      <p className='pt-serif-regular mb-1 w-sull mx-auto text-xl'>To be <span className='pt-serif-bold-italic' style={{color:'#786262'}}>More Attractive</span></p>
+      <p className=' mb-10 w-sull mx-auto text-xl font-bold italic' style={{color:'#786262'}}>စွမ်းဆောင်မှု ကို မြှင့်တင်ဖို့</p>
       <select className=' w-56 mb-10 mt-8 md:mt-0 lg:mt-0 mx-auto border-2 rounded-md border-black md:float-right lg:float-right' value={filter} onChange={(e) => setFilter(e.target.value) }>
           <option>default sorting</option>
           <option>sorting by price(lowest to highest)</option>

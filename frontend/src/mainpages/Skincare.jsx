@@ -8,13 +8,15 @@ import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function Skincare() {
   const [filter, setFilter] = useState(null)
   const {products, loading,error} = useProduct('/products')
-
+  useEffect(() => {
+    window.scrollTo(0,0)
+   },[])
   return (
     <>
     <Linksbar/>

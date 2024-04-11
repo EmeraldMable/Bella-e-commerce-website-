@@ -7,10 +7,14 @@ import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footerbar'
 import ScrollBtn from '../components/ScrollBtn'
 import Cartfloat from '../components/Cartfloat'
+import { useEffect } from 'react'
 
 function SpecialSet() {
   const [filter, setFilter] = useState('default sorting')
     const {products , loading} = useProduct('/products')
+    useEffect(() => {
+      window.scrollTo(0,0)
+     },[])
   return (
     <>
     <Linksbar/>

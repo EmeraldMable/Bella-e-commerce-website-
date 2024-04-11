@@ -11,7 +11,7 @@ function Footer() {
      style={{background:'#786252'}}>
         <p className=' w-auto text-xl md:text-2xl font-bold mb-2 pt-10 pb-4  '>Always Building Confidence Through Beauty</p>
          <div className=' w-auto mx-12 h-auto lg:gap-5 lg:flex lg:items-center lg:justify-center'>
-            <div className=' w-auto h-auto mb-5 mx-10 lg:w-1/4'>
+            <div className=' w-auto h-auto mb-5 mx-10 lg:w-1/4 lg:h-32'>
                 <p className=' text-base md:text-lg font-bold mb-2'>CONTACT US</p>
                 <p className='text-base w-auto'>No.11, 6th street, Ward No.8, South Okkalapa 
                     Industrial Zone, South Okkalapa Township, Yangon.
@@ -27,16 +27,11 @@ function Footer() {
             </div>
            
 
-            <div className='w-auto h-auto mb-8 lg:w-1/4 lg:h-32'>
-                <p className=' text-base md:text-lg font-bold mb-2'>QUICK LINKS</p>
-                <Link  className='text-base block hover:underline' to='/'>Privacy Policy</Link>
-                <Link  className='text-base block hover:underline' to='/'>Terms and Conditions</Link>
-            </div>
             <div className='w-auto h-auto mb-8 lg:w-1/4 lg:h-32 '>
                 <p className=' text-base md:text-lg font-bold mb-2'>ABOUT US</p>
-                <Link className='text-base block hover:underline' to='/'>Our Story</Link>
-                <Link className='text-base block hover:underline' to='/'>Our Story</Link>
-                <Link className='text-base block hover:underline' to='/'>Shops Location</Link>
+                <Link className='text-base block hover:underline' to='/our_story'>Our Story</Link>
+                <Link className='text-base block hover:underline' to='/contactus'>Contact Us</Link>
+                <Link className='text-base block hover:underline' to='/Location'>Shops Location</Link>
                
             
             </div> 

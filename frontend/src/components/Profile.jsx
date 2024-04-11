@@ -7,6 +7,7 @@ import { useDispatch , useSelector } from 'react-redux';
 import { updateUserStart,updateUserSuccess,updateUserFailure , signoutSuccess } from '../redux/userSlice.js';
 import { FaEdit } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
+import History from "../components/History"
 
 
 function Profile() {
@@ -102,7 +103,7 @@ function Profile() {
    
    
   return (
-
+<>
      <div 
      className='bg-red-900 text-white w-full pt-serif-regular p-8 text-sm md:text-lg lg:text-lg  rounded-r-sm'>
  
@@ -131,7 +132,7 @@ function Profile() {
             />
           <div className='flex mt-3 items-center justify-center gap-3'>
               
-              <p className=' border-2 border-white'> <RxCross2 size={28} onClick={() => setPhotoedit(!edit)}/></p>
+              <p className=' border-2 border-white'> <RxCross2 size={28} onClick={() => setPhotoedit(!photoedit)}/></p>
               <p className=' border-2 border-white'> <TiTick size={28}  onClick={handleSubmit}/></p>
               
           </div>
@@ -198,11 +199,15 @@ function Profile() {
         </div>
 
         <div className="mt-1">
-            <p className="pt-serif-regular-italic text-xl">Order Histroy</p>
+            <p className="pt-serif-regular-italic text-xl ">Order Histroy</p>
         </div>
         
     </form>
+
+   
     </div>
+     <History userId={currentUser._id}/>
+     </>
     
    
       

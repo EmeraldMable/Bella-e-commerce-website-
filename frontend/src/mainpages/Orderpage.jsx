@@ -4,15 +4,24 @@ import Footer from '../components/Footerbar'
 import PersonalInfo from '../components/Personalinfo'
 import OrderSummary from '../components/Ordersummary'
 import ScrollBtn from'../components/ScrollBtn'
+import Payment from '../components/Payment'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 
 
+
 function Orderpage() {
-  
+ 
   const [order,setOrder] = useState(null)
   const {list} = useSelector(state => state.cart)
+  
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+   },[])
+
+
   useEffect(() => {
     const order = list?.filter((item) => item.isChecked !== false)
     setOrder(order)
@@ -23,18 +32,22 @@ function Orderpage() {
     <Linksbar/>
     <Breadcrumb/>
    
-    <div className="mx-auto md:mx-20 lg:mx-56">
-      {
-            order?.length >= 1 ? (
-              <p className='  pt-serif-bold text-2xl text-left mx-3 md:mx-16 lg:mx-24 mt-8'>Step 1 : Please check your info.</p>
-            ): (
-              ''
-            )
-          }
-        <div className=' w-full flex flex-col mb-10 '>
+    <div className="mx-5 mt-5">
+     
+        <div className=' w-full grid grid-cols-1 lg:grid-cols-2 mb-10 '>
          
-            <PersonalInfo/>
+            <PersonalInfo items={order}/>
             <OrderSummary/>
+            {
+              order?.length >= 1 ?
+             
+             
+              <Payment items={order}/>
+             
+               : ''
+              
+            }
+           
         </div>
        
 

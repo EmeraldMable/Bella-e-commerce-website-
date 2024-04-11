@@ -8,6 +8,9 @@ import ScrollBtn from '../components/ScrollBtn'
 
 function Confirm() {
   useEffect(() => {
+    window.scrollTo(0,0)
+   },[])
+  useEffect(() => {
     const confettiSettings = { target: 'confettie-holder' };
     const confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();

@@ -16,6 +16,9 @@ import Confirm from './mainpages/Confirm'
 import Men from './mainpages/Men.jsx'
 import Best from './mainpages/Best.jsx'
 import ProfilePage from './mainpages/ProfilePage.jsx';
+import Story from './mainpages/Story.jsx'
+import Contact from './mainpages/Contact.jsx'
+import Location from './mainpages/Location.jsx'
 
 function App() {
  
@@ -44,6 +47,9 @@ function App() {
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/loginpage' element={<Loginpage/>}></Route>
         <Route path='/profile' element={<ProfilePage/>}></Route>
+        <Route path='/our_story' element={<Story/>}></Route>
+        <Route path='/contactus' element={<Contact/>}></Route>
+        <Route path='/Location' element={<Location/>}></Route>
        </Routes>
      
    

@@ -12,9 +12,11 @@ import ScrollBtn from '../components/ScrollBtn.jsx'
 function Cartpage() {
   const {currentUser} = useSelector(state => state.user)
   const [items,setItems] = useState()
-  const {list} = useSelector(state => state.cart)
+
   const dispatch = useDispatch()
- 
+ useEffect(() => {
+  window.scrollTo(0,0)
+ },[])
   
   useEffect (() => {
       const allItems = async () =>{

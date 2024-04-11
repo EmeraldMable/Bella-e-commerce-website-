@@ -89,7 +89,7 @@ function Links() {
                     Our Story
                   </NavLink >
                   <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
-                  to="/Contact_Us">
+                  to="/contactus">
                     Contact Us
                   </NavLink>
                   <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
@@ -147,7 +147,7 @@ function Links() {
                     Our Story
                   </NavLink >
                   <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 
-                  to="/Contact_Us">
+                  to="/contactus">
                     Contact Us
                   </NavLink>
                   <NavLink className={({isActive}) => isActive ? `border-4 rounded-lg border-red-800 bg-white text-black p-2`  : `mt-3`} 

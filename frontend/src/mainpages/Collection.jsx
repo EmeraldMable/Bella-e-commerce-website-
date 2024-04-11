@@ -8,11 +8,15 @@ import ScrollBtn from '../components/ScrollBtn';
 import useProduct from '../customHook/useProduct';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 function CollectionSkin() {
     const [filter, setFilter] = useState('default sorting')
     const {products:product,loading} = useProduct('/products')
+
+    useEffect(() => {
+      window.scrollTo(0,0)
+     },[])
 
   return (
     <>
@@ -20,7 +24,7 @@ function CollectionSkin() {
     <Breadcrumb/>
     <div className=' px-16 w-full mx-auto'>
     <p className='pt-serif-bold w-full mt-2 mb-8 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>Collections</p>
-    <select className=' w-56 mb-10 mt-8 md:mt-0 lg:mt-0 mx-auto border-2 rounded-md border-black md:float-right lg:float-right' value={filter} onChange={(e) => setFilter(e.target.value) }>
+    <select className=' w-56 mb-10 mt-5 md:mt-0 lg:mt-0 mx-auto border-2 rounded-md border-black md:float-right lg:float-right' value={filter} onChange={(e) => setFilter(e.target.value) }>
           <option>default sorting</option>
           <option>sorting by price(lowest to highest)</option>
         </select>

@@ -7,15 +7,17 @@ import Breadcrumb from '../components/Breadcrumb';
 import ScrollBtn from '../components/ScrollBtn';
 import { FaArrowRight } from "react-icons/fa6";
 import Cartfloat from '../components/Cartfloat';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 
 
 function Makeup() {
   const [filter, setFilter] = useState('default sorting')
-  console.log(filter)
+  
     const {products, loading , error} = useProduct('/products')
-   
+    useEffect(() => {
+      window.scrollTo(0,0)
+     },[])
   
   return (
     <>
@@ -23,7 +25,7 @@ function Makeup() {
     <Breadcrumb />
     <div className='px-16 w-full mx-auto'>
       
-        <p className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>MakeUp</p>
+        <h3 className='pt-serif-bold w-full mt-2 mb-1 mx-auto text-3xl md:text-4xl lg:text-4xl' style={{color:'#786262'}}>MakeUp</h3>
         <p className='pt-serif-regular mb-1 w-sull mx-auto text-lg md:text-xl lg:text-xl'>Enhance your <span className='pt-serif-bold-italic' style={{color:'#786262'}}>Natural features</span></p>
         <p className=' mb-5 w-sull mx-auto font-bold italic text-lg md:text-xl lg:text-xl' style={{color:'#786262'}}>လှသထက် လှဖို့</p>
          

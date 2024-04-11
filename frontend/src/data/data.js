@@ -84,6 +84,29 @@ const reviewsFromStars = [
 
 ]
 
+const story = 
+    {
+       history:"Bella was created with the simple vision of making reasonably priced and superior cosmetic products available to the Myanmar market. Frustrated with the lack of quality options accessible to the majority of the local population, we saw no reason as to why Myanmar, a country full of people who set the highest bar for themselves on presentation and perfection, should not have its own home-grown cosmetic brand that it could be proud of. With these two principles in mind, we sought out the best possible partner in Korea, the home of quality cosmetics manufacturing and teamed up exclusively with Cosmax International to begin working on Myanmar’s best new cosmetics line. Cosmax, who exports to over 100 countries around the word were the perfect match for introducing the highest global standards in beauty for our local products. Now anyone in Myanmar can be the best they want to be with Bella – Be A Star! Also at the core of Bella’s belief is staying true to Myanmar’s traditions and heritage whilst being at the forefront of new modern and exciting cosmetic applications. One example of this is our Thanakha makeup line. Thanakha has been a distinctive feature of the culture of Myanmar for over 2000 years. Along with its many beauty-enhancing properties such as skin lighting, sun protection, anti-ageing and an antiseptic acne treatment, Thanakha extracts have been scientifically proven to be an agent for strong anti-inflammatory, anti-oxidation and anti- bacterial activities. Therefore, Bella is proud to be the first cosmetic company in Myanmar to launch a full line of cosmetics using Thanakha essence in the products. From full coverage foundations to oil-control powder pacts and our hugely popular Thanakha facial foams, Bella has affordable and uniquely Burmese product that everyone in Myanmar can be proud of!",
+       vision:"To empower women with quality, premium cosmetics at affordable prices so they can become their own Star modernized the way this traditional golden paste as been used in everyday life. By combining the latest innovations in cosmetic technology with world-class cosmetics manufacturers using highest quality ingredients, we now have an incredibly.",
+       missions:[
+            {
+                id:'1',
+                mission:"To be the Leading National Brand to provide women with Beauty Solutions for empowerment."
+            },
+            {
+                id:'2',
+               mission: "To be the Fast Cosmetics Brand launching the latest innovative beauty trends at affordable prices with good quality to add star power to any woman’s life."
+            }, 
+            {
+                id:"3",
+               mission: "To lead Myanmar women through beauty revolution."
+            }
+            
+       ]
+        
+    }
 
 
-export {video , carouselSlide , Slogans , bestSellers , reviewsFromStars}
+
+
+export {video , carouselSlide , Slogans , bestSellers , reviewsFromStars , story}
