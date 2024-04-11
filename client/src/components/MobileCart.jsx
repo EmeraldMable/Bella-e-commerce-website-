@@ -74,7 +74,7 @@ const RemoveItems = async (id) => {
  }
 
  useEffect(() => {
-  const selection = list.filter((li) => li.isChecked !== false)
+  const selection = list?.filter((li) => li.isChecked !== false)
 
   setSelect(selection)
   setTotal(selection.reduce((acc, currentValue) => (acc + (currentValue.price * currentValue.qty)), 0))
