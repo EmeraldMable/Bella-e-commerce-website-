@@ -20,20 +20,22 @@ import Story from './mainpages/Story.jsx'
 import Contact from './mainpages/Contact.jsx'
 import Location from './mainpages/Location.jsx'
 
+
 function App() {
+
  
   return (
     <div>
-
+       
       <Navbar/>
        <Routes>
        
         <Route path='/' element={<Home/>}></Route>
-        <Route path='/makeup' element={<Makeup/>}></Route>
-        <Route path='/skincare' element={<Skincare/>}></Route>
-        <Route path='/collection' element={<Collection/>}></Route>
-        <Route path='/men-session' element={<Men/>}></Route>
-        <Route path='/specialsets' element={<Specialpage/>}></Route>
+        <Route path='/makeup'  element={<Makeup/>}></Route>
+        <Route path='/skincare'   element={<Skincare/>}></Route>
+        <Route path='/collection'  element={<Collection/>}></Route>
+        <Route path='/men-session'  element={<Men/>}></Route>
+        <Route path='/specialsets'  element={<Specialpage/>}></Route>
         <Route path='/makeup/:id' element={<Detail/>}> </Route>
         <Route path='/skincare/:id' element={<Detail/>}> </Route>
         <Route path='/men-session/:id' element={<Detail/>}> </Route>
@@ -41,12 +43,12 @@ function App() {
         <Route path='/specialsets/:id' element={<Detail/>}> </Route>
         <Route path='/order' element={<Order/>}></Route>
         <Route path='/orderconfirm' element={<Confirm/>}></Route>
-        <Route path='/best' element={<Best/>}></Route>
+        <Route path='/best'  element={<Best/>}></Route>
         <Route path='/best/:id' element={<BestDetail/>}></Route>
         <Route path='/cart' element={<Cartpage/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/loginpage' element={<Loginpage/>}></Route>
-        <Route path='/profile' element={<ProfilePage/>}></Route>
+        <Route path='/profile'  element={<ProfilePage/>}></Route>
         <Route path='/our_story' element={<Story/>}></Route>
         <Route path='/contactus' element={<Contact/>}></Route>
         <Route path='/Location' element={<Location/>}></Route>

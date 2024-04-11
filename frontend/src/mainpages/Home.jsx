@@ -14,8 +14,6 @@ import ScrollBtn from '../components/ScrollBtn';
 import Cartfloat from '../components/Cartfloat';
 
 
-
-
 function Home() {
    const slogan2 = useRef()
    const slogan1 = useRef()
@@ -24,7 +22,9 @@ function Home() {
    useGSAP(() => {
     gsap.from(slogan2.current,{x:90 , duration:0.5 , delay:1})
     gsap.from(slogan1.current,{x:100 , duration:0.5 })
+    
    })
+
 
    useEffect(() => {
     window.scrollTo(0,0)
@@ -34,7 +34,7 @@ function Home() {
   
   return (
     <>
-
+   
     <Linksbar />
    
     <Breadcrumb />
