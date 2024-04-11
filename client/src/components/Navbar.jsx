@@ -14,8 +14,29 @@ function Navbar() {
   const {currentUser} = useSelector((state) => state.user);
   const [cart, setCart] = useState(null)
   
+ useEffect (() => {
+  const carts = async () =>{
+    try{
+      const data = await fetch('/products/cart' , {
+        method:"POST",
+        headers:{
+          "Content-type" : "application/json"
+        },
+        body:JSON.stringify({
+          userId:currentUser._id
+        })
+      })
+      const itemsIncart = await data.json()
+      setCart(itemsIncart)
+     
+    }catch(error){
+      console.log(error)
+    }
+  }
+  carts();
+},[cart])
 
- const homeRef = useRef()
+const homeRef = useRef()
  const userRef = useRef()
  const cartRef = useRef()
  const logoRef = useRef()
@@ -43,27 +64,7 @@ function Navbar() {
     })
   })
 
-  useEffect (() => {
-    const carts = async () =>{
-      try{
-        const data = await fetch('/products/cart' , {
-          method:"POST",
-          headers:{
-            "Content-type" : "application/json"
-          },
-          body:JSON.stringify({
-            userId:currentUser._id
-          })
-        })
-        const itemsIncart = await data.json()
-        setCart(itemsIncart)
-       
-      }catch(error){
-        console.log(error)
-      }
-    }
-    carts();
-},[cart])
+
 
   return (
     <header className='z-40 inset-0 w-full  bg-white h-16 border-t-2 border-x-8 border-red-900 '>
@@ -83,7 +84,7 @@ function Navbar() {
                
             </div>
             <NavLink className='relative w-8 sm:w-14 md:w-14 lg:w-14' to='/cart' ref={cartRef}><IoIosCart className='icon' size={30} fill='brown'/>
-             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length}</span>
+             <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length >= 1 ? cart?.length : '0'}</span>
             </NavLink>
            </>) 
           : ( <NavLink className='pt-serif-bold mr-10 md:mr-32 ld:mr-34 w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</NavLink>)}

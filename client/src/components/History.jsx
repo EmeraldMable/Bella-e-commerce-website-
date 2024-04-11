@@ -20,6 +20,10 @@ const History = ({userId}) => {
        order()
     }, [])
   return (
+    <>
+   
+    <h3 className="pt-serif-regular-italic text-xl mx-auto">Order Histroy</h3>
+       
     <div className='orderscroll mt-10 flex flex-col lg:flex-row gap-5'>
         {data?.length >= 1 ?
         data?.map((each , index) => (
@@ -47,8 +51,9 @@ const History = ({userId}) => {
             
         ))
     :
-    <p>No Purchase yet!</p>}
+    <p className="pt-serif-regular mx-auto">No Purchase yet!</p>}
     </div>
+    </>
   )
 }
 
