@@ -14,7 +14,7 @@ import { OrderRoute } from './routes/order.js';
 
 dotenv.config(); 
 
-const _dirname = path.resolve()
+const __dirname = path.resolve()
 
 
 const app = express();
@@ -32,10 +32,10 @@ app.use('/products', productRoute  , cartRoute , reviewRoute , questionRoute , O
 app.use('/products/stripe' , StripeRouter)
 
 
-app.use(express.static(path.join(_dirname, '/client/dist')))
+app.use(express.static(path.join(__dirname, '/client/dist')))
 
 app.get('*' , (req,res) => {
-    res.sendFile(path.join(_dirname, 'client' , 'dist' , 'index.html'))
+    res.sendFile(path.join(__dirname, 'client' , 'dist' , 'index.html'))
 })
 
 app.use((err,req,res,next)=>{
