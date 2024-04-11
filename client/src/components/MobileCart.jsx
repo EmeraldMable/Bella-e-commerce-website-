@@ -88,12 +88,12 @@ const handleOrder = () => {
   
   return (
     <>
-    <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list.length}) items in cart
+    <div className='pt-serif-regular mt-10 text-lg md:mx-20 md:text-right lg:text-right lg:mx-60 '>({list?.length}) items in cart
     <button className='button ml-4 border-2 p-2 rounded-lg bg-red-800 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600'
     onClick={clearCart}>clear cart</button>
     </div>
     <div className=' w-full mx-auto mt-5 md:max-w-4xl h-96 overflow-y-scroll shadow-gray-600 shadow-inner p-3 bg-slate-100 relative'>
-        { list.length >= 1 ? (
+        { list?.length >= 1 ? (
             list?.map((item,index) => (
                 <div key={index} className='w-full flex items-center gap-1 mx-auto border-2 mb-3'>
                   
