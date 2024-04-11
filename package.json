@@ -10,9 +10,11 @@
 
   "scripts": {
 
-    "dev": "vite",
+    "dev": "nodemon source-code/index.js",
 
-    "build": "vite build",
+    "start": "node source-code/index.js",
+
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
 
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 

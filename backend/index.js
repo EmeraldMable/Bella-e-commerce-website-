@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import path from "path";
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser'
 import { userRoute } from './routes/user.js';
@@ -12,6 +13,10 @@ import { OrderRoute } from './routes/order.js';
 
 
 dotenv.config(); 
+
+const _dirname = path.resolve()
+
+
 const app = express();
 
 
@@ -25,6 +30,13 @@ app.use('/admission', userRoute)
 app.use('/products', productRoute  , cartRoute , reviewRoute , questionRoute , OrderRoute )
 
 app.use('/products/stripe' , StripeRouter)
+
+
+app.use(express.static(path.join(_dirname, '/frontend/dist')))
+
+app.get('*' , (req,res) => {
+    res.sendFile(path.join(_dirname, 'frontend' , 'dist' , 'index.html'))
+})
 
 app.use((err,req,res,next)=>{
     const statusCode= err.statusCode || 500;
