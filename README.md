@@ -2,10 +2,10 @@
 Live demo click here https://bella-e-commerce-mernstack-website.onrender.com
 
 ## Table of contents
--General info 
--Framework and library
+[General info] (#general-info) 
+[Framework and library] (#framework-and-library)
 
-##General info
+## General info
 What is it about? 
     This project is creating e-commerce website for Bella-local cosmetic products
 of Myanmar. 
