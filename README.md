@@ -2,8 +2,8 @@
 Live demo click here https://bella-e-commerce-mernstack-website.onrender.com
 
 ## Table of contents
-*[General info] (#general-info)
-*[Framework and library] (#framework-and-library)
+-General info 
+-Framework and library
 
 ##General info
 What is it about? 
