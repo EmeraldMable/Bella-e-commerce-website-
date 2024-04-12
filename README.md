@@ -16,7 +16,7 @@ What did I gain from building this project?
     I got improved in not only frontend but also backend, specifically, in react 90%, tailwind css 80% , mongodb 70% , express 65%, nodejs 50% , redux toolkit 50% and others such as jwt, firebase, authentication, cookie etc.
 
 ## Framework and library
-It is created with 
+It is created with /n
 Frontend - react (vite), tailwind css
 Backend - express , mongodb , redux toolkit
 
