@@ -19,7 +19,7 @@ What did I gain from building this project?
 
 ## Framework and library
 It is created with 
-Frontend - react (vite), tailwind css
+Frontend - react (vite), tailwind css 
 Backend - express , mongodb , redux toolkit
 
 

@@ -8,11 +8,11 @@ import { updateUserStart,updateUserSuccess,updateUserFailure , signoutSuccess } 
 import { FaEdit } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
 import History from "../components/History"
-import {useNavigate} from "react-router-dom"
+
 
 
 function Profile() {
-  const navigate = useNavigate()
+ 
     const {currentUser} = useSelector(state=>state.user)
     const uploadRef = useRef()
     const dispatch = useDispatch();
@@ -36,7 +36,7 @@ function Profile() {
     try{
         await fetch('/admission/user')
         dispatch(signoutSuccess())
-        navigate('/') 
+        windwo.location.href = '/'
 
     }catch(error){
       console.log(error)

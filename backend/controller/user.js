@@ -15,9 +15,9 @@ const allUsers = async (req,res,next) =>{
         if(!unhashedPassword) return next(errorHandler(401, 'Wrong Password'))
         const token = jwt.sign({id:foundUser._id}, process.env.JWT_SECRET)
         const {password:hashedPassword , ...rest} = foundUser._doc
-        const expiredDate = new Date(Date.now() + 360000)
+      
         res.cookie('access_token', 
-        token , {httpOnly:true , expires:expiredDate} ).status(200).json(rest)
+        token , {httpOnly:true} ).status(200).json(rest)
     }catch(error){
         next(error)
     }
@@ -32,8 +32,8 @@ const createUser = async (req,res,next) =>{
         const newUser = await User.create({username,email,password:hashedPassword})
         const token = jwt.sign({id:newUser._id}, process.env.JWT_SECRET)
         const {password:removePassword, ...rest} = newUser._doc
-        const expiredDate = new Date(Date.now() + 360000)
-        res.cookie('access_token' , token , {httpOnly:true , expires:expiredDate} ).status(200).json(rest)
+    
+        res.cookie('access_token' , token , {httpOnly:true} ).status(200).json(rest)
         
    }catch(error){
         next(error)
@@ -48,9 +48,9 @@ const googlelogin = async (req,res,next) => {
         if(googleuser){
             const token = jwt.sign({id:googleuser._id,},process.env.JWT_SECRET)
             const {password:hashedPassword , ...rest}=googleuser._doc
-            const expiredDate = new Date(Date.now() + 360000)
+         
             res.cookie('access_token' , token ,
-             {httpOnly:true , expires:expiredDate}).status(200).json(rest)
+             {httpOnly:true}).status(200).json(rest)
         }else{
             const randomPassword = Math.random().toString(36).slice(-8) 
             + Math.random().toString(36).slice(-8)
@@ -66,8 +66,8 @@ const googlelogin = async (req,res,next) => {
             })
             const token = jwt.sign({id:createGoogleuser._id}, process.env.JWT_SECRET)
             const {password:removePassword , ...rest} = createGoogleuser._doc
-            const expiredDate = new Date(Date.now() + 360000)
-            res.cookie('access_token', token , {httpOnly:true , expires:expiredDate}).status(200).json(rest)
+           
+            res.cookie('access_token', token , {httpOnly:true}).status(200).json(rest)
 
         }
         
