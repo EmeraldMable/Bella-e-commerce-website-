@@ -22,7 +22,7 @@ const History = ({userId}) => {
   return (
     <>
    
-    <h3 className="pt-serif-regular-italic text-xl mx-auto mt-6">Order Histroy</h3>
+    <h3 className="pt-serif-regular-italic text-xl mx-auto mt-6 underline">Order Histroy</h3>
        
     <div className='orderscroll mt-10 flex flex-col lg:flex-row gap-5'>
         {data?.length >= 1 ?

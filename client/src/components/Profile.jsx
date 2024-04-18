@@ -36,7 +36,7 @@ function Profile() {
     try{
         await fetch('/admission/user')
         dispatch(signoutSuccess())
-        windwo.location.href = '/'
+        window.location.href = '/'
 
     }catch(error){
       console.log(error)

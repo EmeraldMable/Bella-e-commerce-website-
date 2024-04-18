@@ -83,7 +83,6 @@ function DetailUI({product}) {
     }
     const handleRegister = () => {
       toast('Please register first to add to your cart.',{
-        icon:<MdNotificationsActive size={65}/>,
         style:{
           backgroundColor:'black',
           color:'#fff'
@@ -124,7 +123,7 @@ function DetailUI({product}) {
                   }
                 </div>
                   { 
-                    currentUser !== 'null'  ?  
+                    currentUser !== null  ?  
                     
                       product.qty == 0 ?  ( 
                        <div className="flex items-center gap-5">
