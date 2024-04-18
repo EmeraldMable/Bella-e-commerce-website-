@@ -16,8 +16,6 @@ function LogginIn() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
  
- 
-  
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -43,8 +41,9 @@ const handleSubmit = async (e) => {
       return
       
     }
-    dispatch(signInSuccess(data))
     navigate('/')
+    dispatch(signInSuccess(data))
+   
 
   }catch(error){
     dispatch(signInFail(error))

@@ -17,6 +17,7 @@ import { MdNotificationsActive } from "react-icons/md";
 
 function DetailUI({product}) {
 
+
     const [color,setColor] = useState('')
     const [current, setCurrent] = useState(0)
     const [slideImg, setSlideImg] = useState('')
@@ -80,6 +81,15 @@ function DetailUI({product}) {
         }
       })
     }
+    const handleRegister = () => {
+      toast('Please register first to add to your cart.',{
+        icon:<MdNotificationsActive size={65}/>,
+        style:{
+          backgroundColor:'black',
+          color:'#fff'
+        }
+      })
+    }
   
   return (
     <div className="w-full text-left mx-auto my-1" key={product._id} style={{color:'#786262'}} >
@@ -113,33 +123,38 @@ function DetailUI({product}) {
                     onClick={(e) => setSlideImg(e.target.src) }/>)
                   }
                 </div>
-                   {
-                       product.qty == 0 ?  ( 
-                        <div className="flex items-center gap-5">
-                       <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white "
+                  { 
+                    currentUser == 'null'  ?  
+                    
+                      product.qty == 0 ?  ( 
+                       <div className="flex items-center gap-5">
+                      <button className=" bg-opacity-40 mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white "
+                     >
+                      Out of stock<IoIosCart style={{display:"inline"}} 
+                      /></button>
+                      <button className=" button mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600"
+                      onClick={handleNoti}
                       >
-                       Out of stock<IoIosCart style={{display:"inline"}} 
+                       Notify me later! <FaBell style={{display:"inline"}} 
                        /></button>
-                       <button className=" button mt-5 rounded-2xl shadow-lg p-3 text-sm md:text-md lg:text-md bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600"
-                       onClick={handleNoti}
-                       >
-                        Notify me later! <FaBell style={{display:"inline"}} 
-                        /></button>
-                        </div>) 
-                       : (
-                       <button className={ bubbles ? `buy mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` : `mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` }
-                       id="bubble"
-                       onClick={AddCart}>
-                       Add to cart<IoIosCart style={{display:"inline"}} 
-                       /></button>)
-                   }
+                       </div>) 
+                      : (
+                      <button className={ bubbles ? `buy mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` : `mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` }
+                      id="bubble"
+                      onClick={AddCart}>
+                      Add to cart<IoIosCart style={{display:"inline"}} 
+                      /></button>)
+                    
                    
-                 
-                 
+                    :   <button className={`mt-5 rounded-2xl shadow-lg p-3 bg-red-900 text-white hover:bg-gradient-to-r hover:from-red-900 hover:to-red-600` }
+                    onClick={handleRegister}>
+                    Add to cart<IoIosCart style={{display:"inline"}} 
+                    /></button>
                   
-               
-
+                  }
+                 
               </div>
+            
           </div>
 
       <div  className="pt-serif-regular mt-5 mx-5 md:mx-10 lg:mx-5">
