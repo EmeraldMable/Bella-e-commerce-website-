@@ -74,7 +74,7 @@ function Cartfloat() {
 
         {
           currentUser  ? 
-            <div className={pop ? `w-16 fixed top-5 right-0 block bg-white p-2 rounded-lg z-50 md:right-5 lg:right-5` : `w-16  bg-white p-2 rounded-lg z-50` }>
+            <div className={pop ? `w-16 fixed top-5 right-0 block bg-white p-2 rounded-lg z-50 md:right-5 lg:right-5` : ` bg-white p-2 rounded-lg z-50` }>
             <NavLink className='relative w-8 sm:w-14 md:w-14 lg:w-14' to='/cart' ><IoIosCart className='icon' size={30} fill='brown'/>
              <span className='absolute -top-2 w-6 h-6 bg-red-700 rounded-full text-white'>{cart?.length}</span>
             </NavLink>

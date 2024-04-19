@@ -60,9 +60,9 @@ const homeRef = useRef()
             <PiUserCircleFill className='icon' size={29} fill='brown'/>
             </NavLink>
              
-               
+            <Cartfloat/>
             </div>
-           <Cartfloat/>
+           
            </>) 
           : ( <NavLink className='pt-serif-bold mr-10 md:mr-32 ld:mr-34 w-8 sm:w-14 md:w-14 lg:w-14' to='/register'>Register/Login</NavLink>)}
            
